@@ -321,6 +321,34 @@
     .interests h2 { color: var(--paper); }
     .interests .eyebrow { color: #8fd0c6; }
     .interests .wrap { position: relative; }
+    .interests .section-head p { color: #d9d3c4; }
+    .interests .section-head { margin-bottom: 1.8rem; }
+
+    /* Terrarium hobby section: one dropdown per build */
+    .terr-intro { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 2rem 3rem; align-items: center; margin-bottom: 2rem; }
+    .terr-intro .section-head { margin-bottom: 0; }
+    .terr-cover { margin: 0; border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(246, 242, 233, .25); }
+    .terr-cover img { width: 100%; height: auto; max-height: 420px; object-fit: cover; }
+    .terr-list { display: grid; gap: .7rem; }
+    .terr { background: var(--card); color: var(--ink); border: 1px solid var(--line); border-radius: calc(var(--radius) + 4px); overflow: hidden; }
+    .terr summary { list-style: none; cursor: pointer; display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: 1.15rem 1.4rem; }
+    .terr summary::-webkit-details-marker { display: none; }
+    .terr .terr-title { font-family: var(--serif); font-size: clamp(1.15rem, 2vw, 1.4rem); line-height: 1.25; }
+    .terr .terr-cat { margin-left: auto; font-family: var(--mono); font-size: .72rem; letter-spacing: .05em; color: var(--green); text-align: right; }
+    .terr summary::after { content: "+"; font-family: var(--mono); color: var(--teal); font-size: 1.3rem; line-height: 1; }
+    .terr[open] summary::after { content: "\2212"; }
+    .terr[open] summary { border-bottom: 1px solid var(--line); }
+    .terr-body { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 1.5rem 2rem; padding: 1.4rem; align-items: start; }
+    .terr-body.stack { grid-template-columns: 1fr; }
+    .terr-body figure { margin: 0; }
+    .terr-body .frame { border: 1px solid var(--line); border-radius: 10px; }
+    .terr-text p { color: var(--ink-soft); }
+    .terr-text h4 { margin-top: 1rem; }
+    .terr-text ol { margin: .3rem 0 0; padding-left: 1.2rem; color: var(--ink-soft); font-size: .95rem; }
+    .terr-text ol li { margin-bottom: .5rem; }
+    .terr-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; align-items: start; }
+    @media (max-width: 900px) { .terr-intro, .terr-body { grid-template-columns: 1fr; } }
+    @media (max-width: 600px) { .terr-gallery { grid-template-columns: 1fr; } }
 
     /* =========================================================
        EXPERIENCE
@@ -466,6 +494,7 @@
           <li><a href="#currently">Currently</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="#interests">Terrariums</a></li>
         </ul>
       </nav>
     </div>
@@ -1168,10 +1197,134 @@
          ========================================================= -->
     <section id="interests" class="interests" aria-labelledby="interests-title">
       <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Interests</p>
-          <h2 id="interests-title">Outside my studies</h2>
-          <p><span class="todo">To add</span> A short line about your interests.</p>
+        <div class="terr-intro">
+          <div class="section-head">
+            <p class="eyebrow">Interests</p>
+            <h2 id="interests-title">Outside my studies: terrariums</h2>
+            <p>Building terrariums is my hobby. Each one is a small landscape in glass, planned with layers, hardscape, moss and plants, much like reading a real landscape at a smaller scale. Open any build below to see it and read how I designed it.</p>
+          </div>
+          <figure class="terr-cover">
+            <img src="assets/terrarium-designs.jpg" alt="Top-down view of one of my terrariums, with moss, grey rocks, a sand path and fittonia plants" loading="lazy" onerror="this.closest('figure').hidden = true">
+          </figure>
+        </div>
+
+        <div class="terr-list">
+
+          <!-- ===== HOW I BUILD ===== -->
+          <details class="terr" id="t-process">
+            <summary><span class="terr-title">How I build a terrarium</span><span class="terr-cat">Layers and process</span></summary>
+            <div class="terr-body">
+              <figure>
+                <div class="frame"><img class="shot" src="assets/terrarium-concept.jpg" alt="Diagram of the layers in a terrarium: drainage layer, substrate barrier, charcoal chip layer, substrate mix, plants and hardscape" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
+              </figure>
+              <div class="terr-text">
+                <p>Every build stacks the same layers from the bottom up: a 1–3 cm drainage layer, a substrate barrier, a fine charcoal chip layer, the substrate mix, then hardscape and plants on top.</p>
+                <h4>My four-step process</h4>
+                <ol>
+                  <li><strong>Landscape planning.</strong> Try different layouts, positions, orientations and sizes of rocks. Larger hardscape tends to go in the background as the framework.</li>
+                  <li><strong>Concept design.</strong> Select a few large plants as the main piece so it is more eye-catching. Disperse the greenery and cover empty spots to hide the soil.</li>
+                  <li><strong>Colour contrast.</strong> Use at least three different colours to create a more immersive and realistic environment.</li>
+                  <li><strong>Final product.</strong> Make sure every spot is covered and the plants are rooted, so the ecosystem can thrive and the plants get enough sunlight without being obstructed.</li>
+                </ol>
+              </div>
+            </div>
+          </details>
+
+          <!-- ===== HILL ===== -->
+          <details class="terr" id="t-hill">
+            <summary><span class="terr-title">Hill terrarium</span><span class="terr-cat">Depth of field</span></summary>
+            <div class="terr-body">
+              <figure>
+                <div class="frame"><img class="shot" src="assets/terrarium-hill.jpg" alt="Hill terrarium: a small yellow house on a mossy hill with granite rocks, a gravel path and a palm behind" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
+              </figure>
+              <div class="terr-text">
+                <p>A lonely yellow house on a hill brings contrast and focus to the main piece. Low-lying plants sit in the foreground, and different layers create depth of field.</p>
+              </div>
+            </div>
+          </details>
+
+          <!-- ===== FOREST ===== -->
+          <details class="terr" id="t-forest">
+            <summary><span class="terr-title">The Forest terrarium</span><span class="terr-cat">First moss wall</span></summary>
+            <div class="terr-body">
+              <figure>
+                <div class="frame"><img class="shot" src="assets/terrarium-forest.jpg" alt="The Forest terrarium: a tall glass cylinder with a moss wall, pebbles and sand at the base" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
+              </figure>
+              <div class="terr-text">
+                <p>The first moss wall I created. Cushion moss creates depth on the vertical spectrum, smooth pebbles add natural contrast in colour, and sand finishes the difference in texture.</p>
+                <ul class="tags"><li>Cushion moss</li><li>Pebbles</li><li>Sand</li></ul>
+              </div>
+            </div>
+          </details>
+
+          <!-- ===== CAVERN ===== -->
+          <details class="terr" id="t-cavern">
+            <summary><span class="terr-title">The Cavern terrarium</span><span class="terr-cat">Cave inspired</span></summary>
+            <div class="terr-body">
+              <figure>
+                <div class="frame"><img class="shot" src="assets/terrarium-cavern.jpg" alt="The Cavern terrarium: a slate stone cave entrance overgrown with moss inside a glass cylinder" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
+              </figure>
+              <div class="terr-text">
+                <p>Cave inspired, with dark spaces to add extra dimension. Slate stones recreate the entrance, and foxtail moss gives it an overgrown look.</p>
+                <ul class="tags"><li>Slate stones</li><li>Foxtail moss</li></ul>
+              </div>
+            </div>
+          </details>
+
+          <!-- ===== PARADISE ===== -->
+          <details class="terr" id="t-paradise">
+            <summary><span class="terr-title">Paradise terrarium</span><span class="terr-cat">Tropical valley</span></summary>
+            <div class="terr-body">
+              <figure>
+                <div class="frame"><img class="shot" src="assets/terrarium-paradise.jpg" alt="Paradise terrarium: a rounded glass bowl with a sand valley, sharp rocks, moss, pink fittonia and a small palm" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
+              </figure>
+              <div class="terr-text">
+                <p>A tropical setting. Butterfly pink fittonia gives shape and colour contrast, and a parlor palm adds height and different degrees of lush greenery. Sharp-edged rocks are placed strategically to create a valley.</p>
+                <ul class="tags"><li>Pink fittonia</li><li>Parlor palm</li><li>Sharp-edged rocks</li></ul>
+              </div>
+            </div>
+          </details>
+
+          <!-- ===== JEWEL ===== -->
+          <details class="terr" id="t-jewel">
+            <summary><span class="terr-title">Jewel terrarium</span><span class="terr-cat">Moss wall</span></summary>
+            <div class="terr-body">
+              <figure>
+                <div class="frame"><img class="shot" src="assets/terrarium-jewel.jpg" alt="Jewel terrarium: a tall glass tank with a moss wall, sharp rocks and two parlor palms" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
+              </figure>
+              <div class="terr-text">
+                <p>A moss wall with sharp rocks as the main hardscape. The parlor palm obstructs part of the view and creates a grand entrance.</p>
+                <ul class="tags"><li>Moss wall</li><li>Sharp rocks</li><li>Parlor palm</li></ul>
+              </div>
+            </div>
+          </details>
+
+          <!-- ===== VILLAGE ===== -->
+          <details class="terr" id="t-village">
+            <summary><span class="terr-title">Village terrarium</span><span class="terr-cat">Japanese inspired</span></summary>
+            <div class="terr-body">
+              <figure>
+                <div class="frame"><img class="shot" src="assets/terrarium-village.jpg" alt="Village terrarium: miniature houses in a valley of pink pebbles with moss, marble rocks and a red fittonia" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
+              </figure>
+              <div class="terr-text">
+                <p>Japanese inspired. Marble rocks give a backdrop for the houses, and a mixture of pink pebbles sets the village within a valley.</p>
+                <ul class="tags"><li>Marble rocks</li><li>Pink pebbles</li><li>Miniature houses</li></ul>
+              </div>
+            </div>
+          </details>
+
+          <!-- ===== OTHERS ===== -->
+          <details class="terr" id="t-others">
+            <summary><span class="terr-title">Other builds</span><span class="terr-cat">Jars and a hanging globe</span></summary>
+            <div class="terr-body stack">
+              <div class="terr-gallery">
+                <figure><div class="frame"><img class="shot" src="assets/terrarium-jar-1.jpg" alt="A glass jar terrarium with moss, a grey rock and pale pebbles" hidden onload="showImg(this)" onerror="hideImg(this)"></div></figure>
+                <figure><div class="frame"><img class="shot" src="assets/terrarium-globe.jpg" alt="A hanging glass globe terrarium held in a hand, with moss, a miniature house and red fittonia" hidden onload="showImg(this)" onerror="hideImg(this)"></div></figure>
+                <figure><div class="frame"><img class="shot" src="assets/terrarium-jar-2.jpg" alt="A small glass jar terrarium with moss, pink fittonia and coloured pebbles" hidden onload="showImg(this)" onerror="hideImg(this)"></div></figure>
+              </div>
+            </div>
+          </details>
+
         </div>
       </div>
     </section>
