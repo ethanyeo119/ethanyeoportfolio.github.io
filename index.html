@@ -424,10 +424,33 @@
     /* Tools: roomier groups and spaced labels */
     #skills .learning { padding: 1.5rem 1.6rem 1.7rem; }
     #skills .learning h3 { margin-bottom: 1.1rem; }
+    .contact-item .link-btn[href^="mailto"] { word-break: normal; font-size: .8rem; padding: .35rem .8rem; }
+    .contact-item .link-btn[href^="mailto"]::after { content: none; }
     .tool-group + .tool-group { margin-top: 1.4rem; }
     .tool-group h4 { margin: 0 0 .65rem; font-family: var(--mono); font-size: .74rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--green); }
     .learning .tool-tags, .tool-tags { list-style: none; display: flex; flex-wrap: wrap; gap: .55rem .6rem; margin: 0; padding: 0; }
     .tool-tags li { background: var(--teal-light); color: var(--teal); border-radius: 999px; padding: .28rem .85rem; font-size: .88rem; font-weight: 600; line-height: 1.3; }
+    /* Kaikoura panels: Done so far and Next steps open and close */
+    .wip { align-items: start; }
+    .wip > .wip-note, .wip-item { background: var(--paper-deep); border-radius: 12px; border-top: 3px solid var(--green); }
+    .wip-note { padding: .8rem 1rem; }
+    .wip-note h4 { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--green); margin: 0 0 .4rem; }
+    .wip-note p, .wip-item p { margin: 0; font-size: .9rem; color: var(--ink-soft); }
+    .wip-item summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: .8rem 1rem; font-family: var(--mono); font-size: .75rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--green); }
+    .wip-item summary::-webkit-details-marker { display: none; }
+    .wip-item summary::after { content: "+"; font-size: 1.2rem; line-height: 1; }
+    .wip-item[open] summary::after { content: "\2212"; }
+    .wip-item p { padding: 0 1rem 1rem; }
+    /* One "More experience" dropdown per group, with a dropdown for each role inside */
+    .exp-more-group { margin-top: 1rem; }
+    .exp-more-group > summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: .85rem 1.2rem; border: 1.5px dashed var(--teal); border-radius: var(--radius); background: rgba(255, 255, 255, .55); color: var(--teal); font-weight: 650; transition: background-color .2s; }
+    .exp-more-group > summary::-webkit-details-marker { display: none; }
+    .exp-more-group > summary:hover { background: rgba(255, 255, 255, .85); }
+    .exp-more-group[open] > summary { border-style: solid; }
+    .exp-more-group > summary .exp-toggle { position: relative; right: auto; top: auto; flex: none; }
+    .exp-more-group[open] > summary .exp-toggle { background: var(--teal); color: #fff; }
+    .exp-more-group[open] > summary .exp-toggle::after { transform: rotate(0deg); }
+    .exp-more-group .exp-list { margin-top: .8rem; }
     .acc-toggle { display: none; }
     .project[hidden] { display: none !important; }
 
@@ -844,7 +867,7 @@
                   <summary>Read the case study</summary>
                   <div class="case-body">
                     <div class="wide"><h4>Overview</h4><p>A multi-criteria suitability model built in QGIS. It combines two weighted distance factors with Boolean constraints to show where the selected residential criteria are met. I produced the analysis and the maps presented here.</p></div>
-                    <div><h4>Data and sources</h4><p>Spatial layers for water, roads, public transport access, parcel ownership and land use.</p></div>
+                    <div><h4>Data and sources</h4><p>Spatial layers for the Botkyrka study area: lakes and water bodies, roads and highways, train and subway tracks and stations, parcel boundaries, and land use, all mapped over a basemap.</p></div>
                     <div><h4>Method</h4><p>I generated distance rasters for water and roads and normalised them to a 0–1 scale as two equally weighted factors. I then applied Boolean constraint layers for public transport access, parcel ownership and land use, together with water buffers, and combined everything in a weighted overlay using the Raster Calculator.</p></div>
                     <div><h4>Output and interpretation</h4><p>A final map of locations that meet the selected criteria. The result depends on the criteria and weights I chose: it shows where those criteria are met, not whether development would actually be feasible.</p></div>
                     <div><h4>Limitations</h4><p>Different criteria or weights would give a different result, so the model is best read as a transparent screening tool rather than a recommendation.</p></div>
@@ -1264,9 +1287,15 @@
             </div>
           </div>
           <div class="wip">
-            <div><h4>Objective</h4><p>To see where the earthquake's effects were concentrated by comparing active fault traces, aftershock locations and sizes, and landslide source areas and debris trails, and to see how they line up with Kaikōura's roads, State Highway 1 and the railway.</p></div>
-            <div><h4>Done so far</h4><p>A study-area base map with terrain, settlements, roads, the railway and active faults. The mainshock and aftershocks mapped by magnitude. Landslide source areas and debris trails mapped across the surrounding hills.</p></div>
-            <div><h4>Next steps</h4><p>Quantify the patterns, for example landslide density against distance from active faults and aftershock clusters, and measure how much of State Highway 1 and the railway lies in or near mapped landslide areas.</p></div>
+            <div class="wip-note"><h4>Objective</h4><p>To see where the earthquake's effects were concentrated by comparing active fault traces, aftershock locations and sizes, and landslide source areas and debris trails, and to see how they line up with Kaikōura's roads, State Highway 1 and the railway.</p></div>
+            <details class="wip-item">
+              <summary>Done so far</summary>
+              <p>A study-area base map with terrain, settlements, roads, the railway and active faults. The mainshock and aftershocks mapped by magnitude. Landslide source areas and debris trails mapped across the surrounding hills.</p>
+            </details>
+            <details class="wip-item">
+              <summary>Next steps</summary>
+              <p>Quantify the patterns, for example landslide density against distance from active faults and aftershock clusters, and measure how much of State Highway 1 and the railway lies in or near mapped landslide areas.</p>
+            </details>
           </div>
         </article>
       </div>
@@ -1360,6 +1389,56 @@
             </div>
           </details>
         </div>
+        <details class="exp-more-group">
+          <summary><span>More work experience</span><span class="exp-toggle" aria-hidden="true"></span></summary>
+          <div class="exp-list">
+            <details class="exp-item">
+              <summary>
+                <span class="dates">Aug – Nov 2025</span>
+                <span class="exp-title">A-Level English Tutor</span>
+                <span class="org">King's College</span>
+                <span class="exp-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="exp-body">
+                <ul>
+                  <li>Delivered one-to-one A-Level English tuition to three students at once.</li>
+                  <li>Designed lesson plans, simplifying complex concepts for students.</li>
+                  <li>Taught analytical writing and comprehension skills.</li>
+                </ul>
+              </div>
+            </details>
+            <details class="exp-item">
+              <summary>
+                <span class="dates">January – December 2024</span>
+                <span class="exp-title">Events &amp; Retail Assistant</span>
+                <span class="org">Refix Private Limited</span>
+                <span class="exp-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="exp-body">
+                <ul>
+                  <li>Delivered front-of-house customer service at events and retail booths.</li>
+                  <li>Supported on-site sales, promotions and marketing material distribution.</li>
+                  <li>Collected customer feedback via surveys to support event activations.</li>
+                </ul>
+              </div>
+            </details>
+            <details class="exp-item">
+              <summary>
+                <span class="dates">2022 – 2023</span>
+                <span class="exp-title">Assistant Trainer</span>
+                <span class="org">Singapore Civil Defence Force</span>
+                <span class="exp-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="exp-body">
+                <ul>
+                  <li>Trained Section Commanders in leadership, procedures and field readiness.</li>
+                  <li>Delivered structured training sessions within high-pressure environments.</li>
+                  <li>Built strong skills in instruction, teamwork, discipline and communication.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </details>
 
         <h3 class="exp-group">Leadership and involvement</h3>
         <div class="exp-grid">
@@ -1385,7 +1464,7 @@
               <span class="exp-toggle" aria-hidden="true"></span>
             </summary>
             <div class="exp-body">
-              <p>Work with an 18-member executive team to plan events, and represent international student interests through inclusive initiatives.</p>
+              <p>Work with an 18-member executive team to plan events, and represent international student interests, contributing to inclusive initiatives across the association.</p>
             </div>
           </details>
           <details class="exp-item reveal">
@@ -1396,77 +1475,45 @@
               <span class="exp-toggle" aria-hidden="true"></span>
             </summary>
             <div class="exp-body">
-              <p>Represent students in CHEM 150, WTRSCI 100 and ENV 103, liaising with teaching staff on feedback and raising course-related issues.</p>
+              <p>Represent students in CHEM 150, WTRSCI 100 and ENV 103, liaising with teaching staff on feedback, raising course-related issues and supporting communication between students and teaching staff.</p>
             </div>
           </details>
         </div>
-
-        <h3 class="exp-group">More experience</h3>
-        <div class="exp-list">
-          <details class="exp-item reveal">
-            <summary>
-              <span class="dates">2025 – present</span>
-              <span class="exp-title">General Committee Member</span>
-              <span class="org">RTEA</span>
-              <span class="exp-toggle" aria-hidden="true"></span>
-            </summary>
-            <div class="exp-body">
-              <ul>
-                <li>Involved in events, logistics and budgeting.</li>
-                <li>Helped organise the 2025 and 2026 Geospatial Evenings, with approximately 70 attendees at each.</li>
-                <li>Supported budgeting and industry invitations, including Eagle Technology.</li>
-              </ul>
-            </div>
-          </details>
-          <details class="exp-item reveal">
-            <summary>
-              <span class="dates">2025 – present</span>
-              <span class="exp-title">Buddy Leader</span>
-              <span class="org">Auckland University Students' Association</span>
-              <span class="exp-toggle" aria-hidden="true"></span>
-            </summary>
-            <div class="exp-body">
-              <p>Including Semester 2, 2026. Mentor up to four new students at a time through their university transition, with peer guidance on services, resources and engagement.</p>
-            </div>
-          </details>
-          <details class="exp-item reveal">
-            <summary>
-              <span class="dates">Aug – Nov 2025</span>
-              <span class="exp-title">A-Level English Tutor</span>
-              <span class="org">King's College</span>
-              <span class="exp-toggle" aria-hidden="true"></span>
-            </summary>
-            <div class="exp-body">
-              <p>Delivered one-to-one A-Level English tuition to three students at once, designing lesson plans and teaching analytical writing and comprehension.</p>
-            </div>
-          </details>
-          <details class="exp-item reveal">
-            <summary>
-              <span class="dates">January – December 2024</span>
-              <span class="exp-title">Events &amp; Retail Assistant</span>
-              <span class="org">Refix Private Limited</span>
-              <span class="exp-toggle" aria-hidden="true"></span>
-            </summary>
-            <div class="exp-body">
-              <ul>
-                <li>Delivered front-of-house customer service at events and retail booths.</li>
-                <li>Supported on-site sales, promotions and marketing material distribution.</li>
-                <li>Collected customer feedback via surveys to support event activations.</li>
-              </ul>
-            </div>
-          </details>
-          <details class="exp-item reveal">
-            <summary>
-              <span class="dates">2022 – 2023</span>
-              <span class="exp-title">Assistant Trainer</span>
-              <span class="org">Singapore Civil Defence Force</span>
-              <span class="exp-toggle" aria-hidden="true"></span>
-            </summary>
-            <div class="exp-body">
-              <p>Trained Section Commanders in leadership, procedures and field readiness, delivering structured training sessions in high-pressure environments.</p>
-            </div>
-          </details>
-        </div>
+        <details class="exp-more-group">
+          <summary><span>More leadership experience</span><span class="exp-toggle" aria-hidden="true"></span></summary>
+          <div class="exp-list">
+            <details class="exp-item">
+              <summary>
+                <span class="dates">2025 – present</span>
+                <span class="exp-title">General Committee Member</span>
+                <span class="org">RTEA</span>
+                <span class="exp-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="exp-body">
+                <ul>
+                  <li>Involved in events, logistics and budgeting.</li>
+                  <li>Helped organise the 2025 and 2026 Geospatial Evenings, with approximately 70 attendees at each.</li>
+                  <li>Supported budgeting and industry invitations, including Eagle Technology.</li>
+                </ul>
+              </div>
+            </details>
+            <details class="exp-item">
+              <summary>
+                <span class="dates">2025 – present</span>
+                <span class="exp-title">Buddy Leader</span>
+                <span class="org">Auckland University Students' Association</span>
+                <span class="exp-toggle" aria-hidden="true"></span>
+              </summary>
+              <div class="exp-body">
+                <ul>
+                  <li>Mentor up to four new students at a time through their university transition.</li>
+                  <li>Provide peer guidance on university services, resources and engagement.</li>
+                  <li>Involved since 2025, including Semester 2, 2026.</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </details>
 
         <h3 class="exp-group">Education</h3>
         <div class="exp-grid exp-grid-2">
@@ -1478,7 +1525,11 @@
               <span class="exp-toggle" aria-hidden="true"></span>
             </summary>
             <div class="exp-body">
-              <p>First in Course for GERMAN 101 and Distinction in STATS 101. Coursework spans geospatial analysis and fieldwork.</p>
+              <ul>
+                <li>First in Course for GERMAN 101.</li>
+                <li>Distinction in STATS 101.</li>
+                <li>Distinction in COMPSCI 101.</li>
+              </ul>
             </div>
           </details>
           <details class="exp-item reveal">
@@ -1489,7 +1540,11 @@
               <span class="exp-toggle" aria-hidden="true"></span>
             </summary>
             <div class="exp-body">
-              <p>Completed H2 Chemistry, Biology and Economics, building analytical, written communication and critical reading skills.</p>
+              <ul>
+                <li>Completed H2 Chemistry, Biology and Economics, building analytical skills.</li>
+                <li>Developed written communication and critical reading skills.</li>
+                <li>Strengthened analytical thinking through essay writing and research.</li>
+              </ul>
             </div>
           </details>
         </div>
@@ -1716,13 +1771,13 @@
         <div class="section-head reveal">
           <p class="eyebrow">Contact</p>
           <h2 id="contact-title">Get in touch</h2>
-          <p>I'd be glad to hear from people working in GIS, environmental science, Earth Science, local government or geospatial technology.</p>
+          <p>I'd be glad to hear from people working in GIS, environmental science, Earth Science, local government or geospatial technology. I'm based in Auckland, New Zealand.</p>
         </div>
         <div class="contact-grid">
           <div class="contact-item reveal" data-kind="linkedin"><h3>LinkedIn</h3><p>Experience and professional updates.</p><div class="links"><a class="link-btn" href="https://www.linkedin.com/in/ethanyeojy" target="_blank" rel="noopener">linkedin.com/in/ethanyeojy</a></div></div>
           <div class="contact-item reveal" data-kind="github"><h3>GitHub</h3><p>My code and this portfolio's source.</p><div class="links"><a class="link-btn" href="https://github.com/ethanyeo119" target="_blank" rel="noopener">github.com/ethanyeo119</a></div></div>
           <div class="contact-item reveal" data-kind="portfolio"><h3>Portfolio PDFs</h3><p>Print-ready versions of my work.</p><div class="links"><a class="link-btn" href="Ethan_Yeo_GIS_Portfolio.pdf" target="_blank" rel="noopener">GIS portfolio</a><a class="link-btn" href="Terrarium%20Portfolio.pdf" target="_blank" rel="noopener">Terrarium portfolio</a></div></div>
-          <div class="contact-item reveal" data-kind="location"><h3>Based in</h3><p>Auckland, New Zealand<br>University of Auckland, BSc Earth Science and GIS</p><div class="links"></div></div>
+          <div class="contact-item reveal" data-kind="cv"><h3>CV</h3><p>Available on request by email.</p><div class="links"><a class="link-btn" href="mailto:ethan.jieyang.yeo@gmail.com?subject=CV%20request">ethan.jieyang.yeo@gmail.com</a></div></div>
         </div>
       </div>
     </section>
