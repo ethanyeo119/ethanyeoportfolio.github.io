@@ -269,6 +269,35 @@
     .case-figs figcaption { font-size: .8rem; color: var(--ink-soft); padding: .4rem .1rem 0; }
     .case-figs .frame.has-img { border: 1px solid var(--line); border-radius: 8px; }
     .case-figs .frame.has-img img { max-height: 340px; }
+    /* IMAGE SLIDESHOWS: one image at a time on a dark backdrop, so maps of any shape fit properly */
+    .slideshow { background: #0f1c2e; }
+    .slideshow .stage { position: relative; background: radial-gradient(120% 90% at 50% 0%, #1d3350 0%, #0f1c2e 70%); }
+    .slideshow .slide { margin: 0; display: flex; flex-direction: column; }
+    .slideshow .slide .frame, .slideshow .slide .frame.has-img { position: relative; display: block; flex: 1; min-height: 0; aspect-ratio: auto; padding: .6rem .6rem .3rem; background: none; background-image: none; border: 0; }
+    .slideshow .slide .frame img, .slideshow .slide .frame.has-img img { width: 100%; height: 100%; max-height: none; object-fit: contain; border-radius: 6px; box-shadow: 0 18px 40px -22px rgba(0, 0, 0, .8); transform: none; }
+    .slideshow .slide { position: relative; overflow: hidden; }
+    .slideshow .slide::before { content: ""; position: absolute; inset: -40px; background: var(--bg) center / cover no-repeat; filter: blur(28px) saturate(1.15) brightness(.7); z-index: 0; }
+    .slideshow .slide > * { position: relative; z-index: 1; }
+    .slideshow .slide figcaption { background: rgba(5, 12, 22, .6); color: #e9e5d8; font-size: .85rem; line-height: 1.45; padding: .6rem 1.1rem .75rem; border: 0; }
+    .slideshow .slide figcaption sub { font-size: .7em; }
+    .slideshow .zoom span { background: rgba(255, 255, 255, .92); color: #0f1c2e; }
+    .ss-bar { display: none; align-items: center; gap: .8rem; padding: .55rem .9rem; background: #0a1523; color: #fff; }
+    .ss-btn { width: 38px; height: 38px; border-radius: 50%; border: 1.5px solid rgba(255, 255, 255, .55); background: transparent; color: #fff; font-size: 1rem; cursor: pointer; transition: background-color .2s, color .2s; }
+    .ss-btn:hover { background: #fff; color: #0a1523; }
+    .ss-dots { flex: 1; display: flex; justify-content: center; align-items: center; gap: .45rem; flex-wrap: wrap; }
+    .ss-dots button { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 5px; background: rgba(255, 255, 255, .35); cursor: pointer; transition: width .25s var(--ease), background-color .25s; }
+    .ss-dots button.is-active { width: 24px; background: #7fd0c4; }
+    .ss-count { font-family: var(--mono); font-size: .8rem; color: #cfd6df; min-width: 3.2rem; text-align: right; }
+    /* With JavaScript: fixed-shape stage, one slide visible at a time. Without it, all images simply stack. */
+    .js .slideshow .stage { aspect-ratio: 16 / 10; overflow: hidden; }
+    .js .slideshow .slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .5s ease, visibility .5s; }
+    .js .slideshow .slide.is-active { opacity: 1; visibility: visible; }
+    .js .ss-bar { display: flex; }
+    .proj-acc .acc-body .slideshow { border-right: 1px solid var(--line); }
+    .js .proj-acc .slideshow .stage { aspect-ratio: 4 / 3.2; }
+    @media (max-width: 900px) { .proj-acc .acc-body .slideshow { border-right: 0; } }
+    @media (max-width: 600px) { .js .slideshow .stage, .js .proj-acc .slideshow .stage { aspect-ratio: 4 / 4.2; } }
+    @media (prefers-reduced-motion: reduce) { .js .slideshow .slide { transition: none; } }
     .acc-toggle { display: none; }
     .project[hidden] { display: none !important; }
 
@@ -615,20 +644,25 @@
 
             <!-- ===== FEATURED A: EAGLE MIGRATION ===== -->
             <article class="project featured" id="p-eagle-migration" data-cat="environment">
-              <div class="figs">
-                <figure>
+              <div class="slideshow" data-slideshow role="region" aria-roledescription="carousel" aria-label="Project images">
+<div class="stage">
+                <figure class="slide">
                   <div class="frame">
                     <img class="shot" src="assets/eagle-migration-01.jpg" alt="Map of recorded bald eagle locations from 2018 to 2026, running from the Pacific coast of North America north into Arctic Canada" hidden onload="showImg(this)" onerror="hideImg(this)">
                   </div>
                   <figcaption>Recorded bald eagle locations, 2018–2026, running from the Pacific coast north towards the Arctic.</figcaption>
                 </figure>
-                <figure>
+                <figure class="slide">
                   <div class="frame">
                     <img class="shot" src="assets/eagle-migration-02.jpg" alt="Map of eagle observation density across agricultural, industrial and open-space land in the Delta neighbourhoods, Canada" hidden onload="showImg(this)" onerror="hideImg(this)">
                   </div>
                   <figcaption>Eagle observation density over land use in Delta, Canada. The densest hotspot sits within an industrial zone.</figcaption>
                 </figure>
-              </div>
+<figure class="slide"><div class="frame"><img class="shot" src="assets/eagle-migration-03.jpg" alt="Bar chart of eagle location records by season in 2023: summer 265, autumn 47, winter 270, spring 313" hidden onload="showImg(this)" onerror="hideImg(this)"></div><figcaption>Eagle location records by season, 2023 (bars show records, not individual eagles).</figcaption></figure>
+                        <figure class="slide"><div class="frame"><img class="shot" src="assets/eagle-migration-04.jpg" alt="Donut chart of land use in the Delta neighbourhoods: agricultural 46.0%, open space 31.0%, industrial 23.0%" hidden onload="showImg(this)" onerror="hideImg(this)"></div><figcaption>Land-use composition of the Delta neighbourhoods.</figcaption></figure>
+</div>
+<div class="ss-bar"><button type="button" class="ss-btn" data-dir="-1" aria-label="Previous image">&larr;</button><div class="ss-dots"></div><span class="ss-count">1 / 4</span><button type="button" class="ss-btn" data-dir="1" aria-label="Next image">&rarr;</button></div>
+</div>
               <div class="project-body">
                 <div class="main-col">
                   <p class="chips"><span class="cat">Environment and climate</span><span class="status">Completed</span></p>
@@ -653,13 +687,6 @@
                     <div><h4>Method</h4><p>I mapped the records through time, then followed TERF07 from its last Vancouver-area record on 24 February 2021 to a point near Mackenzie Bay on 26 May 2021, summing the distances between consecutive GPS positions to estimate about 4,920 km over roughly 91 days. I then focused on 2023 and two study areas, Vancouver and Mackenzie Bay, counted records per season, and compared median temperature, NDVI and wind speed at the eagle locations. In ArcGIS Pro, I built density heatmaps over land-use polygons for the Delta neighbourhoods and summarised land-use proportions in a donut chart.</p></div>
                     <div><h4>Output and interpretation</h4><p>In the first study area in 2023, records peaked in spring (313), with 270 in winter, 265 in summer and 47 in autumn. Median temperatures at winter and spring locations were well below freezing (−33.0 °C and −17.4 °C) with low NDVI, so recorded locations were generally in cold areas with little green vegetation, while summer locations were warm (22.4 °C) and greener. In winter, points were more common over the warmer pockets of the study area, which may reflect the use of microclimates. In Delta, the densest hotspot falls within an industrial zone, even though industrial land makes up only 23.0% of the land use, compared with 46.0% agriculture and 31.0% open space.</p></div>
                     <div><h4>Limitations</h4><p>The points show where eagles were recorded, not what they were doing or whether they preferred those conditions over other available areas. The seasonal bars count records rather than individual eagles. Testing habitat preference properly would mean comparing eagle locations with all of the land available to them.</p></div>
-                    <div class="wide">
-                      <h4>Supporting figures</h4>
-                      <div class="case-figs">
-                        <figure><div class="frame"><img class="shot" src="assets/eagle-migration-03.jpg" alt="Bar chart of eagle location records by season in 2023: summer 265, autumn 47, winter 270, spring 313" hidden onload="showImg(this)" onerror="hideImg(this)"></div><figcaption>Eagle location records by season, 2023 (bars show records, not individual eagles).</figcaption></figure>
-                        <figure><div class="frame"><img class="shot" src="assets/eagle-migration-04.jpg" alt="Donut chart of land use in the Delta neighbourhoods: agricultural 46.0%, open space 31.0%, industrial 23.0%" hidden onload="showImg(this)" onerror="hideImg(this)"></div><figcaption>Land-use composition of the Delta neighbourhoods.</figcaption></figure>
-                      </div>
-                    </div>
                   </div>
                 </details>
               </div>
@@ -667,20 +694,23 @@
 
             <!-- ===== FEATURED B: RESIDENTIAL SUITABILITY, BOTKYRKA ===== -->
             <article class="project featured" id="p-botkyrka" data-cat="suitability">
-              <div class="figs">
-                <figure>
+              <div class="slideshow" data-slideshow role="region" aria-roledescription="carousel" aria-label="Project images">
+<div class="stage">
+                <figure class="slide">
                   <div class="frame">
                     <img class="shot" src="assets/botkyrka-suitability-01.jpg" alt="Final residential suitability map for Botkyrka, Sweden" hidden onload="showImg(this)" onerror="hideImg(this)">
                   </div>
                   <figcaption>Final residential suitability map for Botkyrka, produced with a weighted overlay.</figcaption>
                 </figure>
-                <figure>
+                <figure class="slide">
                   <div class="frame">
                     <img class="shot" src="assets/botkyrka-suitability-02.jpg" alt="Diagram showing two distance factors and three constraints combining into the final suitability map" hidden onload="showImg(this)" onerror="hideImg(this)">
                   </div>
                   <figcaption>How two distance factors and three constraints combine into the final map.</figcaption>
                 </figure>
-              </div>
+</div>
+<div class="ss-bar"><button type="button" class="ss-btn" data-dir="-1" aria-label="Previous image">&larr;</button><div class="ss-dots"></div><span class="ss-count">1 / 2</span><button type="button" class="ss-btn" data-dir="1" aria-label="Next image">&rarr;</button></div>
+</div>
               <div class="project-body">
                 <div class="main-col">
                   <p class="chips"><span class="cat">Suitability and planning</span><span class="status">Completed</span></p>
@@ -711,20 +741,29 @@
 
             <!-- ===== FEATURED C: FOOD BUSINESSES AND HIGH-TRAFFIC CORRIDORS, AUCKLAND ===== -->
             <article class="project featured" id="p-food-corridors" data-cat="urban">
-              <div class="figs">
-                <figure>
-                  <div class="frame">
-                    <img class="shot" src="assets/food-business-corridors-01.jpg" alt="Two maps of Auckland: all food businesses by type on the left, and road corridors with at least 20 food businesses on the right" hidden onload="showImg(this)" onerror="hideImg(this)">
-                  </div>
-                  <figcaption>All food businesses by type (left) and the road corridors with 20 or more food businesses (right).</figcaption>
-                </figure>
-                <figure>
+              <div class="slideshow" data-slideshow role="region" aria-roledescription="carousel" aria-label="Project images">
+<div class="stage">
+                <figure class="slide">
+<div class="frame">
+<img class="shot" src="assets/food-all-types.jpg" alt="Map of all food businesses in Auckland, coloured by type" hidden onload="showImg(this)" onerror="hideImg(this)">
+</div>
+<figcaption>All food businesses in Auckland, by type.</figcaption>
+</figure>
+<figure class="slide">
+<div class="frame">
+<img class="shot" src="assets/food-corridors-20.jpg" alt="Map of Auckland road corridors with 20 or more food businesses" hidden onload="showImg(this)" onerror="hideImg(this)">
+</div>
+<figcaption>Road corridors with 20 or more food businesses.</figcaption>
+</figure>
+                <figure class="slide">
                   <div class="frame">
                     <img class="shot" src="assets/food-business-corridors-02.jpg" alt="Map of high-density food-business road corridors in central Auckland, with an inset of the city centre and a legend of food business types" hidden onload="showImg(this)" onerror="hideImg(this)">
                   </div>
                   <figcaption>High-density food-business corridors across Auckland, with an inset of the city centre.</figcaption>
                 </figure>
-              </div>
+</div>
+<div class="ss-bar"><button type="button" class="ss-btn" data-dir="-1" aria-label="Previous image">&larr;</button><div class="ss-dots"></div><span class="ss-count">1 / 2</span><button type="button" class="ss-btn" data-dir="1" aria-label="Next image">&rarr;</button></div>
+</div>
               <div class="project-body">
                 <div class="main-col">
                   <p class="chips"><span class="cat">Urban spatial analysis</span><span class="status">Completed</span></p>
@@ -792,22 +831,30 @@
           <details class="project proj-acc" id="p-air-pollution" data-cat="environment">
             <summary><span class="acc-title">Auckland atmospheric pollution analysis</span><span class="acc-cat">Environment and climate</span></summary>
             <div class="acc-body">
-              <div class="figs">
-              <figure>
-                <div class="frame">
-                  <img class="shot" src="assets/air-pollution-01.jpg" alt="Maps of interpolated NO2 and SO2 concentration surfaces across Auckland" hidden onload="showImg(this)" onerror="hideImg(this)">
-                  <p class="ph"><span>Main image</span>Image to add<code>assets/air-pollution-01.jpg</code></p>
-                </div>
-                <figcaption>SO<sub>2</sub> and NO<sub>2</sub> concentration surfaces from IDW interpolation, each shown with a seven-class legend.</figcaption>
-              </figure>
-              <figure>
+              <div class="slideshow" data-slideshow role="region" aria-roledescription="carousel" aria-label="Project images">
+<div class="stage">
+              <figure class="slide">
+<div class="frame">
+<img class="shot" src="assets/air-pollution-so2.jpg" alt="Map of interpolated SO2 concentration across Auckland with a seven-class legend" hidden onload="showImg(this)" onerror="hideImg(this)">
+</div>
+<figcaption>SO<sub>2</sub> concentration across Auckland from IDW interpolation, shown with a seven-class legend.</figcaption>
+</figure>
+<figure class="slide">
+<div class="frame">
+<img class="shot" src="assets/air-pollution-no2.jpg" alt="Map of interpolated NO2 concentration across Auckland with a seven-class legend" hidden onload="showImg(this)" onerror="hideImg(this)">
+</div>
+<figcaption>NO<sub>2</sub> concentration across Auckland from IDW interpolation, shown with a seven-class legend.</figcaption>
+</figure>
+              <figure class="slide">
                 <div class="frame">
                   <img class="shot" src="assets/air-pollution-02.jpg" alt="Map of areas where both pollutants exceed the selected analysis thresholds" hidden onload="showImg(this)" onerror="hideImg(this)">
                   <p class="ph"><span>Supporting image</span>Optional<code>assets/air-pollution-02.jpg</code></p>
                 </div>
                 <figcaption>Cells above both selected thresholds. These are analysis thresholds, not a validated health-risk map.</figcaption>
               </figure>
-            </div>
+</div>
+<div class="ss-bar"><button type="button" class="ss-btn" data-dir="-1" aria-label="Previous image">&larr;</button><div class="ss-dots"></div><span class="ss-count">1 / 2</span><button type="button" class="ss-btn" data-dir="1" aria-label="Next image">&rarr;</button></div>
+</div>
               <div class="project-body">
               <p class="chips"><span class="cat">Environment and climate</span><span class="status">Completed</span></p>
               <p class="summary">How can monitoring-station measurements be used to visualise spatial variation in NO<sub>2</sub> and SO<sub>2</sub> across Auckland?</p>
@@ -830,22 +877,35 @@
           <details class="project proj-acc" id="p-microclimate" data-cat="environment">
             <summary><span class="acc-title">Auckland Domain microclimate</span><span class="acc-cat">Environment and climate</span></summary>
             <div class="acc-body">
-              <div class="figs">
-              <figure>
-                <div class="frame">
-                  <img class="shot" src="assets/domain-microclimate-01.jpg" alt="Side-by-side IDW and Kriging temperature surfaces for the Auckland Domain" hidden onload="showImg(this)" onerror="hideImg(this)">
-                  <p class="ph"><span>Main image</span>Image to add<code>assets/domain-microclimate-01.jpg</code></p>
-                </div>
-                <figcaption>Temperature: Kriging (left) and IDW (right) surfaces from the same field measurements.</figcaption>
-              </figure>
-              <figure>
-                <div class="frame">
-                  <img class="shot" src="assets/domain-microclimate-02.jpg" alt="Side-by-side IDW humidity surfaces for the Auckland Domain, 2025 and 2026" hidden onload="showImg(this)" onerror="hideImg(this)">
-                  <p class="ph"><span>Supporting image</span>Optional<code>assets/domain-microclimate-02.jpg</code></p>
-                </div>
-                <figcaption>Humidity: IDW surfaces for the 2025 (left) and 2026 (right) surveys.</figcaption>
-              </figure>
-            </div>
+              <div class="slideshow" data-slideshow role="region" aria-roledescription="carousel" aria-label="Project images">
+<div class="stage">
+              <figure class="slide">
+<div class="frame">
+<img class="shot" src="assets/domain-kriging.jpg" alt="Kriging temperature surface for the Auckland Domain with measurement points" hidden onload="showImg(this)" onerror="hideImg(this)">
+</div>
+<figcaption>Temperature surface from Kriging: a smoother pattern across the Domain.</figcaption>
+</figure>
+<figure class="slide">
+<div class="frame">
+<img class="shot" src="assets/domain-idw.jpg" alt="IDW temperature surface for the Auckland Domain with measurement points" hidden onload="showImg(this)" onerror="hideImg(this)">
+</div>
+<figcaption>Temperature surface from IDW: more localised hotspots around the measurement points.</figcaption>
+</figure>
+              <figure class="slide">
+<div class="frame">
+<img class="shot" src="assets/domain-humidity-2025.jpg" alt="IDW humidity surface for the Auckland Domain, 2025 survey" hidden onload="showImg(this)" onerror="hideImg(this)">
+</div>
+<figcaption>Humidity: IDW surface from the 2025 survey.</figcaption>
+</figure>
+<figure class="slide">
+<div class="frame">
+<img class="shot" src="assets/domain-humidity-2026.jpg" alt="IDW humidity surface for the Auckland Domain, 2026 survey" hidden onload="showImg(this)" onerror="hideImg(this)">
+</div>
+<figcaption>Humidity: IDW surface from the 2026 survey.</figcaption>
+</figure>
+</div>
+<div class="ss-bar"><button type="button" class="ss-btn" data-dir="-1" aria-label="Previous image">&larr;</button><div class="ss-dots"></div><span class="ss-count">1 / 2</span><button type="button" class="ss-btn" data-dir="1" aria-label="Next image">&rarr;</button></div>
+</div>
               <div class="project-body">
               <p class="chips"><span class="cat">Environment and climate</span><span class="status">Completed</span></p>
               <p class="summary">Field measurements of temperature and humidity, turned into interpolated surfaces to compare the spatial patterns different methods and survey years produce.</p>
@@ -868,22 +928,30 @@
           <details class="project proj-acc" id="p-kathmandu" data-cat="suitability">
             <summary><span class="acc-title">Land-use suitability and conflict in the Kathmandu Valley</span><span class="acc-cat">Suitability and planning</span></summary>
             <div class="acc-body">
-              <div class="figs">
-              <figure>
-                <div class="frame">
-                  <img class="shot" src="assets/kathmandu-landuse-01.jpg" alt="Side-by-side suitability maps for carpet industry and agriculture in the Kathmandu Valley" hidden onload="showImg(this)" onerror="hideImg(this)">
-                  <p class="ph"><span>Main image</span>Image to add<code>assets/kathmandu-landuse-01.jpg</code></p>
-                </div>
-                <figcaption>Carpet-industry (left) and agricultural (right) suitability surfaces.</figcaption>
-              </figure>
-              <figure>
+              <div class="slideshow" data-slideshow role="region" aria-roledescription="carousel" aria-label="Project images">
+<div class="stage">
+              <figure class="slide">
+<div class="frame">
+<img class="shot" src="assets/kathmandu-carpet.jpg" alt="Carpet industry suitability surface for the Kathmandu Valley" hidden onload="showImg(this)" onerror="hideImg(this)">
+</div>
+<figcaption>Carpet-industry suitability surface, which favours the river valleys.</figcaption>
+</figure>
+<figure class="slide">
+<div class="frame">
+<img class="shot" src="assets/kathmandu-agriculture.jpg" alt="Agricultural suitability surface for the Kathmandu Valley" hidden onload="showImg(this)" onerror="hideImg(this)">
+</div>
+<figcaption>Agricultural suitability surface, with broader suitability on flatter terrain.</figcaption>
+</figure>
+              <figure class="slide">
                 <div class="frame">
                   <img class="shot" src="assets/kathmandu-landuse-02.jpg" alt="Map of modelled land-use conflict where both suitability surfaces overlap" hidden onload="showImg(this)" onerror="hideImg(this)">
                   <p class="ph"><span>Supporting image</span>Optional<code>assets/kathmandu-landuse-02.jpg</code></p>
                 </div>
                 <figcaption>Modelled land-use conflict, where both surfaces score highly.</figcaption>
               </figure>
-            </div>
+</div>
+<div class="ss-bar"><button type="button" class="ss-btn" data-dir="-1" aria-label="Previous image">&larr;</button><div class="ss-dots"></div><span class="ss-count">1 / 2</span><button type="button" class="ss-btn" data-dir="1" aria-label="Next image">&rarr;</button></div>
+</div>
               <div class="project-body">
               <p class="chips"><span class="cat">Suitability and planning</span><span class="status">Completed</span></p>
               <p class="summary">Where do modelled suitability for carpet industry and agriculture overlap?</p>
@@ -906,22 +974,25 @@
           <details class="project proj-acc" id="p-transport" data-cat="transport">
             <summary><span class="acc-title">Public transport and walking access in Auckland</span><span class="acc-cat">Transport and accessibility</span></summary>
             <div class="acc-body">
-              <div class="figs">
-              <figure>
+              <div class="slideshow" data-slideshow role="region" aria-roledescription="carousel" aria-label="Project images">
+<div class="stage">
+              <figure class="slide">
                 <div class="frame">
                   <img class="shot" src="assets/transport-access-01.jpg" alt="Map of bus access associated with Mt Eden station" hidden onload="showImg(this)" onerror="hideImg(this)">
                   <p class="ph"><span>Main image</span>Image to add<code>assets/transport-access-01.jpg</code></p>
                 </div>
                 <figcaption>Bus commuter catchment for Mt Eden station, over population density.</figcaption>
               </figure>
-              <figure>
+              <figure class="slide">
                 <div class="frame">
                   <img class="shot" src="assets/transport-access-02.jpg" alt="Comparison of walking catchments around Grafton, Kingsland and Mt Eden stations with population density" hidden onload="showImg(this)" onerror="hideImg(this)">
                   <p class="ph"><span>Supporting image</span>Optional<code>assets/transport-access-02.jpg</code></p>
                 </div>
                 <figcaption>Walking catchments around Grafton, Kingsland and Mt Eden stations.</figcaption>
               </figure>
-            </div>
+</div>
+<div class="ss-bar"><button type="button" class="ss-btn" data-dir="-1" aria-label="Previous image">&larr;</button><div class="ss-dots"></div><span class="ss-count">1 / 2</span><button type="button" class="ss-btn" data-dir="1" aria-label="Next image">&rarr;</button></div>
+</div>
               <div class="project-body">
               <p class="chips"><span class="cat">Transport and accessibility</span><span class="status">Completed</span></p>
               <p class="summary">Bus access around Mt Eden station and walking catchments around Grafton, Kingsland and Mt Eden stations, compared with population density.</p>
@@ -942,22 +1013,30 @@
           <details class="project proj-acc" id="p-supermarkets" data-cat="urban">
             <summary><span class="acc-title">Supermarket proximity and high-income areas</span><span class="acc-cat">Urban spatial analysis</span></summary>
             <div class="acc-body">
-              <div class="figs">
-              <figure>
+              <div class="slideshow" data-slideshow role="region" aria-roledescription="carousel" aria-label="Project images">
+<div class="stage">
+              <figure class="slide">
                 <div class="frame">
                   <img class="shot" src="assets/supermarket-proximity-01.jpg" alt="Map of 1 km supermarket buffers and high-income areas in Auckland" hidden onload="showImg(this)" onerror="hideImg(this)">
                   <p class="ph"><span>Main image</span>Image to add<code>assets/supermarket-proximity-01.jpg</code></p>
                 </div>
                 <figcaption>High-income areas near supermarkets in Auckland.</figcaption>
               </figure>
-              <figure>
-                <div class="frame">
-                  <img class="shot" src="assets/supermarket-proximity-02.jpg" alt="Comparison of the input layers used in the supermarket proximity analysis" hidden onload="showImg(this)" onerror="hideImg(this)">
-                  <p class="ph"><span>Supporting image</span>Optional<code>assets/supermarket-proximity-02.jpg</code></p>
-                </div>
-                <figcaption>Input layers: supermarket locations with 1 km buffers (left) and high-income areas (right).</figcaption>
-              </figure>
-            </div>
+              <figure class="slide">
+<div class="frame">
+<img class="shot" src="assets/supermarkets-buffers.jpg" alt="Map of Auckland supermarkets with 1 km buffers" hidden onload="showImg(this)" onerror="hideImg(this)">
+</div>
+<figcaption>Supermarket locations across Auckland, each with a 1 km buffer.</figcaption>
+</figure>
+<figure class="slide">
+<div class="frame">
+<img class="shot" src="assets/high-income-areas.jpg" alt="Map of high-income areas in Auckland, median income of $140,000 or more" hidden onload="showImg(this)" onerror="hideImg(this)">
+</div>
+<figcaption>High-income areas in Auckland (median income of $140,000 or more).</figcaption>
+</figure>
+</div>
+<div class="ss-bar"><button type="button" class="ss-btn" data-dir="-1" aria-label="Previous image">&larr;</button><div class="ss-dots"></div><span class="ss-count">1 / 2</span><button type="button" class="ss-btn" data-dir="1" aria-label="Next image">&rarr;</button></div>
+</div>
               <div class="project-body">
               <p class="chips"><span class="cat">Urban spatial analysis</span><span class="status">Completed</span></p>
               <p class="summary">Using 1 km buffers around Auckland supermarkets to investigate their proximity to high-income areas.</p>
@@ -979,20 +1058,26 @@
           <details class="project proj-acc" id="p-port-waikato" data-cat="landscape">
             <summary><span class="acc-title">Port Waikato landscape analysis</span><span class="acc-cat">Landscape and Earth Science</span></summary>
             <div class="acc-body">
-              <div class="figs">
-              <figure>
+              <div class="slideshow" data-slideshow role="region" aria-roledescription="carousel" aria-label="Project images">
+<div class="stage">
+              <figure class="slide">
                 <div class="frame">
                   <img class="shot" src="assets/port-waikato-01.jpg" alt="Map of the four Port Waikato study sites: the river mouth, Sunset Beach, Waikawau Valley and Whakatiwai Stream" hidden onload="showImg(this)" onerror="hideImg(this)">
                 </div>
                 <figcaption>The four study sites visited during the Port Waikato fieldwork.</figcaption>
               </figure>
-              <figure>
+              <figure class="slide">
                 <div class="frame">
                   <img class="shot" src="assets/port-waikato-02.jpg" alt="Sunset Beach field data: particle size curves, an auger profile and a beach profile survey" hidden onload="showImg(this)" onerror="hideImg(this)">
                 </div>
                 <figcaption>Sunset Beach field data: grain size curves, an auger profile and a beach profile survey.</figcaption>
               </figure>
-            </div>
+<figure class="slide"><div class="frame"><img class="shot" src="assets/port-waikato-03.jpg" alt="3D cross-section diagram of the Waikawau Valley stratigraphy" hidden onload="showImg(this)" onerror="hideImg(this)"></div><figcaption>Waikawau Valley stratigraphy.</figcaption></figure>
+                      <figure class="slide"><div class="frame"><img class="shot" src="assets/port-waikato-04.jpg" alt="Annotated field diagram of the Ohuka Landslide" hidden onload="showImg(this)" onerror="hideImg(this)"></div><figcaption>Ohuka Landslide documentation.</figcaption></figure>
+                      <figure class="slide"><div class="frame"><img class="shot" src="assets/port-waikato-05.jpg" alt="Whakatiwai Stream cross-section chart showing relative elevation against horizontal distance" hidden onload="showImg(this)" onerror="hideImg(this)"></div><figcaption>Whakatiwai Stream cross-section.</figcaption></figure>
+</div>
+<div class="ss-bar"><button type="button" class="ss-btn" data-dir="-1" aria-label="Previous image">&larr;</button><div class="ss-dots"></div><span class="ss-count">1 / 5</span><button type="button" class="ss-btn" data-dir="1" aria-label="Next image">&rarr;</button></div>
+</div>
               <div class="project-body">
               <p class="chips"><span class="cat">Landscape and Earth Science</span><span class="status">Completed</span></p>
               <p class="summary">What do the rocks, sediments and processes at four sites around the Waikato River mouth reveal about how the Port Waikato landscape formed and continues to change?</p>
@@ -1005,14 +1090,6 @@
                   <div><h4>Method</h4><p><strong>Sunset Beach:</strong> I collected sediment samples across the beach profile and analysed them by laser diffraction for grain size distribution, extracted hand-auger cores to log subsurface stratigraphy, and ran a dumpy level survey from the dune crest to the low tide mark. <strong>Waikawau Valley:</strong> I recorded and sketched the sedimentary sequence and documented the Ohuka Landslide. <strong>Whakatiwai Stream:</strong> I measured wetted width, depth and surface velocity to calculate cross-sectional area and discharge for each channel thread, and logged bed material, bank layers and bar features.</p></div>
                   <div><h4>Output and interpretation</h4><p>The beach survey provides a baseline elevation record for tracking erosion and accretion over time. At Waikawau Valley the rock layers dip gently eastward at about 8 degrees, from Jurassic greywacke basement through sandstone, siltstone and limestone to Quaternary alluvium, reflecting marine deposition followed by uplift. The Ohuka Landslide is a three-layer failure: a weaker, clay-rich siltstone sits between stronger rock, rainwater raises pore pressure in it, the upper layers slide, and coastal erosion removes support at the base. At Whakatiwai Stream, the discharge calculations show how different channel threads contribute to total flow, linking hydraulic conditions to sediment transport and channel stability.</p></div>
                   <div><h4>Limitations</h4><p>The measurements are a snapshot from fieldwork, so repeated surveys would be needed to show actual erosion and accretion over time.</p></div>
-                  <div>
-                    <h4>Supporting figures</h4>
-                    <div class="case-figs">
-                      <figure><div class="frame"><img class="shot" src="assets/port-waikato-03.jpg" alt="3D cross-section diagram of the Waikawau Valley stratigraphy" hidden onload="showImg(this)" onerror="hideImg(this)"></div><figcaption>Waikawau Valley stratigraphy.</figcaption></figure>
-                      <figure><div class="frame"><img class="shot" src="assets/port-waikato-04.jpg" alt="Annotated field diagram of the Ohuka Landslide" hidden onload="showImg(this)" onerror="hideImg(this)"></div><figcaption>Ohuka Landslide documentation.</figcaption></figure>
-                      <figure><div class="frame"><img class="shot" src="assets/port-waikato-05.jpg" alt="Whakatiwai Stream cross-section chart showing relative elevation against horizontal distance" hidden onload="showImg(this)" onerror="hideImg(this)"></div><figcaption>Whakatiwai Stream cross-section.</figcaption></figure>
-                    </div>
-                  </div>
                 </div></div>
               </div>
             </div>
@@ -1613,6 +1690,44 @@
   })();
   </script>
 
+  <script>
+  /* Image slideshows: arrows, dots and the arrow keys. Each project keeps its own slideshow. */
+  (function () {
+    document.querySelectorAll('[data-slideshow]').forEach(function (ss) {
+      var slides = [].slice.call(ss.querySelectorAll('.slide'));
+      var dots = ss.querySelector('.ss-dots');
+      var count = ss.querySelector('.ss-count');
+      var i = 0;
+      slides.forEach(function (s, n) {
+        var im = s.querySelector('img');
+        if (im) { s.style.setProperty('--bg', 'url("' + im.src + '")'); }
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', 'Show image ' + (n + 1) + ' of ' + slides.length);
+        b.addEventListener('click', function () { go(n); });
+        dots.appendChild(b);
+      });
+      function go(n) {
+        i = (n + slides.length) % slides.length;
+        slides.forEach(function (s, k) {
+          s.classList.toggle('is-active', k === i);
+          s.setAttribute('aria-hidden', k === i ? 'false' : 'true');
+        });
+        [].forEach.call(dots.children, function (d, k) { d.classList.toggle('is-active', k === i); });
+        count.textContent = (i + 1) + ' / ' + slides.length;
+      }
+      ss.querySelectorAll('.ss-btn').forEach(function (b) {
+        b.addEventListener('click', function () { go(i + Number(b.getAttribute('data-dir'))); });
+      });
+      ss.setAttribute('tabindex', '0');
+      ss.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight') { go(i + 1); e.preventDefault(); }
+        if (e.key === 'ArrowLeft') { go(i - 1); e.preventDefault(); }
+      });
+      go(0);
+    });
+  })();
+  </script>
   <script>
   /* =========================================================
      ADMIN MODE
