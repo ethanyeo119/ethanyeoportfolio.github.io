@@ -353,6 +353,9 @@
     /* =========================================================
        EXPERIENCE
        ========================================================= */
+    .exp-group { font-size: clamp(1.3rem, 2.2vw, 1.6rem); margin: 3rem 0 1.4rem; color: var(--teal); }
+    .exp-group:first-of-type { margin-top: 0; }
+    .timeline + .exp-group { margin-top: 3rem; }
     .timeline { list-style: none; padding: 0; margin: 0; max-width: 46rem; }
     .timeline li { position: relative; padding: 0 0 2rem 2rem; border-left: 2px solid var(--line); }
     .timeline li:last-child { padding-bottom: 0; }
@@ -570,7 +573,8 @@
             <p class="about-lead">I'm Ethan, an Earth Science and GIS student at the University of Auckland, studying from 2025 to 2027.</p>
             <p>I'm interested in how landscapes, ecosystems and communities interact, and in using spatial data to look at those questions clearly. My projects so far range from interpolating air pollution and microclimate data to suitability modelling, access analysis and reading physical landscapes.</p>
             <p>Most of my coursework has been in ArcGIS Pro and QGIS, working with vector and raster data. I enjoy the practical side too: cleaning and preparing data, building workflows that can be repeated, and finishing with maps that are easy to read.</p>
-            <p>Outside class, I've supported wetland restoration and waste reduction as an intern with Waiheke Resources Trust, and helped organise events and environmental initiatives on campus with Te Rōpū Taiao, the Environment Association.</p>
+            <p>Alongside my degree, I'm a Healthy Waters and Flood Resilience intern at Auckland Council and previously supported wetland restoration and waste reduction as an intern with Waiheke Resources Trust. On campus, I sit on the general committee of Te Rōpū Taiao, the Environment Association, and co-lead the Linguistics and Language Society.</p>
+            <p>I hope to apply geospatial analysis to real-world environmental and land-use decisions, helping to solve environmental challenges and support smarter city planning.</p>
           </div>
         </details>
       </div>
@@ -944,22 +948,22 @@
             <p class="updated">2025 – 2027</p>
           </article>
           <article class="update reveal">
-            <h3>Student leadership</h3>
+            <h3>Interning at Auckland Council</h3>
             <dl>
-              <div><dt>Roles</dt><dd>Co-President of the UoA Language Society, and Events Planner for the Geography Club.</dd></div>
-              <div><dt>Also involved</dt><dd>Te Rōpū Taiao, the Environment Association, organising events and environmental initiatives on campus.</dd></div>
+              <div><dt>Role</dt><dd>Healthy Waters and Flood Resilience Intern.</dd></div>
+              <div><dt>Focus</dt><dd>Supporting stormwater and flood resilience projects, GIS-based tasks and data collection to support planning, and site assessments for compliance.</dd></div>
             </dl>
             <p><a href="#experience">See my experience</a></p>
-            <p class="updated">2026 – present</p>
+            <p class="updated">Nov 2026 – present</p>
           </article>
           <article class="update reveal">
-            <h3>Building terrariums</h3>
+            <h3>Student leadership</h3>
             <dl>
-              <div><dt>Interest</dt><dd>Designing small landscapes in glass, from moss walls to hill and village scenes.</dd></div>
-              <div><dt>Approach</dt><dd>Layered builds planned around hardscape, colour contrast and depth of field.</dd></div>
+              <div><dt>Roles</dt><dd>Co-President of the Linguistics and Language Society, International Student Officer for the Science Students' Association, and general committee member of Te Rōpū Taiao, the Environment Association.</dd></div>
+              <div><dt>Also</dt><dd>Buddy Leader with the Auckland University Students' Association.</dd></div>
             </dl>
-            <p><a href="#interests">See my terrariums</a></p>
-            <p class="updated">Ongoing hobby</p>
+            <p><a href="#experience">See my leadership</a></p>
+            <p class="updated">2025 – present</p>
           </article>
         </div>
       </div>
@@ -973,7 +977,7 @@
         <div class="section-head reveal">
           <p class="eyebrow">Skills in practice</p>
           <h2 id="skills-title">Skills, with evidence</h2>
-          <p>Each method links to the project where I used it.</p>
+          <p>Each method links to the project where I used it. Pattern analysis and fieldwork come from my coursework.</p>
         </div>
         <div class="skills-grid">
           <div class="skill-table reveal">
@@ -983,16 +987,29 @@
             <div class="skill-row"><div><strong>Raster reclassification and overlay</strong><small>Thresholds, binary layers</small></div><span class="arrow" aria-hidden="true">→</span><p><a href="#p-air-pollution">Air pollution</a></p></div>
             <div class="skill-row"><div><strong>Network analysis</strong><small>Walking and bus catchments</small></div><span class="arrow" aria-hidden="true">→</span><p><a href="#p-transport">Transport and walking access</a></p></div>
             <div class="skill-row"><div><strong>Vector analysis</strong><small>Buffers, spatial joins, selection</small></div><span class="arrow" aria-hidden="true">→</span><p><a href="#p-supermarkets">Supermarkets</a>, <a href="#p-food-corridors">Food corridors</a></p></div>
-            <div class="skill-row"><div><strong>Software</strong><small>ArcGIS Pro, QGIS</small></div><span class="arrow" aria-hidden="true">→</span><p><a href="#p-air-pollution">ArcGIS Pro projects</a>, <a href="#p-botkyrka">QGIS projects</a></p></div>
+            <div class="skill-row"><div><strong>Spatial pattern analysis</strong><small>Kernel density estimation, spatial autocorrelation</small></div><span class="arrow" aria-hidden="true">→</span><p>GIS coursework</p></div>
+            <div class="skill-row"><div><strong>Earth Science fieldwork</strong><small>Fluvial geomorphology, rock unit identification, subsurface investigation</small></div><span class="arrow" aria-hidden="true">→</span><p>Discharge estimation from dumpy level cross-sections; lithological classification and stratigraphic correlation; vibracore logging and GPR correlation</p></div>
+            <div class="skill-row"><div><strong>Software</strong><small>ArcGIS Pro, ArcGIS Online, QGIS</small></div><span class="arrow" aria-hidden="true">→</span><p><a href="#p-air-pollution">ArcGIS Pro projects</a>, <a href="#p-botkyrka">QGIS projects</a></p></div>
           </div>
           <div class="learning reveal">
-            <h3>Tools and approach</h3>
+            <h3>Tools and languages</h3>
+            <h4>GIS and mapping</h4>
             <ul>
-              <li>ArcGIS Pro and QGIS</li>
-              <li>Vector and raster data</li>
-              <li>Cleaning and preparing datasets</li>
-              <li>Repeatable workflows</li>
-              <li>Clear, readable maps</li>
+              <li>ArcGIS Pro, ArcGIS Online, QGIS</li>
+            </ul>
+            <h4>Programming and data analysis</h4>
+            <ul>
+              <li>Microsoft Excel, Python, SQL, FME</li>
+            </ul>
+            <h4>Currently learning</h4>
+            <ul>
+              <li>R, Google Earth Engine, JavaScript</li>
+            </ul>
+            <h4>Languages</h4>
+            <ul>
+              <li>English (IELTS 8.0, 2024)</li>
+              <li>German (TestDaF B2–C1, 2024)</li>
+              <li>Mandarin (proficient)</li>
             </ul>
           </div>
         </div>
@@ -1006,37 +1023,84 @@
       <div class="wrap">
         <div class="section-head reveal">
           <p class="eyebrow">Experience</p>
-          <h2 id="experience-title">Leadership and collaboration</h2>
-          <p>Environmental work and student leadership alongside my studies.</p>
+          <h2 id="experience-title">Work, leadership and education</h2>
+          <p>Environmental and planning work, student leadership and my studies at the University of Auckland.</p>
         </div>
+        <h3 class="exp-group">Work experience</h3>
         <ol class="timeline">
           <li class="reveal">
-            <h3>Intern</h3>
-            <p class="org">Waiheke Resources Trust</p>
-            <p class="contrib">Supported wetland restoration and waste reduction work.</p>
+            <h3>Healthy Waters and Flood Resilience Intern</h3>
+            <p class="org">Auckland Council</p>
+            <p class="dates">Nov 2026 – present</p>
+            <p class="contrib">Support stormwater and flood resilience projects, assist with data collection and GIS-based tasks to support planning, and review property files and assist with site assessments for compliance.</p>
           </li>
+          <li class="reveal">
+            <h3>Student Intern</h3>
+            <p class="org">Waiheke Resources Trust</p>
+            <p class="dates">June 2026 – July 2026</p>
+            <p class="contrib">Supported projects focused on wetland restoration and waste reduction, contributing to five sustainability projects and developing an understanding of stakeholder engagement and local action.</p>
+          </li>
+          <li class="reveal">
+            <h3>A-Level English Tutor</h3>
+            <p class="org">King's College</p>
+            <p class="dates">Aug 2025 – Nov 2025</p>
+            <p class="contrib">Delivered one-to-one A-Level English tuition to three students at once, designing lesson plans and teaching analytical writing and comprehension.</p>
+          </li>
+          <li class="reveal">
+            <h3>Assistant Trainer</h3>
+            <p class="org">Singapore Civil Defence Force</p>
+            <p class="dates">Jan 2022 – Nov 2023</p>
+            <p class="contrib">Trained Section Commanders in leadership, procedures and field readiness, delivering structured training sessions in high-pressure environments.</p>
+          </li>
+        </ol>
+
+        <h3 class="exp-group">Leadership and co-curricular</h3>
+        <ol class="timeline">
           <li class="reveal">
             <h3>Co-President</h3>
-            <p class="org">UoA Language Society</p>
-            <p class="dates">2026 – present</p>
-            <p class="contrib">Co-lead a University of Auckland student society.</p>
+            <p class="org">Linguistics and Language Society</p>
+            <p class="dates">Feb 2026 – present</p>
+            <p class="contrib">Co-led the executive team, organising around nine language events and overseeing event planning, promotion and delivery to drive student engagement.</p>
           </li>
           <li class="reveal">
-            <h3>Events Planner</h3>
-            <p class="org">Geography Club</p>
-            <p class="dates">2026 – present</p>
-            <p class="contrib">Plan events for the club's members.</p>
+            <h3>International Student Officer</h3>
+            <p class="org">Science Students' Association</p>
+            <p class="dates">Feb 2026 – present</p>
+            <p class="contrib">Work with an 18-member executive team to plan events, and represent international student interests through inclusive initiatives.</p>
           </li>
           <li class="reveal">
-            <h3>Events and environmental initiatives</h3>
-            <p class="org">Te Rōpū Taiao, the Environment Association</p>
-            <p class="contrib">Helped organise events and environmental initiatives on campus.</p>
+            <h3>General Committee Member</h3>
+            <p class="org">Te Rōpū Taiao / Environment Association</p>
+            <p class="dates">Mar 2025 – present</p>
+            <p class="contrib">Support event logistics, budgeting and planning for club activities. Liaised with firms and organised a 70-participant geospatial networking event.</p>
           </li>
           <li class="reveal">
-            <h3>RTEA Geospatial Evening</h3>
-            <p class="org">Event team</p>
-            <p class="dates">2025</p>
-            <p class="contrib">Helped run a 70-person geospatial evening, assisting with budgeting and industry engagement.</p>
+            <h3>Buddy Leader</h3>
+            <p class="org">Auckland University Students' Association</p>
+            <p class="dates">Feb 2025 – present</p>
+            <p class="contrib">Mentor up to four new students at a time through their university transition, with peer guidance on services, resources and engagement.</p>
+          </li>
+          <li class="reveal">
+            <h3>Class Representative</h3>
+            <p class="org">University of Auckland</p>
+            <p class="dates">Feb 2025 – Nov 2025</p>
+            <p class="contrib">Represented students across three courses, liaising with staff on feedback and raising course-related issues.</p>
+          </li>
+        </ol>
+
+        <h3 class="exp-group">Education</h3>
+        <ol class="timeline">
+          <li class="reveal">
+            <h3>Bachelor of Science, double major in Earth Science and GIS</h3>
+            <p class="org">University of Auckland, New Zealand</p>
+            <p class="dates">Feb 2025 – Nov 2027</p>
+            <p class="contrib">First in Course for GERMAN 101 and Distinction in STATS 101. Coursework spans geospatial analysis and fieldwork.</p>
+          </li>
+          <li class="reveal">
+            <h3>GCE A-Levels</h3>
+            <p class="org">Yishun Innova Junior College, Singapore</p>
+            <p class="dates">Jan 2020 – Nov 2021</p>
+            <p class="contrib">Completed H2 Chemistry, Biology and Economics, building analytical, written communication and critical reading skills.</p>
           </li>
         </ol>
       </div>
@@ -1055,6 +1119,7 @@
           <p>I'd be glad to hear from people working in GIS, environmental science, Earth Science, local government or geospatial technology.</p>
         </div>
         <div class="contact-grid">
+          <div class="contact-item reveal" data-kind="linkedin"><h3>LinkedIn</h3><p>Experience and professional updates.</p><div class="links"><a class="link-btn" href="https://www.linkedin.com/in/ethanyeojy" target="_blank" rel="noopener">linkedin.com/in/ethanyeojy</a></div></div>
           <div class="contact-item reveal" data-kind="github"><h3>GitHub</h3><p>My code and this portfolio's source.</p><div class="links"><a class="link-btn" href="https://github.com/ethanyeo119" target="_blank" rel="noopener">github.com/ethanyeo119</a></div></div>
           <div class="contact-item reveal" data-kind="portfolio"><h3>Portfolio PDFs</h3><p>Print-ready versions of my work.</p><div class="links"><a class="link-btn" href="Ethan_Yeo_GIS_Portfolio.pdf" target="_blank" rel="noopener">GIS portfolio</a><a class="link-btn" href="Terrarium%20Portfolio.pdf" target="_blank" rel="noopener">Terrarium portfolio</a></div></div>
           <div class="contact-item reveal" data-kind="location"><h3>Based in</h3><p>Auckland, New Zealand<br>University of Auckland, BSc Earth Science and GIS</p><div class="links"></div></div>
