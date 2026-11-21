@@ -298,13 +298,19 @@
     @media (max-width: 900px) { .proj-acc .acc-body .slideshow { border-right: 0; } }
     @media (max-width: 600px) { .js .slideshow .stage, .js .proj-acc .slideshow .stage { aspect-ratio: 4 / 4.2; } }
     @media (prefers-reduced-motion: reduce) { .js .slideshow .slide { transition: none; } }
+    .wip-card { max-width: 1000px; }
+    .wip { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; padding: 0 clamp(1.3rem, 2.6vw, 2rem) clamp(1.3rem, 2.6vw, 2rem); }
+    .wip > div { background: var(--paper-deep); border-radius: 12px; padding: 1rem 1.15rem; border-top: 3px solid var(--green); }
+    .wip h4 { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--green); margin: 0 0 .4rem; }
+    .wip p { margin: 0; font-size: .93rem; color: var(--ink-soft); }
+    @media (max-width: 900px) { .wip { grid-template-columns: 1fr; } }
     .acc-toggle { display: none; }
     .project[hidden] { display: none !important; }
 
     /* =========================================================
        CURRENTLY WORKING ON
        ========================================================= */
-    .updates { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+    .updates { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; }
     .update { background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--green); border-radius: var(--radius); padding: 1.5rem; display: flex; flex-direction: column; gap: .8rem; }
     .update h3 { font-size: 1.3rem; margin: 0; }
     .update dl { margin: 0; display: grid; gap: .6rem; font-size: .95rem; }
@@ -1100,39 +1106,16 @@
     </section>
 
     <!-- =========================================================
-         CURRENTLY WORKING ON
-         Only add projects that are genuinely ongoing.
-         Delete the "empty-state" box once you add your first update.
-         Copy this template for each update:
-
-         <article class="update reveal">
-           <h3>Project title</h3>
-           <dl>
-             <div><dt>Objective</dt><dd>One sentence.</dd></div>
-             <div><dt>Latest progress</dt><dd>What you did recently.</dd></div>
-             <div><dt>Next step</dt><dd>What comes next.</dd></div>
-           </dl>
-           <p><a href="#p-eagle-migration">See the project</a></p>
-           <p class="updated">Updated: 21 November 2026</p>
-         </article>
+         HIGHLIGHTS (what is happening now)
          ========================================================= -->
-    <section id="currently" aria-labelledby="currently-title">
+    <section id="highlights" aria-labelledby="highlights-title">
       <div class="wrap">
         <div class="section-head reveal">
-          <p class="eyebrow">Currently</p>
-          <h2 id="currently-title">What I'm working on</h2>
-          <p>Where my time and attention are going at the moment: study, student leadership and a hands-on hobby.</p>
+          <p class="eyebrow">Highlights</p>
+          <h2 id="highlights-title">What's happening now</h2>
+          <p>Recent milestones and where my time is going at the moment: work, a finished project, student leadership and study.</p>
         </div>
         <div class="updates">
-          <article class="update reveal">
-            <h3>Studying Earth Science and GIS</h3>
-            <dl>
-              <div><dt>Programme</dt><dd>BSc, Earth Science and GIS, University of Auckland.</dd></div>
-              <div><dt>Focus</dt><dd>Spatial interpolation, suitability and catchment models, and vector and raster analysis in ArcGIS Pro and QGIS.</dd></div>
-            </dl>
-            <p><a href="#projects">See my GIS projects</a></p>
-            <p class="updated">2025 – 2027</p>
-          </article>
           <article class="update reveal">
             <h3>Interning at Auckland Council</h3>
             <dl>
@@ -1143,6 +1126,15 @@
             <p class="updated">Nov 2026 – present</p>
           </article>
           <article class="update reveal">
+            <h3>Eagle migration story map</h3>
+            <dl>
+              <div><dt>Milestone</dt><dd>Completed an ArcGIS StoryMaps project following bald eagles from the Pacific coast to the Arctic.</dd></div>
+              <div><dt>Highlight</dt><dd>Mapped eagle records from 2018 to 2026 and followed one tagged eagle about 4,920 km.</dd></div>
+            </dl>
+            <p><a href="#p-eagle-migration">Read the case study</a></p>
+            <p class="updated">October 2026</p>
+          </article>
+          <article class="update reveal">
             <h3>Student leadership</h3>
             <dl>
               <div><dt>Roles</dt><dd>Co-President of the Linguistics and Language Society, International Student Officer for the Science Students' Association, and general committee member of Te Rōpū Taiao, the Environment Association.</dd></div>
@@ -1151,7 +1143,73 @@
             <p><a href="#experience">See my leadership</a></p>
             <p class="updated">2025 – present</p>
           </article>
+          <article class="update reveal">
+            <h3>Studying Earth Science and GIS</h3>
+            <dl>
+              <div><dt>Programme</dt><dd>BSc, double major in Earth Science and GIS, University of Auckland.</dd></div>
+              <div><dt>Focus</dt><dd>Spatial interpolation, suitability and catchment models, and vector and raster analysis in ArcGIS Pro and QGIS.</dd></div>
+            </dl>
+            <p><a href="#projects">See my GIS projects</a></p>
+            <p class="updated">2025 – 2027</p>
+          </article>
         </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         CURRENTLY WORKING ON: the Kaikoura earthquake project
+         ========================================================= -->
+    <section id="currently" class="alt" aria-labelledby="currently-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Currently</p>
+          <h2 id="currently-title">What I'm working on</h2>
+          <p>An in-progress analysis of the Kaikōura earthquake: how its faults, aftershocks and landslides fit together. The maps below are the work so far.</p>
+        </div>
+
+        <article class="project featured wip-card reveal" id="p-earthquake" data-cat="landscape">
+          <div class="slideshow" data-slideshow role="region" aria-roledescription="carousel" aria-label="Kaikōura earthquake maps">
+            <div class="stage">
+              <figure class="slide">
+                <div class="frame"><img class="shot" src="assets/earthquake-01.jpg" alt="Study area map of Kaikōura showing terrain, settlements, active faults, State Highway 1, other roads and the railway, with an inset of Kaikōura town" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
+                <figcaption>Study area: terrain, settlements, active faults, State Highway 1 and the railway, with an inset of Kaikōura.</figcaption>
+              </figure>
+              <figure class="slide">
+                <div class="frame"><img class="shot" src="assets/earthquake-02.jpg" alt="Map of the 7.8 magnitude mainshock and aftershocks sized by magnitude, with active faults and the Kaikōura coast" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
+                <figcaption>The M7.8 mainshock and its aftershocks, sized by magnitude, shown with the active faults.</figcaption>
+              </figure>
+              <figure class="slide">
+                <div class="frame"><img class="shot" src="assets/earthquake-03.jpg" alt="Map of landslide source areas across the hills and coast around Kaikōura" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
+                <figcaption>Landslide source areas across the hills and coast around Kaikōura.</figcaption>
+              </figure>
+              <figure class="slide">
+                <div class="frame"><img class="shot" src="assets/earthquake-04.jpg" alt="Map of landslide debris trails around Kaikōura with State Highway 1 and the railway" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
+                <figcaption>Landslide debris trails, shown with State Highway 1 and the railway.</figcaption>
+              </figure>
+            </div>
+            <div class="ss-bar"><button type="button" class="ss-btn" data-dir="-1" aria-label="Previous image">&larr;</button><div class="ss-dots"></div><span class="ss-count">1 / 4</span><button type="button" class="ss-btn" data-dir="1" aria-label="Next image">&rarr;</button></div>
+          </div>
+          <div class="project-body">
+            <div class="main-col">
+              <p class="chips"><span class="cat">Landscape and Earth Science</span><span class="status">In progress</span></p>
+              <h3>Kaikōura earthquake: faults, aftershocks and landslides</h3>
+              <p class="summary">How are the active faults, the aftershock sequence and the landslides around Kaikōura related, and what do they mean for the town and the transport routes along the coast?</p>
+              <ul class="tags"><li>ArcGIS Pro</li><li>Active faults</li><li>Aftershock mapping</li><li>Landslide mapping</li></ul>
+            </div>
+            <div class="side-col">
+              <dl class="meta">
+                <dt>Location</dt><dd>Kaikōura coast, New Zealand, including Hapuku, Oaro and Clarence</dd>
+                <dt>Event</dt><dd>M7.8 mainshock and its aftershocks (magnitudes 0.18 to 6.58)</dd>
+                <dt>Status</dt><dd>In progress</dd>
+              </dl>
+            </div>
+          </div>
+          <div class="wip">
+            <div><h4>Objective</h4><p>To see where the earthquake's effects were concentrated by comparing active fault traces, aftershock locations and sizes, and landslide source areas and debris trails, and to see how they line up with Kaikōura's roads, State Highway 1 and the railway.</p></div>
+            <div><h4>Done so far</h4><p>A study-area base map with terrain, settlements, roads, the railway and active faults. The mainshock and aftershocks mapped by magnitude. Landslide source areas and debris trails mapped across the surrounding hills.</p></div>
+            <div><h4>Next steps</h4><p>Quantify the patterns, for example landslide density against distance from active faults and aftershock clusters, and measure how much of State Highway 1 and the railway lies in or near mapped landslide areas.</p></div>
+          </div>
+        </article>
       </div>
     </section>
 
