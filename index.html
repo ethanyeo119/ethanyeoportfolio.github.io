@@ -227,7 +227,7 @@
 
     /* FEATURED: sliding carousel */
     .slider-shell { position: relative; }
-    .slider { display: grid; grid-auto-flow: column; grid-auto-columns: min(86%, 900px); gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: .5rem 0 1.5rem; align-items: stretch; scrollbar-width: thin; overscroll-behavior-x: contain; }
+    .slider { display: grid; grid-auto-flow: column; grid-auto-columns: min(86%, 900px); gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: .5rem 0 1.5rem; align-items: start; scrollbar-width: thin; overscroll-behavior-x: contain; }
     .slider > .project { scroll-snap-align: start; }
     .slider:focus-visible { outline-offset: 6px; }
     .slider-controls { display: flex; align-items: center; gap: .8rem; justify-content: flex-end; margin-top: -.5rem; }
@@ -351,8 +351,8 @@
     .exp-more ul { margin: .8rem 0 0; padding-left: 1.2rem; color: var(--ink-soft); font-size: .95rem; }
     .exp-more li { margin-bottom: .6rem; }
     @media (max-width: 900px) { .exp-grid, .exp-grid.exp-grid-2 { grid-template-columns: 1fr; } }
-    /* Featured cards all share one height: the white text area grows to match the tallest card */
-    .slider > .project { display: flex; flex-direction: column; }
+    /* Featured cards share one closed height (set by script). Opening a case study only lengthens that card, downwards. */
+    .slider > .project { display: flex; flex-direction: column; min-height: var(--card-h, 0px); }
     .slider > .project > .project-body { flex: 1; grid-template-rows: 1fr auto; }
     .slider > .project .case { align-self: end; }
     .acc-toggle { display: none; }
@@ -1779,6 +1779,29 @@
     document.querySelectorAll('.terr .frame img').forEach(function (im) {
       im.parentNode.style.setProperty('--bg', 'url("' + im.src + '")');
     });
+  })();
+  </script>
+  <script>
+  /* Featured cards: give every card the same closed height. Opening a case study then lengthens only that card, at the bottom. */
+  (function () {
+    var slider = document.getElementById('featured-slider');
+    if (!slider) return;
+    function levelCards() {
+      var cards = [].slice.call(slider.querySelectorAll(':scope > .project'));
+      var open = cards.map(function (c) { var d = c.querySelector('details.case'); return d && d.open; });
+      cards.forEach(function (c) { var d = c.querySelector('details.case'); if (d) d.open = false; c.style.removeProperty('min-height'); });
+      slider.style.removeProperty('--card-h');
+      var h = 0;
+      cards.forEach(function (c) { h = Math.max(h, c.getBoundingClientRect().height); });
+      slider.style.setProperty('--card-h', Math.ceil(h) + 'px');
+      cards.forEach(function (c, i) { var d = c.querySelector('details.case'); if (d && open[i]) d.open = true; });
+    }
+    var timer;
+    function later() { clearTimeout(timer); timer = setTimeout(levelCards, 150); }
+    window.addEventListener('load', levelCards);
+    window.addEventListener('resize', later);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(levelCards);
+    levelCards();
   })();
   </script>
   <script>
