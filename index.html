@@ -450,7 +450,11 @@
     .terr-notes > div { padding-left: 1rem; border-left: 2px solid rgba(169, 217, 162, .55); }
     .terr-notes dt { font-family: var(--mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: #a9d9a2; margin-bottom: .15rem; }
     .terr-notes dd { margin: 0; color: #e4dfd1; font-size: .98rem; }
-    .terr-lead { color: #e4dfd1; max-width: 46rem; margin: 0; }
+    .terr-points { list-style: none; margin: .5rem 0 0; padding: 0; display: grid; gap: .6rem; }
+    .terr-points li { position: relative; padding-left: 1.5rem; color: #e4dfd1; font-size: .98rem; }
+    .terr-points li::before { content: ""; position: absolute; left: .15rem; top: .62em; width: 8px; height: 8px; border-radius: 50%; background: #a9d9a2; box-shadow: 0 0 0 3px rgba(169, 217, 162, .2); }
+    .terr-points strong { color: var(--paper); }
+    .terr-points-wide { max-width: 46rem; margin-bottom: .6rem; }    .terr-lead { color: #e4dfd1; max-width: 46rem; margin: 0; }
     .terr-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; align-items: start; }
     .terr .zoom span { background: rgba(23, 36, 28, .85); }
     @media (max-width: 900px) { .terr-intro, .terr-body, .terr-body.tall { grid-template-columns: 1fr; } .terr-body.tall figure { max-width: 340px; } }
@@ -1404,12 +1408,19 @@
                 <div class="frame"><img class="shot" src="assets/terrarium-hill.jpg" alt="Hill terrarium: a small yellow house on a mossy hill with granite rocks, a gravel path and a palm behind" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
               </figure>
               <div class="terr-text">
-                <p>This build is a landscape in miniature: a single yellow house sitting alone on a hill. The house is the only warm, man-made colour in a scene of greens and greys, so the eye goes straight to it.</p>
+                <p>This build is a landscape in miniature: a single yellow house sitting alone on a hill. Everything around it is greens, greys and browns, so the small warm-coloured house is the first thing the eye finds. The scene is built in layers, with low plants at the front and taller plants and rocks behind, so it reads as distance rather than a flat picture.</p>
                 <dl class="terr-notes">
                   <div><dt>Focal point</dt><dd>A lonely yellow house on the hill brings contrast and focus to the main piece.</dd></div>
                   <div><dt>Depth</dt><dd>Low-lying plants sit in the foreground, with rocks and taller plants layered behind them, to create depth of field.</dd></div>
                   <div><dt>Materials</dt><dd>Moss, granite rocks and a pale gravel path, with a palm and fittonia for height and colour.</dd></div>
                 </dl>
+                <h4>Build details</h4>
+                <ul class="terr-points">
+                  <li><strong>Container:</strong> a rectangular glass tank, viewed from the side so the layers show.</li>
+                  <li><strong>Focal piece:</strong> a miniature yellow house on the highest point of the hill.</li>
+                  <li><strong>Hardscape:</strong> granite rocks stepping up the slope, with a pale gravel path across the foreground.</li>
+                  <li><strong>Planting:</strong> mounds of moss, a palm for height behind the house, and fittonia for a patch of colour.</li>
+                </ul>
               </div>
             </div>
           </details>
@@ -1422,12 +1433,19 @@
                 <div class="frame"><img class="shot" src="assets/terrarium-forest.jpg" alt="The Forest terrarium: a tall glass cylinder with a moss wall, pebbles and sand at the base" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
               </figure>
               <div class="terr-text">
-                <p>This is the first moss wall I created. Instead of spreading the planting across the floor of the jar, the moss is built up the glass, so the scene reads like a forest wall rising out of the ground.</p>
+                <p>This is the first moss wall I created. Instead of spreading the planting across the floor of the jar, the moss is built up the glass, so the scene reads like a forest wall rising out of the ground. It was a different way of thinking about a terrarium: height and texture first, floor space second.</p>
                 <dl class="terr-notes">
                   <div><dt>Depth</dt><dd>Cushion moss creates depth on the vertical spectrum, giving the wall height as well as thickness.</dd></div>
                   <div><dt>Contrast</dt><dd>Smooth pebbles at the base add a natural contrast in colour against the dark green moss.</dd></div>
                   <div><dt>Texture</dt><dd>A layer of sand finishes the scene, making the difference in texture between wall and ground clear.</dd></div>
                 </dl>
+                <h4>Build details</h4>
+                <ul class="terr-points">
+                  <li><strong>Container:</strong> a tall glass cylinder, which suits a vertical design.</li>
+                  <li><strong>Moss wall:</strong> cushion moss and darker moss pressed up the back of the glass in layers.</li>
+                  <li><strong>Ground:</strong> a base of smooth pebbles and sand, with small plants tucked in at the front.</li>
+                  <li><strong>Approach:</strong> height and texture first, floor space second.</li>
+                </ul>
               </div>
             </div>
           </details>
@@ -1440,12 +1458,19 @@
                 <div class="frame"><img class="shot" src="assets/terrarium-cavern.jpg" alt="The Cavern terrarium: a slate stone cave entrance overgrown with moss inside a glass cylinder" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
               </figure>
               <div class="terr-text">
-                <p>The Cavern is inspired by a cave mouth. Rather than filling every space with greenery, I left dark, shadowed gaps on purpose, because they add an extra dimension and make the scene feel deeper than the glass is wide.</p>
+                <p>The Cavern is inspired by a cave mouth. Rather than filling every space with greenery, I left dark, shadowed gaps on purpose, because they add an extra dimension and make the scene feel deeper than the glass is wide. The stone entrance and the dark soil around it do most of the work.</p>
                 <dl class="terr-notes">
                   <div><dt>Concept</dt><dd>A cave-inspired layout with dark spaces to add extra dimension.</dd></div>
                   <div><dt>Entrance</dt><dd>Slate stones recreate the cave entrance, with a flat capstone resting on upright pieces.</dd></div>
                   <div><dt>Planting</dt><dd>Foxtail moss gives the entrance an overgrown look, with small plants softening the edges.</dd></div>
                 </dl>
+                <h4>Build details</h4>
+                <ul class="terr-points">
+                  <li><strong>Container:</strong> a glass cylinder with a deep layer of dark substrate for a shadowy base.</li>
+                  <li><strong>Hardscape:</strong> flat, dark slate stones stacked into an entrance.</li>
+                  <li><strong>Planting:</strong> foxtail moss across the top, with a few small plants and a pink-leaved fittonia for colour.</li>
+                  <li><strong>Mood:</strong> kept dark and quiet so the cave opening is the focus.</li>
+                </ul>
               </div>
             </div>
           </details>
@@ -1458,12 +1483,19 @@
                 <div class="frame"><img class="shot" src="assets/terrarium-paradise.jpg" alt="Paradise terrarium: a rounded glass bowl with a sand valley, sharp rocks, moss, pink fittonia and a small palm" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
               </figure>
               <div class="terr-text">
-                <p>Paradise is a tropical scene set in a rounded glass bowl, with a sandy path winding between rocks and moss like a small valley.</p>
+                <p>Paradise is a tropical scene set in a rounded glass bowl, with a sandy path winding between rocks and moss like a small valley. The bowl shape makes it feel like a tiny island, and the palm rising out of the middle gives it a tropical skyline.</p>
                 <dl class="terr-notes">
                   <div><dt>Colour</dt><dd>Butterfly pink fittonia gives shape and colour contrast against the greens.</dd></div>
                   <div><dt>Height</dt><dd>A parlor palm adds height and different degrees of lush greenery.</dd></div>
                   <div><dt>Landform</dt><dd>Sharp-edged rocks are placed strategically on either side to create the valley.</dd></div>
                 </dl>
+                <h4>Build details</h4>
+                <ul class="terr-points">
+                  <li><strong>Container:</strong> a rounded glass bowl that can be viewed from every side.</li>
+                  <li><strong>Hardscape:</strong> sharp-edged grey rocks angled to form the sides of the valley.</li>
+                  <li><strong>Ground:</strong> a pale sand path through the middle, with moss banks on either side.</li>
+                  <li><strong>Planting:</strong> butterfly pink fittonia and a parlor palm as the two feature plants.</li>
+                </ul>
               </div>
             </div>
           </details>
@@ -1476,11 +1508,18 @@
                 <div class="frame"><img class="shot" src="assets/terrarium-jewel.jpg" alt="Jewel terrarium: a tall glass tank with a moss wall, sharp rocks and two parlor palms" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
               </figure>
               <div class="terr-text">
-                <p>The Jewel is built in a tall glass tank, so the design works in layers from the front of the glass to the back wall, with a stepping-stone path leading into the scene.</p>
+                <p>The Jewel is built in a tall glass tank, so the design works in layers from the front of the glass to the back wall, with a stepping-stone path leading into the scene. The back wall is covered in moss and rock, and the palms in front slightly hide it, so the eye has to look through them to find the detail.</p>
                 <dl class="terr-notes">
                   <div><dt>Hardscape</dt><dd>A moss wall with sharp rocks as the main hardscape forms the backdrop.</dd></div>
                   <div><dt>Entrance</dt><dd>Parlor palms obstruct part of the view, which hides what lies behind and creates a grand entrance.</dd></div>
                 </dl>
+                <h4>Build details</h4>
+                <ul class="terr-points">
+                  <li><strong>Container:</strong> a tall glass tank with a black frame and base.</li>
+                  <li><strong>Back wall:</strong> moss growing over sharp rocks, which gives the scene its jewel-like texture.</li>
+                  <li><strong>Path:</strong> pale stepping stones running from the front towards the back wall.</li>
+                  <li><strong>Planting:</strong> parlor palms placed to frame the view, with smaller leafy plants at their feet.</li>
+                </ul>
               </div>
             </div>
           </details>
@@ -1493,12 +1532,19 @@
                 <div class="frame"><img class="shot" src="assets/terrarium-village.jpg" alt="Village terrarium: miniature houses in a valley of pink pebbles with moss, marble rocks and a red fittonia" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
               </figure>
               <div class="terr-text">
-                <p>The Village is a Japanese-inspired scene: a cluster of miniature houses tucked into a valley, with the moss banks rising on either side.</p>
+                <p>The Village is a Japanese-inspired scene: a cluster of miniature houses tucked into a valley, with the moss banks rising on either side. The mix of pink pebbles and pale rock keeps the palette soft, so the houses and the single red leaf stand out.</p>
                 <dl class="terr-notes">
                   <div><dt>Backdrop</dt><dd>Marble rocks give a backdrop for the houses.</dd></div>
                   <div><dt>Valley</dt><dd>A mixture of pink pebbles lays out the village floor within the valley.</dd></div>
                   <div><dt>Accent</dt><dd>A red-veined fittonia adds a single, strong accent colour beside the rocks.</dd></div>
                 </dl>
+                <h4>Build details</h4>
+                <ul class="terr-points">
+                  <li><strong>Container:</strong> a tall glass tank with a black frame, with deep soil layers visible at the bottom.</li>
+                  <li><strong>Village:</strong> miniature houses set into the valley floor at different angles.</li>
+                  <li><strong>Banks:</strong> moss and soil slopes that rise on both sides to frame the village.</li>
+                  <li><strong>Colour:</strong> soft pinks and whites, with one red fittonia leaf as the accent.</li>
+                </ul>
               </div>
             </div>
           </details>
@@ -1508,6 +1554,11 @@
             <summary><span class="terr-title">Other builds</span><span class="terr-cat">Jars and a hanging globe</span></summary>
             <div class="terr-body stack">
               <p class="terr-lead">Smaller containers call for simpler scenes. These jar and globe builds use the same layering approach, with a single rock, a patch of moss and a few pieces of colour to give each one a focal point.</p>
+              <ul class="terr-points terr-points-wide">
+                <li><strong>Containers:</strong> glass jars and a hanging globe, which keep the scenes small and portable.</li>
+                <li><strong>Scale:</strong> one rock or house as a focal piece, with moss to fill the rest.</li>
+                <li><strong>Colour:</strong> red and pink fittonia and coloured pebbles as the accents.</li>
+              </ul>
               <div class="terr-gallery">
                 <figure><div class="frame"><img class="shot" src="assets/terrarium-jar-1.jpg" alt="A glass jar terrarium with moss, a grey rock and pale pebbles" hidden onload="showImg(this)" onerror="hideImg(this)"></div></figure>
                 <figure><div class="frame"><img class="shot" src="assets/terrarium-globe.jpg" alt="A hanging glass globe terrarium held in a hand, with moss, a miniature house and red fittonia" hidden onload="showImg(this)" onerror="hideImg(this)"></div></figure>
