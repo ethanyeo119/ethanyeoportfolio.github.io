@@ -383,6 +383,51 @@
     .links.cta { padding-top: 1rem; border-top: 1px solid var(--line); margin: .8rem 0 .2rem; }
     .link-btn.primary { background: var(--ink); color: var(--paper); padding: .5rem 1.1rem; }
     .link-btn.primary:hover { background: var(--teal); border-color: var(--teal); color: #fff; }
+    /* Expandable experience entries */
+    .exp-grid { align-items: start; }
+    .exp-item { background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--teal); border-radius: var(--radius); transition: box-shadow .3s var(--ease), border-color .25s; }
+    .exp-item:hover, .exp-item[open] { box-shadow: 0 20px 38px -28px rgba(20, 36, 59, .5); }
+    .exp-item summary { list-style: none; cursor: pointer; position: relative; display: flex; flex-direction: column; gap: .2rem; padding: 1.15rem 3.4rem 1.2rem 1.4rem; }
+    .exp-item summary::-webkit-details-marker { display: none; }
+    .exp-item .dates { font-family: var(--mono); font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: var(--green); margin: 0 0 .3rem; }
+    .exp-item .exp-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; line-height: 1.3; color: var(--ink); }
+    .exp-item .org { font-weight: 600; color: var(--teal); font-size: .95rem; }
+    .exp-toggle { position: absolute; right: 1.1rem; top: 1.15rem; width: 28px; height: 28px; border-radius: 50%; border: 1.5px solid var(--teal); color: var(--teal); transition: background-color .2s, color .2s, transform .3s var(--ease); }
+    .exp-toggle::before, .exp-toggle::after { content: ""; position: absolute; left: 50%; top: 50%; width: 11px; height: 2px; margin: -1px 0 0 -5.5px; background: currentColor; border-radius: 1px; }
+    .exp-toggle::after { transform: rotate(90deg); transition: transform .3s var(--ease); }
+    .exp-item[open] .exp-toggle { background: var(--teal); color: #fff; }
+    .exp-item[open] .exp-toggle::after { transform: rotate(0deg); }
+    .exp-item summary:hover .exp-toggle { background: var(--teal); color: #fff; }
+    .exp-body { margin: 0 1.4rem; padding: .9rem 0 1.3rem; border-top: 1px dashed var(--line); }
+    .exp-body p { margin: 0 0 .6rem; color: var(--ink-soft); font-size: .95rem; }
+    .exp-body p:last-child { margin-bottom: 0; }
+    .exp-body ul { margin: 0; padding-left: 1.15rem; color: var(--ink-soft); font-size: .95rem; }
+    .exp-body li { margin-bottom: .45rem; }
+    .exp-label { font-family: var(--mono); font-size: .72rem !important; letter-spacing: .06em; text-transform: uppercase; color: var(--green) !important; margin-top: .4rem !important; }
+    .exp-list { display: grid; gap: .7rem; }
+    .exp-list .exp-item { border-top-width: 1px; }
+    .exp-list .exp-item summary { flex-direction: row; flex-wrap: wrap; align-items: baseline; gap: .15rem 1rem; padding: 1rem 3.6rem 1rem 1.4rem; }
+    .exp-list .exp-item .exp-title { order: 1; font-size: 1.1rem; }
+    .exp-list .exp-item .org { order: 2; }
+    .exp-list .exp-item .dates { order: 3; margin: 0 0 0 auto; }
+    .exp-list .exp-toggle { top: 50%; margin-top: -14px; }
+    /* Incoming roles: green badge and a distinct card */
+    .exp-item.incoming { border-top: 4px dashed #2f8f5b; background: linear-gradient(180deg, #f1faf4 0%, var(--card) 70%); }
+    .exp-item.incoming .exp-toggle { border-color: #2f8f5b; color: #2f8f5b; }
+    .exp-item.incoming[open] .exp-toggle, .exp-item.incoming summary:hover .exp-toggle { background: #2f8f5b; color: #fff; }
+    .badge-incoming { display: inline-flex; align-items: center; gap: .35rem; vertical-align: middle; margin-left: .4rem; background: linear-gradient(135deg, #3aa56e, #2a7d52); color: #fff; border-radius: 999px; padding: .12rem .7rem .12rem .55rem; font-family: var(--mono); font-size: .66rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; box-shadow: 0 6px 14px -8px rgba(42, 125, 82, .9); }
+    .badge-incoming::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #c9f2d9; }
+    @media (max-width: 600px) { .exp-list .exp-item .dates { margin-left: 0; order: 0; width: 100%; } }
+    /* Selected work: the ArcGIS button lives inside the expanded case study */
+    .case-cta { margin-top: .8rem; padding-top: .9rem; border-top: 1px solid var(--line); }
+    .case-body .case-cta { grid-column: 1 / -1; }
+    /* Tools: roomier groups and spaced labels */
+    #skills .learning { padding: 1.5rem 1.6rem 1.7rem; }
+    #skills .learning h3 { margin-bottom: 1.1rem; }
+    .tool-group + .tool-group { margin-top: 1.4rem; }
+    .tool-group h4 { margin: 0 0 .65rem; font-family: var(--mono); font-size: .74rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--green); }
+    .learning .tool-tags, .tool-tags { list-style: none; display: flex; flex-wrap: wrap; gap: .55rem .6rem; margin: 0; padding: 0; }
+    .tool-tags li { background: var(--teal-light); color: var(--teal); border-radius: 999px; padding: .28rem .85rem; font-size: .88rem; font-weight: 600; line-height: 1.3; }
     .acc-toggle { display: none; }
     .project[hidden] { display: none !important; }
 
@@ -630,7 +675,6 @@
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Main">
         <ul>
-          <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#currently">Currently</a></li>
           <li><a href="#experience">Experience</a></li>
@@ -696,22 +740,7 @@
       </div>
     </div>
 
-    <!-- =========================================================
-         ABOUT (top of the page, opens as a dropdown)
-         ========================================================= -->
-    <section id="about" class="about-top" aria-label="About me">
-      <div class="wrap">
-        <details class="about-acc">
-          <summary><span class="acc-title">About me</span></summary>
-          <div class="about-text">
-            <p class="about-lead">I'm Ethan, an Earth Science and GIS student at the University of Auckland.</p>
-            <p>I'm interested in how spatial analysis and environmental data can help us understand landscapes and ecosystems, and respond to challenges such as pollution, coastal change, and flooding. I'm keen to keep learning and apply these skills to practical projects that benefit communities and the environment.</p>
-          </div>
-        </details>
-      </div>
-    </section>
-
-    <!-- =========================================================
+<!-- =========================================================
          FEATURED PROJECTS (sliding cards)
          Each project is one <article class="project featured">.
          ========================================================= -->
@@ -771,9 +800,9 @@
                     <div><h4>Method</h4><p>I summed GPS distances along TERF07's route to estimate about 4,920 km over roughly 91 days. I then focused on 2023, counted records by season, compared median temperature, NDVI and wind speed, and mapped eagle density over land use in Delta.</p></div>
                     <div><h4>Output and interpretation</h4><p>Records peaked in spring (313) and were fewest in autumn (47). Winter and spring locations were cold with low NDVI. In Delta, the densest hotspot sits in an industrial zone, although industrial land is only 23.0% of the area.</p></div>
                     <div><h4>Limitations</h4><p>The points show where eagles were recorded, not what they were doing or whether they preferred those places over other available land.</p></div>
+                    <div class="wide case-cta"><a class="link-btn primary" href="https://arcg.is/urvmn1" target="_blank" rel="noopener">Open the story on ArcGIS Online</a></div>
                   </div>
                 </details>
-                <div class="links cta"><a class="link-btn primary" href="https://arcg.is/urvmn1" target="_blank" rel="noopener">Open the story on ArcGIS Online</a></div>
               </div>
             </article>
 
@@ -1175,7 +1204,8 @@
                   <div><h4>Method</h4><p><strong>Sunset Beach:</strong> I collected sediment samples across the beach profile and analysed them by laser diffraction for grain size distribution, extracted hand-auger cores to log subsurface stratigraphy, and ran a dumpy level survey from the dune crest to the low tide mark. <strong>Waikawau Valley:</strong> I recorded and sketched the sedimentary sequence and documented the Ohuka Landslide. <strong>Whakatiwai Stream:</strong> I measured wetted width, depth and surface velocity to calculate cross-sectional area and discharge for each channel thread, and logged bed material, bank layers and bar features.</p></div>
                   <div><h4>Output and interpretation</h4><p>The beach survey provides a baseline elevation record for tracking erosion and accretion over time. At Waikawau Valley the rock layers dip gently eastward at about 8 degrees, from Jurassic greywacke basement through sandstone, siltstone and limestone to Quaternary alluvium, reflecting marine deposition followed by uplift. The Ohuka Landslide is a three-layer failure: a weaker, clay-rich siltstone sits between stronger rock, rainwater raises pore pressure in it, the upper layers slide, and coastal erosion removes support at the base. At Whakatiwai Stream, the discharge calculations show how different channel threads contribute to total flow, linking hydraulic conditions to sediment transport and channel stability.</p></div>
                   <div><h4>Limitations</h4><p>The measurements are a snapshot from fieldwork, so repeated surveys would be needed to show actual erosion and accretion over time.</p></div>
-                </div></div>              <div class="links cta"><a class="link-btn primary" href="https://arcg.is/09TOWD0" target="_blank" rel="noopener">Open the story on ArcGIS Online</a></div>
+                  <div class="case-cta"><a class="link-btn primary" href="https://arcg.is/09TOWD0" target="_blank" rel="noopener">Open the story on ArcGIS Online</a></div>
+                </div></div>
 
               </div>
             </div>
@@ -1267,18 +1297,18 @@
           </div>
           <div class="learning reveal">
             <h3>Tools</h3>
-            <h4>GIS and mapping</h4>
-            <ul>
-              <li>ArcGIS Pro, ArcGIS Online, QGIS</li>
-            </ul>
-            <h4>Programming and data analysis</h4>
-            <ul>
-              <li>Microsoft Excel, Python, SQL, FME</li>
-            </ul>
-            <h4>Currently learning</h4>
-            <ul>
-              <li>R, Google Earth Engine, JavaScript</li>
-            </ul>
+            <div class="tool-group">
+              <h4>GIS and mapping</h4>
+              <ul class="tool-tags"><li>ArcGIS Pro</li><li>ArcGIS Online</li><li>QGIS</li></ul>
+            </div>
+            <div class="tool-group">
+              <h4>Programming and data analysis</h4>
+              <ul class="tool-tags"><li>Microsoft Excel</li><li>Python</li><li>SQL</li><li>FME</li></ul>
+            </div>
+            <div class="tool-group">
+              <h4>Currently learning</h4>
+              <ul class="tool-tags"><li>R</li><li>Google Earth Engine</li><li>JavaScript</li></ul>
+            </div>
           </div>
         </div>
       </div>
@@ -1295,83 +1325,173 @@
           <p>Environmental and planning work, student leadership and my studies at the University of Auckland.</p>
         </div>
         <h3 class="exp-group">Work experience</h3>
-        <div class="exp-grid exp-grid-4">
-          <article class="exp-card incoming reveal">
-            <p class="dates"><span class="badge-incoming">Incoming</span> From February 2027</p>
-            <h4>Resident Adviser</h4>
-            <p class="org">Carlaw Park Student Village, University of Auckland</p>
-            <p class="contrib">I will join the Carlaw Park Student Village team as a Resident Adviser from February 2027.</p>
-          </article>
-          <article class="exp-card reveal">
-            <p class="dates">Nov 2026 – present</p>
-            <h4>Healthy Waters Intern</h4>
-            <p class="org">Auckland Council</p>
-            <p class="contrib">GIS work for the Healthy Waters team. I support stormwater and flood resilience projects, assist with data collection and GIS-based tasks to support planning, and review property files and assist with site assessments for compliance.</p>
-          </article>
-          <article class="exp-card reveal">
-            <p class="dates">June – July 2026</p>
-            <h4>Holistic Intern</h4>
-            <p class="org">Waiheke Resources Trust</p>
-            <p class="contrib">Supported projects focused on wetland restoration and waste reduction, contributing to five sustainability projects and developing an understanding of stakeholder engagement and local action.</p>
-          </article>
-          <article class="exp-card reveal">
-            <p class="dates">2022 – 2023</p>
-            <h4>Assistant Trainer</h4>
-            <p class="org">Singapore Civil Defence Force</p>
-            <p class="contrib">Trained Section Commanders in leadership, procedures and field readiness, delivering structured training sessions in high-pressure environments.</p>
-          </article>
+        <div class="exp-grid">
+          <details class="exp-item incoming reveal">
+            <summary>
+              <span class="dates">Starting February 2027</span>
+              <span class="exp-title">Resident Adviser <span class="badge-incoming">Incoming</span></span>
+              <span class="org">Carlaw Park Student Village, University of Auckland</span>
+              <span class="exp-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="exp-body">
+              <p>I will join the Carlaw Park Student Village team as a Resident Adviser from February 2027.</p>
+            </div>
+          </details>
+          <details class="exp-item reveal">
+            <summary>
+              <span class="dates">Nov 2026 – present</span>
+              <span class="exp-title">Healthy Waters Intern</span>
+              <span class="org">Auckland Council</span>
+              <span class="exp-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="exp-body">
+              <p>GIS work for the Healthy Waters team. I support stormwater and flood resilience projects, assist with data collection and GIS-based tasks to support planning, and review property files and assist with site assessments for compliance.</p>
+            </div>
+          </details>
+          <details class="exp-item reveal">
+            <summary>
+              <span class="dates">June – July 2026</span>
+              <span class="exp-title">Holistic Intern</span>
+              <span class="org">Waiheke Resources Trust</span>
+              <span class="exp-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="exp-body">
+              <p>Supported projects focused on wetland restoration and waste reduction, contributing to five sustainability projects and developing an understanding of stakeholder engagement and local action.</p>
+            </div>
+          </details>
         </div>
-        <details class="exp-more">
-          <summary>More experience</summary>
-          <ul>
-            <li><strong>A-Level English Tutor, King's College</strong> (Aug – Nov 2025). Delivered one-to-one A-Level English tuition to three students at once, designing lesson plans and teaching analytical writing and comprehension.</li>
-          </ul>
-        </details>
 
         <h3 class="exp-group">Leadership and involvement</h3>
         <div class="exp-grid">
-          <article class="exp-card reveal">
-            <p class="dates">2026 · President from 2027</p>
-            <h4>Co-President, then incoming President</h4>
-            <p class="org">Linguistics and Language Society</p>
-            <p class="contrib">As Co-President in 2026, I co-led the executive and ran language exchanges and board-game events, around nine language events in all. In 2027, I will lead a six-person executive as President.</p>
-          </article>
-          <article class="exp-card reveal">
-            <p class="dates">2026 – present</p>
-            <h4>International Student Officer</h4>
-            <p class="org">Science Students' Association</p>
-            <p class="contrib">Work with an 18-member executive team to plan events, and represent international student interests through inclusive initiatives.</p>
-          </article>
-          <article class="exp-card reveal">
-            <p class="dates">2025 – present</p>
-            <h4>Class Representative</h4>
-            <p class="org">CHEM 150, WTRSCI 100 and ENV 103</p>
-            <p class="contrib">Represent students in these three courses, liaising with teaching staff on feedback and raising course-related issues.</p>
-          </article>
+          <details class="exp-item incoming reveal">
+            <summary>
+              <span class="dates">2027</span>
+              <span class="exp-title">President <span class="badge-incoming">Incoming</span></span>
+              <span class="org">Linguistics and Language Society</span>
+              <span class="exp-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="exp-body">
+              <p class="exp-label">2027 · Incoming President</p>
+              <p>I will lead a six-person executive.</p>
+              <p class="exp-label">2026 · Co-President</p>
+              <p>Co-led the executive and ran language exchanges and board-game events, around nine language events in all, overseeing planning, promotion and delivery to drive student engagement.</p>
+            </div>
+          </details>
+          <details class="exp-item reveal">
+            <summary>
+              <span class="dates">2026 – present</span>
+              <span class="exp-title">International Student Officer</span>
+              <span class="org">Science Students' Association</span>
+              <span class="exp-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="exp-body">
+              <p>Work with an 18-member executive team to plan events, and represent international student interests through inclusive initiatives.</p>
+            </div>
+          </details>
+          <details class="exp-item reveal">
+            <summary>
+              <span class="dates">2025 – present</span>
+              <span class="exp-title">Class Representative</span>
+              <span class="org">University of Auckland</span>
+              <span class="exp-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="exp-body">
+              <p>Represent students in CHEM 150, WTRSCI 100 and ENV 103, liaising with teaching staff on feedback and raising course-related issues.</p>
+            </div>
+          </details>
         </div>
-        <details class="exp-more">
-          <summary>More experience</summary>
-          <ul>
-            <li><strong>General Committee Member, RTEA</strong> (2025 – present). Involved in events, logistics and budgeting for club activities.</li>
-            <li><strong>RTEA Geospatial Evenings</strong> (2025 and 2026). Helped organise both events, each with approximately 70 attendees, supporting budgeting and industry invitations, including Eagle Technology.</li>
-            <li><strong>Buddy Leader, Auckland University Students' Association</strong> (2025 – present, including Semester 2, 2026). Mentor up to four new students at a time through their university transition, with peer guidance on services, resources and engagement.</li>
-          </ul>
-        </details>
+
+        <h3 class="exp-group">More experience</h3>
+        <div class="exp-list">
+          <details class="exp-item reveal">
+            <summary>
+              <span class="dates">2025 – present</span>
+              <span class="exp-title">General Committee Member</span>
+              <span class="org">RTEA</span>
+              <span class="exp-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="exp-body">
+              <ul>
+                <li>Involved in events, logistics and budgeting.</li>
+                <li>Helped organise the 2025 and 2026 Geospatial Evenings, with approximately 70 attendees at each.</li>
+                <li>Supported budgeting and industry invitations, including Eagle Technology.</li>
+              </ul>
+            </div>
+          </details>
+          <details class="exp-item reveal">
+            <summary>
+              <span class="dates">2025 – present</span>
+              <span class="exp-title">Buddy Leader</span>
+              <span class="org">Auckland University Students' Association</span>
+              <span class="exp-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="exp-body">
+              <p>Including Semester 2, 2026. Mentor up to four new students at a time through their university transition, with peer guidance on services, resources and engagement.</p>
+            </div>
+          </details>
+          <details class="exp-item reveal">
+            <summary>
+              <span class="dates">Aug – Nov 2025</span>
+              <span class="exp-title">A-Level English Tutor</span>
+              <span class="org">King's College</span>
+              <span class="exp-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="exp-body">
+              <p>Delivered one-to-one A-Level English tuition to three students at once, designing lesson plans and teaching analytical writing and comprehension.</p>
+            </div>
+          </details>
+          <details class="exp-item reveal">
+            <summary>
+              <span class="dates">January – December 2024</span>
+              <span class="exp-title">Events &amp; Retail Assistant</span>
+              <span class="org">Refix Private Limited</span>
+              <span class="exp-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="exp-body">
+              <ul>
+                <li>Delivered front-of-house customer service at events and retail booths.</li>
+                <li>Supported on-site sales, promotions and marketing material distribution.</li>
+                <li>Collected customer feedback via surveys to support event activations.</li>
+              </ul>
+            </div>
+          </details>
+          <details class="exp-item reveal">
+            <summary>
+              <span class="dates">2022 – 2023</span>
+              <span class="exp-title">Assistant Trainer</span>
+              <span class="org">Singapore Civil Defence Force</span>
+              <span class="exp-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="exp-body">
+              <p>Trained Section Commanders in leadership, procedures and field readiness, delivering structured training sessions in high-pressure environments.</p>
+            </div>
+          </details>
+        </div>
 
         <h3 class="exp-group">Education</h3>
         <div class="exp-grid exp-grid-2">
-          <article class="exp-card reveal">
-            <p class="dates">Feb 2025 – Nov 2027</p>
-            <h4>Bachelor of Science, double major in Earth Science and GIS</h4>
-            <p class="org">University of Auckland, New Zealand</p>
-            <p class="contrib">First in Course for GERMAN 101 and Distinction in STATS 101. Coursework spans geospatial analysis and fieldwork.</p>
-          </article>
-          <article class="exp-card reveal">
-            <p class="dates">Jan 2020 – Nov 2021</p>
-            <h4>GCE A-Levels</h4>
-            <p class="org">Yishun Innova Junior College, Singapore</p>
-            <p class="contrib">Completed H2 Chemistry, Biology and Economics, building analytical, written communication and critical reading skills.</p>
-          </article>
+          <details class="exp-item reveal">
+            <summary>
+              <span class="dates">Feb 2025 – Nov 2027</span>
+              <span class="exp-title">Bachelor of Science, double major in Earth Science and GIS</span>
+              <span class="org">University of Auckland, New Zealand</span>
+              <span class="exp-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="exp-body">
+              <p>First in Course for GERMAN 101 and Distinction in STATS 101. Coursework spans geospatial analysis and fieldwork.</p>
+            </div>
+          </details>
+          <details class="exp-item reveal">
+            <summary>
+              <span class="dates">Jan 2020 – Nov 2021</span>
+              <span class="exp-title">GCE A-Levels</span>
+              <span class="org">Yishun Innova Junior College, Singapore</span>
+              <span class="exp-toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="exp-body">
+              <p>Completed H2 Chemistry, Biology and Economics, building analytical, written communication and critical reading skills.</p>
+            </div>
+          </details>
         </div>
       </div>
     </section>
