@@ -321,33 +321,46 @@
     .interests h2 { color: var(--paper); }
     .interests .eyebrow { color: #8fd0c6; }
     .interests .wrap { position: relative; }
-    .interests .section-head p { color: #d9d3c4; }
+    /* Terrarium hobby section: forest-green band, one dropdown per build */
+    .interests { background: radial-gradient(900px 420px at 92% -8%, rgba(120, 170, 110, .28), transparent 70%), radial-gradient(700px 380px at -5% 105%, rgba(79, 109, 74, .35), transparent 70%), #17241c; }
+    .interests .eyebrow { color: #a9d9a2; }
+    .interests .section-head p { color: #dcd6c6; }
     .interests .section-head { margin-bottom: 1.8rem; }
-
-    /* Terrarium hobby section: one dropdown per build */
-    .terr-intro { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 2rem 3rem; align-items: center; margin-bottom: 2rem; }
+    .terr-intro { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 2rem 3rem; align-items: center; margin-bottom: 2.2rem; }
     .terr-intro .section-head { margin-bottom: 0; }
-    .terr-cover { margin: 0; border-radius: var(--radius); overflow: hidden; border: 1px solid rgba(246, 242, 233, .25); }
+    .terr-cover { margin: 0; border-radius: 18px; overflow: hidden; box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .8); }
     .terr-cover img { width: 100%; height: auto; max-height: 420px; object-fit: cover; }
-    .terr-list { display: grid; gap: .7rem; }
-    .terr { background: var(--card); color: var(--ink); border: 1px solid var(--line); border-radius: calc(var(--radius) + 4px); overflow: hidden; }
-    .terr summary { list-style: none; cursor: pointer; display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: 1.15rem 1.4rem; }
+    .terr-list { display: grid; gap: .8rem; }
+    .terr { background: rgba(246, 242, 233, .06); color: var(--paper); border: 1px solid rgba(246, 242, 233, .16); border-radius: 18px; overflow: hidden; transition: border-color .25s, background-color .25s; }
+    .terr:hover, .terr[open] { border-color: rgba(169, 217, 162, .55); background: rgba(246, 242, 233, .09); }
+    .terr summary { list-style: none; cursor: pointer; display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: 1.2rem 1.5rem; }
     .terr summary::-webkit-details-marker { display: none; }
-    .terr .terr-title { font-family: var(--serif); font-size: clamp(1.15rem, 2vw, 1.4rem); line-height: 1.25; }
-    .terr .terr-cat { margin-left: auto; font-family: var(--mono); font-size: .72rem; letter-spacing: .05em; color: var(--green); text-align: right; }
-    .terr summary::after { content: "+"; font-family: var(--mono); color: var(--teal); font-size: 1.3rem; line-height: 1; }
+    .terr .terr-title { font-family: var(--serif); font-size: clamp(1.2rem, 2.1vw, 1.5rem); line-height: 1.25; }
+    .terr .terr-cat { margin-left: auto; font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: #a9d9a2; text-align: right; }
+    .terr summary::after { content: "+"; font-family: var(--mono); color: #a9d9a2; font-size: 1.4rem; line-height: 1; }
     .terr[open] summary::after { content: "\2212"; }
-    .terr[open] summary { border-bottom: 1px solid var(--line); }
-    .terr-body { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 1.5rem 2rem; padding: 1.4rem; align-items: start; }
+    .terr[open] summary { border-bottom: 1px solid rgba(246, 242, 233, .14); }
+    .terr-body { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 1.6rem 2.2rem; padding: 1.6rem; align-items: start; }
+    .terr-body.tall { grid-template-columns: minmax(0, 330px) minmax(0, 1fr); }
     .terr-body.stack { grid-template-columns: 1fr; }
     .terr-body figure { margin: 0; }
-    .terr-body .frame { border: 1px solid var(--line); border-radius: 10px; }
-    .terr-text p { color: var(--ink-soft); }
-    .terr-text h4 { margin-top: 1rem; }
-    .terr-text ol { margin: .3rem 0 0; padding-left: 1.2rem; color: var(--ink-soft); font-size: .95rem; }
-    .terr-text ol li { margin-bottom: .5rem; }
-    .terr-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; align-items: start; }
-    @media (max-width: 900px) { .terr-intro, .terr-body { grid-template-columns: 1fr; } }
+    /* Photos sit directly on the dark background, with no white frame */
+    .terr .frame, .terr .frame.has-img { background: transparent; background-image: none; padding: 0; border: 0; aspect-ratio: auto; display: block; border-radius: 14px; overflow: hidden; box-shadow: 0 24px 44px -24px rgba(0, 0, 0, .85); }
+    .terr .frame.has-img img { width: 100%; height: auto; max-height: none; object-fit: cover; display: block; }
+    .terr-body.tall .frame.has-img img { aspect-ratio: 3 / 4; height: auto; object-fit: cover; object-position: 50% 62%; }
+    .terr-text p { color: #e4dfd1; font-size: 1.02rem; }
+    .terr-text h4 { color: var(--paper); font-family: var(--serif); font-size: 1.15rem; margin: 1.2rem 0 .5rem; }
+    .terr-text ol { margin: .3rem 0 0; padding-left: 1.2rem; color: #dcd6c6; font-size: .97rem; }
+    .terr-text ol li { margin-bottom: .6rem; }
+    .terr-text strong { color: var(--paper); }
+    .terr-notes { margin: 1.1rem 0 0; display: grid; gap: .9rem; }
+    .terr-notes > div { padding-left: 1rem; border-left: 2px solid rgba(169, 217, 162, .55); }
+    .terr-notes dt { font-family: var(--mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: #a9d9a2; margin-bottom: .15rem; }
+    .terr-notes dd { margin: 0; color: #e4dfd1; font-size: .98rem; }
+    .terr-lead { color: #e4dfd1; max-width: 46rem; margin: 0; }
+    .terr-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; align-items: start; }
+    .terr .zoom span { background: rgba(23, 36, 28, .85); }
+    @media (max-width: 900px) { .terr-intro, .terr-body, .terr-body.tall { grid-template-columns: 1fr; } .terr-body.tall figure { max-width: 340px; } }
     @media (max-width: 600px) { .terr-gallery { grid-template-columns: 1fr; } }
 
     /* =========================================================
@@ -589,53 +602,26 @@
         <div class="section-head reveal">
           <p class="eyebrow">Featured projects</p>
           <h2 id="featured-title">Selected work</h2>
-          <p>Three of my larger analyses, each written up with its question, method and limitations. Slide through them, or open a case study to read more.</p>
+          <p>Three projects in more detail: wildlife migration, residential suitability and urban food-business corridors. Slide through them, or open a case study to read more.</p>
         </div>
 
         <div class="slider-shell reveal">
           <div class="slider" id="featured-slider" tabindex="0" role="region" aria-label="Featured projects, scroll sideways">
 
-            <!-- ===== FEATURED A: AUCKLAND ATMOSPHERIC POLLUTION ===== -->
-            <article class="project featured" id="p-air-pollution" data-cat="environment">
-              <div class="figs">
-                <figure>
-                  <div class="frame">
-                    <img class="shot" src="assets/air-pollution-01.jpg" alt="Maps of interpolated SO2 and NO2 concentration surfaces across Auckland, each with a seven-class legend" hidden onload="showImg(this)" onerror="hideImg(this)">
-                  </div>
-                  <figcaption>SO<sub>2</sub> (left) and NO<sub>2</sub> (right) concentration surfaces from IDW interpolation, each shown with a seven-class legend.</figcaption>
-                </figure>
-                <figure>
-                  <div class="frame">
-                    <img class="shot" src="assets/air-pollution-02.jpg" alt="Map of Auckland locations where both NO2 and SO2 exceed the selected analysis thresholds" hidden onload="showImg(this)" onerror="hideImg(this)">
-                  </div>
-                  <figcaption>Locations above both selected thresholds. These are analysis thresholds, not a validated health-risk map.</figcaption>
-                </figure>
-              </div>
+            <!-- ===== FEATURED A: EAGLE MIGRATION ===== -->
+            <article class="project featured" id="p-eagle-migration" data-cat="environment">
               <div class="project-body">
                 <div class="main-col">
-                  <p class="chips"><span class="cat">Environment and climate</span><span class="status">Completed</span></p>
-                  <h3>Auckland atmospheric pollution analysis</h3>
-                  <p class="summary">How can monitoring-station measurements be used to map the spatial variation of NO<sub>2</sub> and SO<sub>2</sub> across Auckland, and where do both pollutants exceed selected thresholds?</p>
-                  <ul class="tags"><li>ArcGIS Pro</li><li>IDW interpolation</li><li>Reclassification</li><li>Raster overlay</li></ul>
+                  <p class="chips"><span class="cat">Environment and climate</span></p>
+                  <h3>Eagle migration</h3>
+                  <p class="summary">A project exploring eagle migration through spatial data and map-based visualisation.</p>
                 </div>
                 <div class="side-col">
                   <dl class="meta">
-                    <dt>Location</dt><dd>Auckland, New Zealand</dd>
-                    <dt>Software</dt><dd>ArcGIS Pro</dd>
-                    <dt>Outputs</dt><dd>Two concentration surfaces and a combined-exceedance map</dd>
+                    <dt>Theme</dt><dd>Wildlife movement and migration</dd>
+                    <dt>Approach</dt><dd>Spatial data and map-based visualisation</dd>
                   </dl>
                 </div>
-                <div class="links"></div>
-                <details class="case">
-                  <summary>Read the case study</summary>
-                  <div class="case-body">
-                    <div class="wide"><h4>Overview</h4><p>I used readings from air quality monitoring stations to estimate how nitrogen dioxide (NO<sub>2</sub>) and sulphur dioxide (SO<sub>2</sub>) vary across Auckland, then identified locations where both pollutants exceed thresholds I selected for the analysis. I produced the analysis and the maps presented here.</p></div>
-                    <div><h4>Data and sources</h4><p>NO<sub>2</sub> and SO<sub>2</sub> monitoring-station measurements, and the Auckland boundary.</p></div>
-                    <div><h4>Method</h4><p>In ArcGIS Pro, I used Inverse Distance Weighting (IDW) to create continuous concentration surfaces, clipped them to the Auckland boundary and symbolised each with a seven-class legend. I then reclassified the rasters to flag cells where NO<sub>2</sub> exceeded 35 µg/m³ and SO<sub>2</sub> exceeded 50 µg/m³, and multiplied the two binary layers to isolate cells where both thresholds were exceeded.</p></div>
-                    <div><h4>Output and interpretation</h4><p>The outputs are a concentration surface for each pollutant and a map of cells above both selected thresholds. The surfaces are interpolated estimates between stations, not direct measurements, so the combined map shows where the model estimates both thresholds are exceeded.</p></div>
-                    <div><h4>Limitations</h4><p>The 35 µg/m³ and 50 µg/m³ values are analysis thresholds I selected. Their regulatory basis and averaging periods have not been verified, so the output should not be read as a validated health-risk map.</p></div>
-                  </div>
-                </details>
               </div>
             </article>
 
@@ -683,45 +669,45 @@
               </div>
             </article>
 
-            <!-- ===== FEATURED C: LAND-USE CONFLICT, KATHMANDU VALLEY ===== -->
-            <article class="project featured" id="p-kathmandu" data-cat="suitability">
+            <!-- ===== FEATURED C: FOOD BUSINESSES AND HIGH-TRAFFIC CORRIDORS, AUCKLAND ===== -->
+            <article class="project featured" id="p-food-corridors" data-cat="urban">
               <div class="figs">
                 <figure>
                   <div class="frame">
-                    <img class="shot" src="assets/kathmandu-landuse-01.jpg" alt="Side-by-side suitability maps for the carpet industry and for agriculture in the Kathmandu Valley" hidden onload="showImg(this)" onerror="hideImg(this)">
+                    <img class="shot" src="assets/food-business-corridors-01.jpg" alt="Two maps of Auckland: all food businesses by type on the left, and road corridors with at least 20 food businesses on the right" hidden onload="showImg(this)" onerror="hideImg(this)">
                   </div>
-                  <figcaption>Carpet-industry (left) and agricultural (right) suitability surfaces.</figcaption>
+                  <figcaption>All food businesses by type (left) and the road corridors with 20 or more food businesses (right).</figcaption>
                 </figure>
                 <figure>
                   <div class="frame">
-                    <img class="shot" src="assets/kathmandu-landuse-02.jpg" alt="Map of modelled land-use conflict in the Kathmandu Valley where both suitability surfaces score highly" hidden onload="showImg(this)" onerror="hideImg(this)">
+                    <img class="shot" src="assets/food-business-corridors-02.jpg" alt="Map of high-density food-business road corridors in central Auckland, with an inset of the city centre and a legend of food business types" hidden onload="showImg(this)" onerror="hideImg(this)">
                   </div>
-                  <figcaption>Modelled land-use conflict, where both surfaces score highly.</figcaption>
+                  <figcaption>High-density food-business corridors across Auckland, with an inset of the city centre.</figcaption>
                 </figure>
               </div>
               <div class="project-body">
                 <div class="main-col">
-                  <p class="chips"><span class="cat">Suitability and planning</span><span class="status">Completed</span></p>
-                  <h3>Land-use suitability and conflict in the Kathmandu Valley</h3>
-                  <p class="summary">Where do the modelled suitability surfaces for the carpet industry and for agriculture overlap, and so compete for the same land?</p>
-                  <ul class="tags"><li>QGIS</li><li>Slope and aspect</li><li>Weighted criteria</li><li>Raster overlay</li></ul>
+                  <p class="chips"><span class="cat">Urban spatial analysis</span><span class="status">Completed</span></p>
+                  <h3>Food businesses and high-traffic corridors in Auckland</h3>
+                  <p class="summary">Along which Auckland road corridors are food businesses most concentrated, and which corridors hold 20 or more?</p>
+                  <ul class="tags"><li>ArcGIS Pro</li><li>Spatial join</li><li>Dissolve</li><li>Attribute filtering</li></ul>
                 </div>
                 <div class="side-col">
                   <dl class="meta">
-                    <dt>Location</dt><dd>Kathmandu Valley, Nepal</dd>
-                    <dt>Software</dt><dd>QGIS</dd>
-                    <dt>Outputs</dt><dd>Two suitability surfaces and a land-use conflict map</dd>
+                    <dt>Location</dt><dd>Auckland, New Zealand</dd>
+                    <dt>Software</dt><dd>ArcGIS Pro</dd>
+                    <dt>Outputs</dt><dd>Food businesses by type and a map of high-density corridors</dd>
                   </dl>
                 </div>
                 <div class="links"></div>
                 <details class="case">
                   <summary>Read the case study</summary>
                   <div class="case-body">
-                    <div class="wide"><h4>Overview</h4><p>Two suitability models, one for the carpet industry and one for agriculture, overlaid to show where they could compete for the same land. I produced the analysis and the maps presented here.</p></div>
-                    <div><h4>Data and sources</h4><p>A relief (elevation) layer, plus criteria layers for power and water.</p></div>
-                    <div><h4>Method</h4><p>In QGIS, I derived slope and aspect from relief and normalised the criteria. I applied weighted overlays to produce two surfaces: carpet industry (weights 40/30/20/10) and agriculture (weights 60/40, plus constraints). I then overlaid them to flag cells where both surfaces scored highly.</p></div>
-                    <div><h4>Output and interpretation</h4><p>In this alpine study area, the carpet-industry model favoured river valleys, while the agriculture model showed broader suitability on flatter, more accessible terrain. The conflict map shows where both score highly. These are modelled land-use conflicts, not evidence of actual disputes or development proposals.</p></div>
-                    <div><h4>Limitations</h4><p>The overlap depends on the criteria and weights chosen for each model.</p></div>
+                    <div class="wide"><h4>Overview</h4><p>An analysis of food-business concentration along Auckland's roads, identifying the corridors that function as major food strips. I produced the analysis and the maps presented here.</p></div>
+                    <div><h4>Data and sources</h4><p>Food-business point locations, categorised by type (bar, cafe, fast food, food court, hotel, pub and restaurant), and a road network.</p></div>
+                    <div><h4>Method</h4><p>In ArcGIS Pro, I mapped food businesses by type and spatially joined the points to the road network. I dissolved road segments to count businesses per corridor, kept only corridors with 20 or more food businesses, and compared the full dataset with these high-density corridors.</p></div>
+                    <div><h4>Output and interpretation</h4><p>Maps of all food businesses by type and of the high-density corridors, which highlight the key food districts across the city. These show food-business concentration only. They say nothing about traffic volumes, because no traffic data were analysed.</p></div>
+                    <div><h4>Limitations</h4><p>The 20-business threshold is a cut-off I selected, so a different threshold would identify a different set of corridors.</p></div>
                   </div>
                 </details>
               </div>
@@ -747,7 +733,7 @@
         <div class="section-head reveal">
           <p class="eyebrow">Project collection</p>
           <h2 id="collection-title">More GIS projects</h2>
-          <p>Further analyses covering microclimate, public transport access and urban patterns of food and income. Tap a title to open the project.</p>
+          <p>Further analyses covering air pollution, microclimate, land-use conflict, public transport access and supermarket proximity. Tap a title to open the project.</p>
         </div>
 
         <div class="filter-bar" role="group" aria-label="Filter projects by category" hidden>
@@ -760,6 +746,44 @@
         <p class="filter-status" aria-live="polite"></p>
 
         <div class="project-grid">
+
+          <!-- ===== PROJECT 1: AUCKLAND ATMOSPHERIC POLLUTION ===== -->
+          <details class="project proj-acc" id="p-air-pollution" data-cat="environment">
+            <summary><span class="acc-title">Auckland atmospheric pollution analysis</span><span class="acc-cat">Environment and climate</span></summary>
+            <div class="acc-body">
+              <div class="figs">
+              <figure>
+                <div class="frame">
+                  <img class="shot" src="assets/air-pollution-01.jpg" alt="Maps of interpolated NO2 and SO2 concentration surfaces across Auckland" hidden onload="showImg(this)" onerror="hideImg(this)">
+                  <p class="ph"><span>Main image</span>Image to add<code>assets/air-pollution-01.jpg</code></p>
+                </div>
+                <figcaption>SO<sub>2</sub> and NO<sub>2</sub> concentration surfaces from IDW interpolation, each shown with a seven-class legend.</figcaption>
+              </figure>
+              <figure>
+                <div class="frame">
+                  <img class="shot" src="assets/air-pollution-02.jpg" alt="Map of areas where both pollutants exceed the selected analysis thresholds" hidden onload="showImg(this)" onerror="hideImg(this)">
+                  <p class="ph"><span>Supporting image</span>Optional<code>assets/air-pollution-02.jpg</code></p>
+                </div>
+                <figcaption>Cells above both selected thresholds. These are analysis thresholds, not a validated health-risk map.</figcaption>
+              </figure>
+            </div>
+              <div class="project-body">
+              <p class="chips"><span class="cat">Environment and climate</span><span class="status">Completed</span></p>
+              <p class="summary">How can monitoring-station measurements be used to visualise spatial variation in NO<sub>2</sub> and SO<sub>2</sub> across Auckland?</p>
+              <ul class="tags"><li>ArcGIS Pro</li><li>IDW interpolation</li><li>Reclassification</li><li>Raster overlay</li></ul>
+              <dl class="meta"><dt>Location</dt><dd>Auckland, New Zealand</dd><dt>Software</dt><dd>ArcGIS Pro</dd></dl>
+              <div class="links"></div>
+              <div class="case-open"><div class="case-body">
+                  <div><h4>Overview</h4><p>I used readings from air quality monitoring stations to estimate how NO<sub>2</sub> and SO<sub>2</sub> vary across Auckland, then looked for places where both pollutants were above thresholds I selected for the analysis.</p></div>
+                  <div><h4>Question</h4><p>How can monitoring-station measurements be used to visualise spatial variation in NO<sub>2</sub> and SO<sub>2</sub> across Auckland?</p></div>
+                  <div><h4>Data and sources</h4><p>NO<sub>2</sub> and SO<sub>2</sub> monitoring-station measurements and the Auckland boundary.</p></div>
+                  <div><h4>Method</h4><p>In ArcGIS Pro, I used Inverse Distance Weighting (IDW) to create continuous concentration surfaces, clipped them to the Auckland boundary and symbolised each with a seven-class legend. I then reclassified the rasters to flag cells where NO<sub>2</sub> was above 35 µg/m³ and SO<sub>2</sub> was above 50 µg/m³, and multiplied the two binary layers to find cells where both were exceeded.</p></div>
+                  <div><h4>Output and interpretation</h4><p>The outputs are a concentration surface for each pollutant and a map of cells above both selected thresholds. The surfaces are interpolated estimates between stations, not direct measurements, so the combined map shows where the model estimates both thresholds are exceeded.</p></div>
+                  <div><h4>Limitations</h4><p>The 35 µg/m³ and 50 µg/m³ values are selected analysis thresholds. Their regulatory basis and averaging periods have not been verified here, so the output is not a validated health-risk map.</p></div>
+                  </div></div>
+              </div>
+            </div>
+          </details>
 
           <!-- ===== PROJECT 2: AUCKLAND DOMAIN MICROCLIMATE ===== -->
           <details class="project proj-acc" id="p-microclimate" data-cat="environment">
@@ -794,6 +818,44 @@
                   <div><h4>Method: humidity</h4><p>I produced IDW humidity surfaces for the 2025 and 2026 measurements so the two surveys could be compared.</p></div>
                   <div><h4>Output and interpretation</h4><p>In my temperature maps, IDW produced more localised hotspots around measurement points, while Kriging produced a smoother surface. The humidity maps show spatial variation across the Domain for each survey and let the two periods be compared side by side.</p></div>
                   <div><h4>Limitations</h4><p>Without validation evidence, I don't claim either interpolation method is more accurate. Two survey periods are snapshots, so differences between them don't show long-term climate change.</p></div>
+                  </div></div>
+              </div>
+            </div>
+          </details>
+
+          <!-- ===== PROJECT 4: LAND-USE CONFLICT, KATHMANDU VALLEY ===== -->
+          <details class="project proj-acc" id="p-kathmandu" data-cat="suitability">
+            <summary><span class="acc-title">Land-use suitability and conflict in the Kathmandu Valley</span><span class="acc-cat">Suitability and planning</span></summary>
+            <div class="acc-body">
+              <div class="figs">
+              <figure>
+                <div class="frame">
+                  <img class="shot" src="assets/kathmandu-landuse-01.jpg" alt="Side-by-side suitability maps for carpet industry and agriculture in the Kathmandu Valley" hidden onload="showImg(this)" onerror="hideImg(this)">
+                  <p class="ph"><span>Main image</span>Image to add<code>assets/kathmandu-landuse-01.jpg</code></p>
+                </div>
+                <figcaption>Carpet-industry (left) and agricultural (right) suitability surfaces.</figcaption>
+              </figure>
+              <figure>
+                <div class="frame">
+                  <img class="shot" src="assets/kathmandu-landuse-02.jpg" alt="Map of modelled land-use conflict where both suitability surfaces overlap" hidden onload="showImg(this)" onerror="hideImg(this)">
+                  <p class="ph"><span>Supporting image</span>Optional<code>assets/kathmandu-landuse-02.jpg</code></p>
+                </div>
+                <figcaption>Modelled land-use conflict, where both surfaces score highly.</figcaption>
+              </figure>
+            </div>
+              <div class="project-body">
+              <p class="chips"><span class="cat">Suitability and planning</span><span class="status">Completed</span></p>
+              <p class="summary">Where do modelled suitability for carpet industry and agriculture overlap?</p>
+              <ul class="tags"><li>QGIS</li><li>Slope and aspect</li><li>Weighted criteria</li><li>Overlay</li></ul>
+              <dl class="meta"><dt>Location</dt><dd>Kathmandu Valley, Nepal</dd><dt>Software</dt><dd>QGIS</dd></dl>
+              <div class="links"></div>
+              <div class="case-open"><div class="case-body">
+                  <div><h4>Overview</h4><p>Two suitability models, one for carpet industry and one for agriculture, overlaid to show where they could compete for the same land.</p></div>
+                  <div><h4>Question</h4><p>Where do modelled suitability for carpet industry and agriculture overlap?</p></div>
+                  <div><h4>Data and sources</h4><p>A relief (elevation) layer plus criteria layers for power and water.</p></div>
+                  <div><h4>Method</h4><p>In QGIS, I derived slope and aspect from relief and normalised the criteria. I applied weighted overlays to make two surfaces: carpet industry (weights 40/30/20/10) and agriculture (weights 60/40, plus constraints). I then overlaid them to flag cells where both surfaces scored highly.</p></div>
+                  <div><h4>Output and interpretation</h4><p>In this alpine study area, the carpet-industry model favoured river valleys, while the agriculture model showed broader suitability on flatter, more accessible terrain. The conflict map shows where both score highly. These are modelled land-use conflicts, not evidence of actual disputes or existing development proposals.</p></div>
+                  <div><h4>Limitations</h4><p>The overlap depends on the criteria and weights chosen for each model.</p></div>
                   </div></div>
               </div>
             </div>
@@ -867,43 +929,6 @@
                   <div><h4>Method</h4><p>In ArcGIS Pro, I filtered the census data to extract high-income areas, applied 1 km buffers around supermarket locations, and used intersection and spatial selection to find supermarkets near high-income areas.</p></div>
                   <div><h4>Output and interpretation</h4><p>A map of supermarket buffers in relation to high-income areas. Proximity alone does not show affordability, shopping behaviour or overall food accessibility.</p></div>
                   <div><h4>Limitations</h4><p>A 1 km buffer measures straight-line distance rather than travel along roads.</p></div>
-                  </div></div>
-              </div>
-            </div>
-          </details>
-
-          <!-- ===== PROJECT 7: FOOD-BUSINESS CORRIDORS ===== -->
-          <details class="project proj-acc" id="p-food-corridors" data-cat="urban">
-            <summary><span class="acc-title">Food-business corridors in Auckland</span><span class="acc-cat">Urban spatial analysis</span></summary>
-            <div class="acc-body">
-              <div class="figs">
-              <figure>
-                <div class="frame">
-                  <img class="shot" src="assets/food-business-corridors-01.jpg" alt="Map of Auckland food businesses symbolised by type" hidden onload="showImg(this)" onerror="hideImg(this)">
-                  <p class="ph"><span>Main image</span>Image to add<code>assets/food-business-corridors-01.jpg</code></p>
-                </div>
-                <figcaption>All food businesses by type (left) and corridors with 20 or more food businesses (right).</figcaption>
-              </figure>
-              <figure>
-                <div class="frame">
-                  <img class="shot" src="assets/food-business-corridors-02.jpg" alt="Map of road corridors with at least 20 food businesses" hidden onload="showImg(this)" onerror="hideImg(this)">
-                  <p class="ph"><span>Supporting image</span>Optional<code>assets/food-business-corridors-02.jpg</code></p>
-                </div>
-                <figcaption>High-density food-business corridors in central Auckland.</figcaption>
-              </figure>
-            </div>
-              <div class="project-body">
-              <p class="chips"><span class="cat">Urban spatial analysis</span><span class="status">Completed</span></p>
-              <p class="summary">Mapping food businesses and aggregating them along the road network to find high-density corridors.</p>
-              <ul class="tags"><li>ArcGIS Pro</li><li>Spatial join</li><li>Dissolve</li><li>Attribute filtering</li></ul>
-              <dl class="meta"><dt>Location</dt><dd>Auckland, New Zealand</dd><dt>Software</dt><dd>ArcGIS Pro</dd></dl>
-              <div class="links"></div>
-              <div class="case-open"><div class="case-body">
-                  <div><h4>Overview</h4><p>An analysis of food-business concentration along Auckland roads.</p></div>
-                  <div><h4>Data and sources</h4><p>Food-business locations and a road network.</p></div>
-                  <div><h4>Method</h4><p>In ArcGIS Pro, I mapped food businesses by type and spatially joined the points to the road network. I dissolved road segments to count businesses per corridor, kept only corridors with 20 or more food businesses, and compared the full dataset with these high-density corridors.</p></div>
-                  <div><h4>Output and interpretation</h4><p>Maps of all food businesses by type and of the high-density corridors. These show food-business concentration only. They say nothing about traffic, because no traffic data were analysed.</p></div>
-                  <div><h4>Limitations</h4><p>The 20-business threshold is a cut-off I selected.</p></div>
                   </div></div>
               </div>
             </div>
@@ -1153,13 +1178,13 @@
                 <div class="frame"><img class="shot" src="assets/terrarium-concept.jpg" alt="Diagram of the layers in a terrarium: drainage layer, substrate barrier, charcoal chip layer, substrate mix, plants and hardscape" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
               </figure>
               <div class="terr-text">
-                <p>Every build stacks the same layers from the bottom up: a 1–3 cm drainage layer, a substrate barrier, a fine charcoal chip layer, the substrate mix, then hardscape and plants on top.</p>
+                <p>Every build stacks the same layers from the bottom up. A 1–3 cm drainage layer lets excess water collect away from the roots, a substrate barrier stops soil from washing down into it, and a fine charcoal chip layer helps keep the enclosed air fresh. The substrate mix sits on top, and the hardscape and plants go in last.</p>
                 <h4>My four-step process</h4>
                 <ol>
-                  <li><strong>Landscape planning.</strong> Try different layouts, positions, orientations and sizes of rocks. Larger hardscape tends to go in the background as the framework.</li>
-                  <li><strong>Concept design.</strong> Select a few large plants as the main piece so it is more eye-catching. Disperse the greenery and cover empty spots to hide the soil.</li>
-                  <li><strong>Colour contrast.</strong> Use at least three different colours to create a more immersive and realistic environment.</li>
-                  <li><strong>Final product.</strong> Make sure every spot is covered and the plants are rooted, so the ecosystem can thrive and the plants get enough sunlight without being obstructed.</li>
+                  <li><strong>Landscape planning.</strong> I try different layouts, positions, orientations and sizes of rock before committing. Larger hardscape usually goes in the background as the framework for the scene.</li>
+                  <li><strong>Concept design.</strong> I choose a few large plants as the main piece, so the scene has a clear focal point. The remaining greenery is dispersed to cover empty spots and hide the soil.</li>
+                  <li><strong>Colour contrast.</strong> I aim for at least three different colours, which makes the environment feel more immersive and realistic.</li>
+                  <li><strong>Final product.</strong> Every spot is covered and every plant is rooted, so the ecosystem can thrive and each plant gets enough sunlight without being blocked by its neighbours.</li>
                 </ol>
               </div>
             </div>
@@ -1167,27 +1192,36 @@
 
           <!-- ===== HILL ===== -->
           <details class="terr" id="t-hill">
-            <summary><span class="terr-title">Hill terrarium</span><span class="terr-cat">Depth of field</span></summary>
+            <summary><span class="terr-title">Hill terrarium</span><span class="terr-cat">Focal point and depth</span></summary>
             <div class="terr-body">
               <figure>
                 <div class="frame"><img class="shot" src="assets/terrarium-hill.jpg" alt="Hill terrarium: a small yellow house on a mossy hill with granite rocks, a gravel path and a palm behind" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
               </figure>
               <div class="terr-text">
-                <p>A lonely yellow house on a hill brings contrast and focus to the main piece. Low-lying plants sit in the foreground, and different layers create depth of field.</p>
+                <p>This build is a landscape in miniature: a single yellow house sitting alone on a hill. The house is the only warm, man-made colour in a scene of greens and greys, so the eye goes straight to it.</p>
+                <dl class="terr-notes">
+                  <div><dt>Focal point</dt><dd>A lonely yellow house on the hill brings contrast and focus to the main piece.</dd></div>
+                  <div><dt>Depth</dt><dd>Low-lying plants sit in the foreground, with rocks and taller plants layered behind them, to create depth of field.</dd></div>
+                  <div><dt>Materials</dt><dd>Moss, granite rocks and a pale gravel path, with a palm and fittonia for height and colour.</dd></div>
+                </dl>
               </div>
             </div>
           </details>
 
           <!-- ===== FOREST ===== -->
           <details class="terr" id="t-forest">
-            <summary><span class="terr-title">The Forest terrarium</span><span class="terr-cat">First moss wall</span></summary>
-            <div class="terr-body">
+            <summary><span class="terr-title">The Forest terrarium</span><span class="terr-cat">My first moss wall</span></summary>
+            <div class="terr-body tall">
               <figure>
                 <div class="frame"><img class="shot" src="assets/terrarium-forest.jpg" alt="The Forest terrarium: a tall glass cylinder with a moss wall, pebbles and sand at the base" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
               </figure>
               <div class="terr-text">
-                <p>The first moss wall I created. Cushion moss creates depth on the vertical spectrum, smooth pebbles add natural contrast in colour, and sand finishes the difference in texture.</p>
-                <ul class="tags"><li>Cushion moss</li><li>Pebbles</li><li>Sand</li></ul>
+                <p>This is the first moss wall I created. Instead of spreading the planting across the floor of the jar, the moss is built up the glass, so the scene reads like a forest wall rising out of the ground.</p>
+                <dl class="terr-notes">
+                  <div><dt>Depth</dt><dd>Cushion moss creates depth on the vertical spectrum, giving the wall height as well as thickness.</dd></div>
+                  <div><dt>Contrast</dt><dd>Smooth pebbles at the base add a natural contrast in colour against the dark green moss.</dd></div>
+                  <div><dt>Texture</dt><dd>A layer of sand finishes the scene, making the difference in texture between wall and ground clear.</dd></div>
+                </dl>
               </div>
             </div>
           </details>
@@ -1195,13 +1229,17 @@
           <!-- ===== CAVERN ===== -->
           <details class="terr" id="t-cavern">
             <summary><span class="terr-title">The Cavern terrarium</span><span class="terr-cat">Cave inspired</span></summary>
-            <div class="terr-body">
+            <div class="terr-body tall">
               <figure>
                 <div class="frame"><img class="shot" src="assets/terrarium-cavern.jpg" alt="The Cavern terrarium: a slate stone cave entrance overgrown with moss inside a glass cylinder" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
               </figure>
               <div class="terr-text">
-                <p>Cave inspired, with dark spaces to add extra dimension. Slate stones recreate the entrance, and foxtail moss gives it an overgrown look.</p>
-                <ul class="tags"><li>Slate stones</li><li>Foxtail moss</li></ul>
+                <p>The Cavern is inspired by a cave mouth. Rather than filling every space with greenery, I left dark, shadowed gaps on purpose, because they add an extra dimension and make the scene feel deeper than the glass is wide.</p>
+                <dl class="terr-notes">
+                  <div><dt>Concept</dt><dd>A cave-inspired layout with dark spaces to add extra dimension.</dd></div>
+                  <div><dt>Entrance</dt><dd>Slate stones recreate the cave entrance, with a flat capstone resting on upright pieces.</dd></div>
+                  <div><dt>Planting</dt><dd>Foxtail moss gives the entrance an overgrown look, with small plants softening the edges.</dd></div>
+                </dl>
               </div>
             </div>
           </details>
@@ -1214,22 +1252,29 @@
                 <div class="frame"><img class="shot" src="assets/terrarium-paradise.jpg" alt="Paradise terrarium: a rounded glass bowl with a sand valley, sharp rocks, moss, pink fittonia and a small palm" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
               </figure>
               <div class="terr-text">
-                <p>A tropical setting. Butterfly pink fittonia gives shape and colour contrast, and a parlor palm adds height and different degrees of lush greenery. Sharp-edged rocks are placed strategically to create a valley.</p>
-                <ul class="tags"><li>Pink fittonia</li><li>Parlor palm</li><li>Sharp-edged rocks</li></ul>
+                <p>Paradise is a tropical scene set in a rounded glass bowl, with a sandy path winding between rocks and moss like a small valley.</p>
+                <dl class="terr-notes">
+                  <div><dt>Colour</dt><dd>Butterfly pink fittonia gives shape and colour contrast against the greens.</dd></div>
+                  <div><dt>Height</dt><dd>A parlor palm adds height and different degrees of lush greenery.</dd></div>
+                  <div><dt>Landform</dt><dd>Sharp-edged rocks are placed strategically on either side to create the valley.</dd></div>
+                </dl>
               </div>
             </div>
           </details>
 
           <!-- ===== JEWEL ===== -->
           <details class="terr" id="t-jewel">
-            <summary><span class="terr-title">Jewel terrarium</span><span class="terr-cat">Moss wall</span></summary>
-            <div class="terr-body">
+            <summary><span class="terr-title">Jewel terrarium</span><span class="terr-cat">Moss wall and a grand entrance</span></summary>
+            <div class="terr-body tall">
               <figure>
                 <div class="frame"><img class="shot" src="assets/terrarium-jewel.jpg" alt="Jewel terrarium: a tall glass tank with a moss wall, sharp rocks and two parlor palms" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
               </figure>
               <div class="terr-text">
-                <p>A moss wall with sharp rocks as the main hardscape. The parlor palm obstructs part of the view and creates a grand entrance.</p>
-                <ul class="tags"><li>Moss wall</li><li>Sharp rocks</li><li>Parlor palm</li></ul>
+                <p>The Jewel is built in a tall glass tank, so the design works in layers from the front of the glass to the back wall, with a stepping-stone path leading into the scene.</p>
+                <dl class="terr-notes">
+                  <div><dt>Hardscape</dt><dd>A moss wall with sharp rocks as the main hardscape forms the backdrop.</dd></div>
+                  <div><dt>Entrance</dt><dd>Parlor palms obstruct part of the view, which hides what lies behind and creates a grand entrance.</dd></div>
+                </dl>
               </div>
             </div>
           </details>
@@ -1237,13 +1282,17 @@
           <!-- ===== VILLAGE ===== -->
           <details class="terr" id="t-village">
             <summary><span class="terr-title">Village terrarium</span><span class="terr-cat">Japanese inspired</span></summary>
-            <div class="terr-body">
+            <div class="terr-body tall">
               <figure>
                 <div class="frame"><img class="shot" src="assets/terrarium-village.jpg" alt="Village terrarium: miniature houses in a valley of pink pebbles with moss, marble rocks and a red fittonia" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
               </figure>
               <div class="terr-text">
-                <p>Japanese inspired. Marble rocks give a backdrop for the houses, and a mixture of pink pebbles sets the village within a valley.</p>
-                <ul class="tags"><li>Marble rocks</li><li>Pink pebbles</li><li>Miniature houses</li></ul>
+                <p>The Village is a Japanese-inspired scene: a cluster of miniature houses tucked into a valley, with the moss banks rising on either side.</p>
+                <dl class="terr-notes">
+                  <div><dt>Backdrop</dt><dd>Marble rocks give a backdrop for the houses.</dd></div>
+                  <div><dt>Valley</dt><dd>A mixture of pink pebbles lays out the village floor within the valley.</dd></div>
+                  <div><dt>Accent</dt><dd>A red-veined fittonia adds a single, strong accent colour beside the rocks.</dd></div>
+                </dl>
               </div>
             </div>
           </details>
@@ -1252,6 +1301,7 @@
           <details class="terr" id="t-others">
             <summary><span class="terr-title">Other builds</span><span class="terr-cat">Jars and a hanging globe</span></summary>
             <div class="terr-body stack">
+              <p class="terr-lead">Smaller containers call for simpler scenes. These jar and globe builds use the same layering approach, with a single rock, a patch of moss and a few pieces of colour to give each one a focal point.</p>
               <div class="terr-gallery">
                 <figure><div class="frame"><img class="shot" src="assets/terrarium-jar-1.jpg" alt="A glass jar terrarium with moss, a grey rock and pale pebbles" hidden onload="showImg(this)" onerror="hideImg(this)"></div></figure>
                 <figure><div class="frame"><img class="shot" src="assets/terrarium-globe.jpg" alt="A hanging glass globe terrarium held in a hand, with moss, a miniature house and red fittonia" hidden onload="showImg(this)" onerror="hideImg(this)"></div></figure>
