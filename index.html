@@ -365,7 +365,7 @@
     /* =========================================================
        CONTACT
        ========================================================= */
-    .contact-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; }
     .contact-item { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.3rem; transition: transform .25s var(--ease), border-color .25s; }
     .contact-item:hover { transform: translateY(-3px); border-color: var(--teal); }
     .contact-item h3 { font-size: 1.15rem; margin-bottom: .4rem; }
@@ -584,165 +584,144 @@
       <div class="wrap">
         <div class="section-head reveal">
           <p class="eyebrow">Featured projects</p>
-          <h2 id="featured-title">Featured projects</h2>
-          <p>Three projects I'm writing up in more detail. Slide through them, or open a case study to read more.</p>
+          <h2 id="featured-title">Selected work</h2>
+          <p>Three of my larger analyses, each written up with its question, method and limitations. Slide through them, or open a case study to read more.</p>
         </div>
 
         <div class="slider-shell reveal">
           <div class="slider" id="featured-slider" tabindex="0" role="region" aria-label="Featured projects, scroll sideways">
 
-            <!-- ===== FEATURED A: EAGLE MIGRATION ===== -->
-            <article class="project featured" id="p-eagle-migration" data-cat="environment">
+            <!-- ===== FEATURED A: AUCKLAND ATMOSPHERIC POLLUTION ===== -->
+            <article class="project featured" id="p-air-pollution" data-cat="environment">
               <div class="figs">
                 <figure>
                   <div class="frame">
-                    <img class="shot" src="assets/eagle-migration-01.jpg" alt="Map of eagle migration (update this description when the image is added)" hidden onload="showImg(this)" onerror="hideImg(this)">
-                    <p class="ph"><span>Main image</span>Image to add<code>assets/eagle-migration-01.jpg</code></p>
+                    <img class="shot" src="assets/air-pollution-01.jpg" alt="Maps of interpolated SO2 and NO2 concentration surfaces across Auckland, each with a seven-class legend" hidden onload="showImg(this)" onerror="hideImg(this)">
                   </div>
-                  <figcaption>Migration map or main output. <span class="todo">Caption to add</span></figcaption>
+                  <figcaption>SO<sub>2</sub> (left) and NO<sub>2</sub> (right) concentration surfaces from IDW interpolation, each shown with a seven-class legend.</figcaption>
                 </figure>
                 <figure>
                   <div class="frame">
-                    <img class="shot" src="assets/eagle-migration-02.jpg" alt="Supporting map, chart or workflow for the eagle migration project" hidden onload="showImg(this)" onerror="hideImg(this)">
-                    <p class="ph"><span>Supporting image</span>Optional<code>assets/eagle-migration-02.jpg</code></p>
+                    <img class="shot" src="assets/air-pollution-02.jpg" alt="Map of Auckland locations where both NO2 and SO2 exceed the selected analysis thresholds" hidden onload="showImg(this)" onerror="hideImg(this)">
                   </div>
-                  <figcaption>Supporting map, chart or workflow. <span class="todo">Caption to add</span></figcaption>
+                  <figcaption>Locations above both selected thresholds. These are analysis thresholds, not a validated health-risk map.</figcaption>
                 </figure>
               </div>
               <div class="project-body">
                 <div class="main-col">
-                  <p class="chips"><span class="cat">Environment and climate</span><span class="status confirm">Status to confirm</span></p>
-                  <h3>Eagle migration</h3>
-                  <p class="summary">A project exploring eagle migration through spatial data and map-based visualisation.</p>
+                  <p class="chips"><span class="cat">Environment and climate</span><span class="status">Completed</span></p>
+                  <h3>Auckland atmospheric pollution analysis</h3>
+                  <p class="summary">How can monitoring-station measurements be used to map the spatial variation of NO<sub>2</sub> and SO<sub>2</sub> across Auckland, and where do both pollutants exceed selected thresholds?</p>
+                  <ul class="tags"><li>ArcGIS Pro</li><li>IDW interpolation</li><li>Reclassification</li><li>Raster overlay</li></ul>
                 </div>
                 <div class="side-col">
                   <dl class="meta">
-                    <dt>Species</dt><dd><span class="todo">To confirm</span></dd>
-                    <dt>Region</dt><dd><span class="todo">To confirm</span></dd>
-                    <dt>Software</dt><dd><span class="todo">To confirm</span></dd>
-                    <dt>Team</dt><dd><span class="todo">To confirm</span></dd>
+                    <dt>Location</dt><dd>Auckland, New Zealand</dd>
+                    <dt>Software</dt><dd>ArcGIS Pro</dd>
+                    <dt>Outputs</dt><dd>Two concentration surfaces and a combined-exceedance map</dd>
                   </dl>
                 </div>
-                <!-- LINKS: add with the admin "+ Add link" button. Suggested: View StoryMap, Open interactive map, Read report, View code -->
                 <div class="links"></div>
                 <details class="case">
                   <summary>Read the case study</summary>
                   <div class="case-body">
-                    <div class="wide"><h4>Overview</h4><p>A project exploring eagle migration through spatial data and map-based visualisation.</p></div>
-                    <div><h4>Question</h4><p><span class="todo">To add</span></p></div>
-                    <div><h4>My contribution</h4><p><span class="todo">To add</span> Individual or group work?</p></div>
-                    <div><h4>Data and sources</h4><p><span class="todo">To add</span> Species, study region, tracking period, data source, and whether it uses GPS tracks or another type of data.</p></div>
-                    <div><h4>Method</h4><p><span class="todo">To add</span> Software and analysis methods.</p></div>
-                    <div><h4>Output and interpretation</h4><p><span class="todo">To add</span></p></div>
-                    <div><h4>Limitations</h4><p><span class="todo">To add</span></p></div>
-                    <div><h4>What I learned</h4><p><span class="todo">To add</span></p></div>
-                    <div><h4>Next steps (optional)</h4><p><span class="todo">To add</span></p></div>
+                    <div class="wide"><h4>Overview</h4><p>I used readings from air quality monitoring stations to estimate how nitrogen dioxide (NO<sub>2</sub>) and sulphur dioxide (SO<sub>2</sub>) vary across Auckland, then identified locations where both pollutants exceed thresholds I selected for the analysis. I produced the analysis and the maps presented here.</p></div>
+                    <div><h4>Data and sources</h4><p>NO<sub>2</sub> and SO<sub>2</sub> monitoring-station measurements, and the Auckland boundary.</p></div>
+                    <div><h4>Method</h4><p>In ArcGIS Pro, I used Inverse Distance Weighting (IDW) to create continuous concentration surfaces, clipped them to the Auckland boundary and symbolised each with a seven-class legend. I then reclassified the rasters to flag cells where NO<sub>2</sub> exceeded 35 µg/m³ and SO<sub>2</sub> exceeded 50 µg/m³, and multiplied the two binary layers to isolate cells where both thresholds were exceeded.</p></div>
+                    <div><h4>Output and interpretation</h4><p>The outputs are a concentration surface for each pollutant and a map of cells above both selected thresholds. The surfaces are interpolated estimates between stations, not direct measurements, so the combined map shows where the model estimates both thresholds are exceeded.</p></div>
+                    <div><h4>Limitations</h4><p>The 35 µg/m³ and 50 µg/m³ values are analysis thresholds I selected. Their regulatory basis and averaging periods have not been verified, so the output should not be read as a validated health-risk map.</p></div>
                   </div>
                 </details>
               </div>
             </article>
 
-            <!-- ===== FEATURED B: EARTHQUAKE ANALYSIS ===== -->
-            <article class="project featured" id="p-earthquake" data-cat="landscape">
+            <!-- ===== FEATURED B: RESIDENTIAL SUITABILITY, BOTKYRKA ===== -->
+            <article class="project featured" id="p-botkyrka" data-cat="suitability">
               <div class="figs">
                 <figure>
                   <div class="frame">
-                    <img class="shot" src="assets/earthquake-analysis-01.jpg" alt="Map of earthquake locations (update this description when the image is added)" hidden onload="showImg(this)" onerror="hideImg(this)">
-                    <p class="ph"><span>Main image</span>Image to add<code>assets/earthquake-analysis-01.jpg</code></p>
+                    <img class="shot" src="assets/botkyrka-suitability-01.jpg" alt="Final residential suitability map for Botkyrka, Sweden" hidden onload="showImg(this)" onerror="hideImg(this)">
                   </div>
-                  <figcaption>Main earthquake map. <span class="todo">Caption to add</span></figcaption>
+                  <figcaption>Final residential suitability map for Botkyrka, produced with a weighted overlay.</figcaption>
                 </figure>
                 <figure>
                   <div class="frame">
-                    <img class="shot" src="assets/earthquake-analysis-02.jpg" alt="Supporting cross-section, chart or comparison for the earthquake project" hidden onload="showImg(this)" onerror="hideImg(this)">
-                    <p class="ph"><span>Supporting image</span>Optional<code>assets/earthquake-analysis-02.jpg</code></p>
+                    <img class="shot" src="assets/botkyrka-suitability-02.jpg" alt="Diagram showing two distance factors and three constraints combining into the final suitability map" hidden onload="showImg(this)" onerror="hideImg(this)">
                   </div>
-                  <figcaption>Cross-section, chart or comparison. <span class="todo">Caption to add</span></figcaption>
+                  <figcaption>How two distance factors and three constraints combine into the final map.</figcaption>
                 </figure>
               </div>
               <div class="project-body">
                 <div class="main-col">
-                  <p class="chips"><span class="cat">Landscape and Earth Science</span><span class="status confirm">Status to confirm</span></p>
-                  <h3>Earthquake analysis</h3>
-                  <p class="summary">A spatial investigation of earthquake data and patterns of seismic activity.</p>
+                  <p class="chips"><span class="cat">Suitability and planning</span><span class="status">Completed</span></p>
+                  <h3>Residential suitability in Botkyrka, Sweden</h3>
+                  <p class="summary">Which locations meet a defined set of residential suitability criteria within the Botkyrka study area?</p>
+                  <ul class="tags"><li>QGIS</li><li>Distance rasters</li><li>Boolean constraints</li><li>Weighted overlay</li></ul>
                 </div>
                 <div class="side-col">
                   <dl class="meta">
-                    <dt>Region</dt><dd><span class="todo">To confirm</span></dd>
-                    <dt>Period</dt><dd><span class="todo">To confirm</span></dd>
-                    <dt>Software</dt><dd><span class="todo">To confirm</span></dd>
-                    <dt>Team</dt><dd><span class="todo">To confirm</span></dd>
+                    <dt>Location</dt><dd>Botkyrka, Stockholm, Sweden</dd>
+                    <dt>Software</dt><dd>QGIS</dd>
+                    <dt>Outputs</dt><dd>A suitability index map with parcels, roads and transport context</dd>
                   </dl>
                 </div>
-                <!-- LINKS: suggested: Open interactive map, Read report -->
                 <div class="links"></div>
                 <details class="case">
                   <summary>Read the case study</summary>
                   <div class="case-body">
-                    <div class="wide"><h4>Overview</h4><p>A spatial investigation of earthquake data and patterns of seismic activity.</p></div>
-                    <div><h4>Question</h4><p><span class="todo">To add</span></p></div>
-                    <div><h4>My contribution</h4><p><span class="todo">To add</span></p></div>
-                    <div><h4>Data and sources</h4><p><span class="todo">To add</span> Study region, time period and earthquake catalogue or data source.</p></div>
-                    <div><h4>Method</h4><p><span class="todo">To add</span> Variables analysed, software and methods.</p></div>
-                    <div><h4>Output and interpretation</h4><p><span class="todo">To add</span></p></div>
-                    <div><h4>Limitations</h4><p><span class="todo">To add</span></p></div>
-                    <div><h4>What I learned</h4><p><span class="todo">To add</span></p></div>
-                    <div><h4>Next steps (optional)</h4><p><span class="todo">To add</span></p></div>
+                    <div class="wide"><h4>Overview</h4><p>A multi-criteria suitability model built in QGIS. It combines two weighted distance factors with Boolean constraints to show where the selected residential criteria are met. I produced the analysis and the maps presented here.</p></div>
+                    <div><h4>Data and sources</h4><p>Spatial layers for water, roads, public transport access, parcel ownership and land use.</p></div>
+                    <div><h4>Method</h4><p>I generated distance rasters for water and roads and normalised them to a 0–1 scale as two equally weighted factors. I then applied Boolean constraint layers for public transport access, parcel ownership and land use, together with water buffers, and combined everything in a weighted overlay using the Raster Calculator.</p></div>
+                    <div><h4>Output and interpretation</h4><p>A final map of locations that meet the selected criteria. The result depends on the criteria and weights I chose: it shows where those criteria are met, not whether development would actually be feasible.</p></div>
+                    <div><h4>Limitations</h4><p>Different criteria or weights would give a different result, so the model is best read as a transparent screening tool rather than a recommendation.</p></div>
                   </div>
                 </details>
               </div>
             </article>
 
-            <!-- ===== FEATURED C: PORT WAIKATO LANDSCAPE ===== -->
-            <article class="project featured" id="p-port-waikato" data-cat="landscape">
+            <!-- ===== FEATURED C: LAND-USE CONFLICT, KATHMANDU VALLEY ===== -->
+            <article class="project featured" id="p-kathmandu" data-cat="suitability">
               <div class="figs">
                 <figure>
                   <div class="frame">
-                    <img class="shot" src="assets/port-waikato-01.jpg" alt="Port Waikato landscape (update this description when the image is added)" hidden onload="showImg(this)" onerror="hideImg(this)">
-                    <p class="ph"><span>Main image</span>Image to add<code>assets/port-waikato-01.jpg</code></p>
+                    <img class="shot" src="assets/kathmandu-landuse-01.jpg" alt="Side-by-side suitability maps for the carpet industry and for agriculture in the Kathmandu Valley" hidden onload="showImg(this)" onerror="hideImg(this)">
                   </div>
-                  <figcaption>Landscape photograph, annotated image or main map. <span class="todo">Caption to add</span></figcaption>
+                  <figcaption>Carpet-industry (left) and agricultural (right) suitability surfaces.</figcaption>
                 </figure>
                 <figure>
                   <div class="frame">
-                    <img class="shot" src="assets/port-waikato-02.jpg" alt="Supporting map, diagram or fieldwork photograph from Port Waikato" hidden onload="showImg(this)" onerror="hideImg(this)">
-                    <p class="ph"><span>Supporting image</span>Optional<code>assets/port-waikato-02.jpg</code></p>
+                    <img class="shot" src="assets/kathmandu-landuse-02.jpg" alt="Map of modelled land-use conflict in the Kathmandu Valley where both suitability surfaces score highly" hidden onload="showImg(this)" onerror="hideImg(this)">
                   </div>
-                  <figcaption>Supporting map, diagram or fieldwork photo. <span class="todo">Caption to add</span></figcaption>
+                  <figcaption>Modelled land-use conflict, where both surfaces score highly.</figcaption>
                 </figure>
               </div>
               <div class="project-body">
                 <div class="main-col">
-                  <p class="chips"><span class="cat">Landscape and Earth Science</span><span class="status confirm">Status to confirm</span></p>
-                  <h3>Port Waikato landscape analysis</h3>
-                  <p class="summary">An analysis of the Port Waikato landscape, examining its physical characteristics and environmental setting.</p>
+                  <p class="chips"><span class="cat">Suitability and planning</span><span class="status">Completed</span></p>
+                  <h3>Land-use suitability and conflict in the Kathmandu Valley</h3>
+                  <p class="summary">Where do the modelled suitability surfaces for the carpet industry and for agriculture overlap, and so compete for the same land?</p>
+                  <ul class="tags"><li>QGIS</li><li>Slope and aspect</li><li>Weighted criteria</li><li>Raster overlay</li></ul>
                 </div>
                 <div class="side-col">
                   <dl class="meta">
-                    <dt>Approach</dt><dd><span class="todo">To confirm</span> <span class="todo-note">(fieldwork, GIS, imagery)</span></dd>
-                    <dt>Date</dt><dd><span class="todo">To confirm</span></dd>
-                    <dt>Team</dt><dd><span class="todo">To confirm</span></dd>
+                    <dt>Location</dt><dd>Kathmandu Valley, Nepal</dd>
+                    <dt>Software</dt><dd>QGIS</dd>
+                    <dt>Outputs</dt><dd>Two suitability surfaces and a land-use conflict map</dd>
                   </dl>
                 </div>
-                <!-- LINKS: suggested: Read report (also works for a presentation link) -->
                 <div class="links"></div>
                 <details class="case">
                   <summary>Read the case study</summary>
                   <div class="case-body">
-                    <div class="wide"><h4>Overview</h4><p>An analysis of the Port Waikato landscape, examining its physical characteristics and environmental setting.</p></div>
-                    <div><h4>Question</h4><p><span class="todo">To add</span> The exact research question.</p></div>
-                    <div><h4>My contribution</h4><p><span class="todo">To add</span></p></div>
-                    <div><h4>Data and sources</h4><p><span class="todo">To add</span> Field observations, GIS data, imagery, or a combination.</p></div>
-                    <div><h4>Method</h4><p><span class="todo">To add</span> Landforms, geological units or processes examined, and how.</p></div>
-                    <div><h4>Output and interpretation</h4><p><span class="todo">To add</span></p></div>
-                    <div><h4>Limitations</h4><p><span class="todo">To add</span></p></div>
-                    <div><h4>What I learned</h4><p><span class="todo">To add</span></p></div>
-                    <div><h4>Next steps (optional)</h4><p><span class="todo">To add</span></p></div>
+                    <div class="wide"><h4>Overview</h4><p>Two suitability models, one for the carpet industry and one for agriculture, overlaid to show where they could compete for the same land. I produced the analysis and the maps presented here.</p></div>
+                    <div><h4>Data and sources</h4><p>A relief (elevation) layer, plus criteria layers for power and water.</p></div>
+                    <div><h4>Method</h4><p>In QGIS, I derived slope and aspect from relief and normalised the criteria. I applied weighted overlays to produce two surfaces: carpet industry (weights 40/30/20/10) and agriculture (weights 60/40, plus constraints). I then overlaid them to flag cells where both surfaces scored highly.</p></div>
+                    <div><h4>Output and interpretation</h4><p>In this alpine study area, the carpet-industry model favoured river valleys, while the agriculture model showed broader suitability on flatter, more accessible terrain. The conflict map shows where both score highly. These are modelled land-use conflicts, not evidence of actual disputes or development proposals.</p></div>
+                    <div><h4>Limitations</h4><p>The overlap depends on the criteria and weights chosen for each model.</p></div>
                   </div>
                 </details>
               </div>
             </article>
-
           </div>
           <div class="slider-controls" hidden>
             <button class="round-btn" type="button" data-dir="-1" aria-label="Previous project">←</button>
@@ -764,7 +743,7 @@
         <div class="section-head reveal">
           <p class="eyebrow">Project collection</p>
           <h2 id="collection-title">More GIS projects</h2>
-          <p>Completed analyses covering pollution, microclimate, land suitability, access and urban patterns. Tap a title to open the project.</p>
+          <p>Further analyses covering microclimate, public transport access and urban patterns of food and income. Tap a title to open the project.</p>
         </div>
 
         <div class="filter-bar" role="group" aria-label="Filter projects by category" hidden>
@@ -777,46 +756,6 @@
         <p class="filter-status" aria-live="polite"></p>
 
         <div class="project-grid">
-
-          <!-- ===== PROJECT 1: AUCKLAND ATMOSPHERIC POLLUTION ===== -->
-          <details class="project proj-acc" id="p-air-pollution" data-cat="environment">
-            <summary><span class="acc-title">Auckland atmospheric pollution analysis</span><span class="acc-cat">Environment and climate</span></summary>
-            <div class="acc-body">
-              <div class="figs">
-              <figure>
-                <div class="frame">
-                  <img class="shot" src="assets/air-pollution-01.jpg" alt="Maps of interpolated NO2 and SO2 concentration surfaces across Auckland" hidden onload="showImg(this)" onerror="hideImg(this)">
-                  <p class="ph"><span>Main image</span>Image to add<code>assets/air-pollution-01.jpg</code></p>
-                </div>
-                <figcaption>SO<sub>2</sub> and NO<sub>2</sub> concentration surfaces from IDW interpolation, each shown with a seven-class legend.</figcaption>
-              </figure>
-              <figure>
-                <div class="frame">
-                  <img class="shot" src="assets/air-pollution-02.jpg" alt="Map of areas where both pollutants exceed the selected analysis thresholds" hidden onload="showImg(this)" onerror="hideImg(this)">
-                  <p class="ph"><span>Supporting image</span>Optional<code>assets/air-pollution-02.jpg</code></p>
-                </div>
-                <figcaption>Cells above both selected thresholds. These are analysis thresholds, not a validated health-risk map.</figcaption>
-              </figure>
-            </div>
-              <div class="project-body">
-              <p class="chips"><span class="cat">Environment and climate</span><span class="status">Completed</span></p>
-              <p class="summary">How can monitoring-station measurements be used to visualise spatial variation in NO<sub>2</sub> and SO<sub>2</sub> across Auckland?</p>
-              <ul class="tags"><li>ArcGIS Pro</li><li>IDW interpolation</li><li>Reclassification</li><li>Raster overlay</li></ul>
-              <dl class="meta"><dt>Date</dt><dd><span class="todo">To confirm</span></dd><dt>Team</dt><dd><span class="todo">To confirm</span></dd></dl>
-              <div class="links"></div>
-              <div class="case-open"><div class="case-body">
-                  <div><h4>Overview</h4><p>I used readings from air quality monitoring stations to estimate how NO<sub>2</sub> and SO<sub>2</sub> vary across Auckland, then looked for places where both pollutants were above thresholds I selected for the analysis.</p></div>
-                  <div><h4>Question</h4><p>How can monitoring-station measurements be used to visualise spatial variation in NO<sub>2</sub> and SO<sub>2</sub> across Auckland?</p></div>
-                  <div><h4>My contribution</h4><p><span class="todo">To add</span></p></div>
-                  <div><h4>Data and sources</h4><p>NO<sub>2</sub> and SO<sub>2</sub> monitoring-station measurements and the Auckland boundary. <span class="todo">To add</span> Data provider, time period and averaging period.</p></div>
-                  <div><h4>Method</h4><p>In ArcGIS Pro, I used Inverse Distance Weighting (IDW) to create continuous concentration surfaces, clipped them to the Auckland boundary and symbolised each with a seven-class legend. I then reclassified the rasters to flag cells where NO<sub>2</sub> was above 35 µg/m³ and SO<sub>2</sub> was above 50 µg/m³, and multiplied the two binary layers to find cells where both were exceeded.</p></div>
-                  <div><h4>Output and interpretation</h4><p>The outputs are a concentration surface for each pollutant and a map of cells above both selected thresholds. The surfaces are interpolated estimates between stations, not direct measurements, so the combined map shows where the model estimates both thresholds are exceeded.</p></div>
-                  <div><h4>Limitations</h4><p>The 35 µg/m³ and 50 µg/m³ values are selected analysis thresholds. Their regulatory basis and averaging periods have not been verified here, so the output is not a validated health-risk map. <span class="todo">To confirm</span> Basis for each threshold.</p></div>
-                  <div><h4>What I learned</h4><p><span class="todo">To add</span></p></div>
-                </div></div>
-              </div>
-            </div>
-          </details>
 
           <!-- ===== PROJECT 2: AUCKLAND DOMAIN MICROCLIMATE ===== -->
           <details class="project proj-acc" id="p-microclimate" data-cat="environment">
@@ -842,99 +781,16 @@
               <p class="chips"><span class="cat">Environment and climate</span><span class="status">Completed</span></p>
               <p class="summary">Field measurements of temperature and humidity, turned into interpolated surfaces to compare the spatial patterns different methods and survey years produce.</p>
               <ul class="tags"><li>Field measurements</li><li>IDW</li><li>Kriging</li></ul>
-              <dl class="meta"><dt>Software</dt><dd><span class="todo">To confirm</span></dd><dt>Team</dt><dd><span class="todo">To confirm</span></dd></dl>
+              <dl class="meta"><dt>Location</dt><dd>Auckland Domain, Auckland</dd><dt>Methods</dt><dd>IDW and Kriging interpolation</dd></dl>
               <div class="links"></div>
               <div class="case-open"><div class="case-body">
                   <div><h4>Overview</h4><p>Two pieces of microclimate work in the Auckland Domain: comparing interpolation methods for temperature, and comparing humidity surveys from 2025 and 2026.</p></div>
-                  <div><h4>Question</h4><p><span class="todo">To add</span></p></div>
-                  <div><h4>My contribution</h4><p><span class="todo">To add</span> Including whether you collected the field measurements.</p></div>
-                  <div><h4>Data and sources</h4><p>Temperature and humidity field measurements from the Auckland Domain, with humidity measured in 2025 and 2026. <span class="todo">To add</span> Number of points, equipment and survey dates.</p></div>
+                  <div><h4>Data and sources</h4><p>Temperature and humidity field measurements from the Auckland Domain, with humidity measured in 2025 and 2026.</p></div>
                   <div><h4>Method: temperature</h4><p>I created temperature surfaces with both IDW and Kriging and compared the spatial patterns each method produced.</p></div>
                   <div><h4>Method: humidity</h4><p>I produced IDW humidity surfaces for the 2025 and 2026 measurements so the two surveys could be compared.</p></div>
                   <div><h4>Output and interpretation</h4><p>In my temperature maps, IDW produced more localised hotspots around measurement points, while Kriging produced a smoother surface. The humidity maps show spatial variation across the Domain for each survey and let the two periods be compared side by side.</p></div>
-                  <div><h4>Limitations</h4><p>Without validation evidence, I don't claim either interpolation method is more accurate. Two survey periods are snapshots, so differences between them don't show long-term climate change. <span class="todo">To add</span> Whether any validation was done.</p></div>
-                  <div><h4>What I learned</h4><p><span class="todo">To add</span></p></div>
-                </div></div>
-              </div>
-            </div>
-          </details>
-
-          <!-- ===== PROJECT 3: RESIDENTIAL SUITABILITY, BOTKYRKA ===== -->
-          <details class="project proj-acc" id="p-botkyrka" data-cat="suitability">
-            <summary><span class="acc-title">Residential suitability in Botkyrka, Sweden</span><span class="acc-cat">Suitability and planning</span></summary>
-            <div class="acc-body">
-              <div class="figs">
-              <figure>
-                <div class="frame">
-                  <img class="shot" src="assets/botkyrka-suitability-01.jpg" alt="Final residential suitability map for the Botkyrka study area" hidden onload="showImg(this)" onerror="hideImg(this)">
-                  <p class="ph"><span>Main image</span>Image to add<code>assets/botkyrka-suitability-01.jpg</code></p>
-                </div>
-                <figcaption>Final suitability map.</figcaption>
-              </figure>
-              <figure>
-                <div class="frame">
-                  <img class="shot" src="assets/botkyrka-suitability-02.jpg" alt="Diagram of the criteria and workflow used in the suitability model" hidden onload="showImg(this)" onerror="hideImg(this)">
-                  <p class="ph"><span>Supporting image</span>Optional<code>assets/botkyrka-suitability-02.jpg</code></p>
-                </div>
-                <figcaption>How two distance factors and three constraints combine into the final map.</figcaption>
-              </figure>
-            </div>
-              <div class="project-body">
-              <p class="chips"><span class="cat">Suitability and planning</span><span class="status">Completed</span></p>
-              <p class="summary">Which locations meet the selected residential suitability criteria within the study area?</p>
-              <ul class="tags"><li>QGIS</li><li>Distance rasters</li><li>Boolean constraints</li><li>Weighted overlay</li></ul>
-              <dl class="meta"><dt>Date</dt><dd><span class="todo">To confirm</span></dd><dt>Team</dt><dd><span class="todo">To confirm</span></dd></dl>
-              <div class="links"></div>
-              <div class="case-open"><div class="case-body">
-                  <div><h4>Overview</h4><p>A multi-criteria suitability model in QGIS that combines distance factors with constraints to show where the selected residential criteria are met.</p></div>
-                  <div><h4>Question</h4><p>Which locations meet the selected residential suitability criteria within the study area?</p></div>
-                  <div><h4>My contribution</h4><p><span class="todo">To add</span></p></div>
-                  <div><h4>Data and sources</h4><p>Layers for water, roads, transport access, ownership and land use. <span class="todo">To add</span> Data sources.</p></div>
-                  <div><h4>Method</h4><p>I generated distance rasters for water and roads and normalised them to a 0–1 scale as two equally weighted factors. I then applied Boolean constraint layers for public transport access, parcel ownership and land use, together with water buffers, and combined everything in a weighted overlay using the Raster Calculator. <span class="todo">To add</span> Buffer distances.</p></div>
-                  <div><h4>Output and interpretation</h4><p>A final map of locations that meet the selected criteria. The result depends on the criteria and weights I chose. It shows where those criteria are met, not whether development would actually be feasible.</p></div>
-                  <div><h4>Limitations</h4><p>Different criteria or weights would give a different result. <span class="todo">To add</span></p></div>
-                  <div><h4>What I learned</h4><p><span class="todo">To add</span></p></div>
-                </div></div>
-              </div>
-            </div>
-          </details>
-
-          <!-- ===== PROJECT 4: LAND-USE CONFLICT, KATHMANDU VALLEY ===== -->
-          <details class="project proj-acc" id="p-kathmandu" data-cat="suitability">
-            <summary><span class="acc-title">Land-use suitability and conflict in the Kathmandu Valley</span><span class="acc-cat">Suitability and planning</span></summary>
-            <div class="acc-body">
-              <div class="figs">
-              <figure>
-                <div class="frame">
-                  <img class="shot" src="assets/kathmandu-landuse-01.jpg" alt="Side-by-side suitability maps for carpet industry and agriculture in the Kathmandu Valley" hidden onload="showImg(this)" onerror="hideImg(this)">
-                  <p class="ph"><span>Main image</span>Image to add<code>assets/kathmandu-landuse-01.jpg</code></p>
-                </div>
-                <figcaption>Carpet-industry (left) and agricultural (right) suitability surfaces.</figcaption>
-              </figure>
-              <figure>
-                <div class="frame">
-                  <img class="shot" src="assets/kathmandu-landuse-02.jpg" alt="Map of modelled land-use conflict where both suitability surfaces overlap" hidden onload="showImg(this)" onerror="hideImg(this)">
-                  <p class="ph"><span>Supporting image</span>Optional<code>assets/kathmandu-landuse-02.jpg</code></p>
-                </div>
-                <figcaption>Modelled land-use conflict, where both surfaces score highly.</figcaption>
-              </figure>
-            </div>
-              <div class="project-body">
-              <p class="chips"><span class="cat">Suitability and planning</span><span class="status">Completed</span></p>
-              <p class="summary">Where do modelled suitability for carpet industry and agriculture overlap?</p>
-              <ul class="tags"><li>QGIS</li><li>Slope and aspect</li><li>Weighted criteria</li><li>Overlay</li></ul>
-              <dl class="meta"><dt>Date</dt><dd><span class="todo">To confirm</span></dd><dt>Team</dt><dd><span class="todo">To confirm</span></dd></dl>
-              <div class="links"></div>
-              <div class="case-open"><div class="case-body">
-                  <div><h4>Overview</h4><p>Two suitability models, one for carpet industry and one for agriculture, overlaid to show where they could compete for the same land.</p></div>
-                  <div><h4>Question</h4><p>Where do modelled suitability for carpet industry and agriculture overlap?</p></div>
-                  <div><h4>My contribution</h4><p><span class="todo">To add</span></p></div>
-                  <div><h4>Data and sources</h4><p>A relief (elevation) layer plus criteria layers for power and water. <span class="todo">To add</span> Data sources.</p></div>
-                  <div><h4>Method</h4><p>In QGIS, I derived slope and aspect from relief and normalised the criteria. I applied weighted overlays to make two surfaces: carpet industry (weights 40/30/20/10) and agriculture (weights 60/40, plus constraints). I then overlaid them to flag cells where both surfaces scored highly. <span class="todo">To confirm</span> Which criterion each weight applies to.</p></div>
-                  <div><h4>Output and interpretation</h4><p>In this alpine study area, the carpet-industry model favoured river valleys, while the agriculture model showed broader suitability on flatter, more accessible terrain. The conflict map shows where both score highly. These are modelled land-use conflicts, not evidence of actual disputes or existing development proposals.</p></div>
-                  <div><h4>Limitations</h4><p>The overlap depends on the criteria and weights chosen for each model. <span class="todo">To add</span></p></div>
-                  <div><h4>What I learned</h4><p><span class="todo">To add</span></p></div>
-                </div></div>
+                  <div><h4>Limitations</h4><p>Without validation evidence, I don't claim either interpolation method is more accurate. Two survey periods are snapshots, so differences between them don't show long-term climate change.</p></div>
+                  </div></div>
               </div>
             </div>
           </details>
@@ -963,18 +819,14 @@
               <p class="chips"><span class="cat">Transport and accessibility</span><span class="status">Completed</span></p>
               <p class="summary">Bus access around Mt Eden station and walking catchments around Grafton, Kingsland and Mt Eden stations, compared with population density.</p>
               <ul class="tags"><li>ArcGIS Pro</li><li>Network analysis</li><li>Catchments</li></ul>
-              <dl class="meta"><dt>Date</dt><dd><span class="todo">To confirm</span></dd><dt>Team</dt><dd><span class="todo">To confirm</span></dd></dl>
+              <dl class="meta"><dt>Location</dt><dd>Auckland, New Zealand</dd><dt>Software</dt><dd>ArcGIS Pro</dd></dl>
               <div class="links"></div>
               <div class="case-open"><div class="case-body">
                   <div><h4>Overview</h4><p>Two pieces of access analysis combined: bus access associated with Mt Eden station, and walking catchments around three inner Auckland stations.</p></div>
-                  <div><h4>Question</h4><p><span class="todo">To add</span></p></div>
-                  <div><h4>My contribution</h4><p><span class="todo">To add</span></p></div>
-                  <div><h4>Data and sources</h4><p>Bus routes and stops serving Mt Eden station, the walking network, and census population density. <span class="todo">To add</span> Data providers and census year.</p></div>
-                  <div><h4>Method</h4><p>In ArcGIS Pro, I selected the bus routes serving Mt Eden station and generated a service catchment with network analysis. For walking, I ran a multi-facility network analysis to create pedestrian catchments around Grafton, Kingsland and Mt Eden stations. In both cases I overlaid population density to look at residential access. <span class="todo">To add</span> Time or distance cut-offs used.</p></div>
-                  <div><h4>Output and interpretation</h4><p>A bus commuter catchment for Mt Eden station, and a map comparing the three walking catchments against population density. <span class="todo">To add</span> What the comparison showed.</p></div>
-                  <div><h4>Limitations</h4><p><span class="todo">To add</span></p></div>
-                  <div><h4>What I learned</h4><p><span class="todo">To add</span></p></div>
-                </div></div>
+                  <div><h4>Data and sources</h4><p>Bus routes and stops serving Mt Eden station, the walking network, and census population density.</p></div>
+                  <div><h4>Method</h4><p>In ArcGIS Pro, I selected the bus routes serving Mt Eden station and generated a service catchment with network analysis. For walking, I ran a multi-facility network analysis to create pedestrian catchments around Grafton, Kingsland and Mt Eden stations. In both cases I overlaid population density to look at residential access.</p></div>
+                  <div><h4>Output and interpretation</h4><p>A bus commuter catchment for Mt Eden station, and a map comparing the three walking catchments against population density.</p></div>
+                  </div></div>
               </div>
             </div>
           </details>
@@ -1003,18 +855,15 @@
               <p class="chips"><span class="cat">Urban spatial analysis</span><span class="status">Completed</span></p>
               <p class="summary">Using 1 km buffers around Auckland supermarkets to investigate their proximity to high-income areas.</p>
               <ul class="tags"><li>ArcGIS Pro</li><li>Attribute filtering</li><li>Buffers</li><li>Intersection</li></ul>
-              <dl class="meta"><dt>Date</dt><dd><span class="todo">To confirm</span></dd><dt>Team</dt><dd><span class="todo">To confirm</span></dd></dl>
+              <dl class="meta"><dt>Location</dt><dd>Auckland, New Zealand</dd><dt>Software</dt><dd>ArcGIS Pro</dd></dl>
               <div class="links"></div>
               <div class="case-open"><div class="case-body">
                   <div><h4>Overview</h4><p>A proximity analysis comparing supermarket locations with high-income areas in Auckland.</p></div>
-                  <div><h4>Question</h4><p><span class="todo">To add</span></p></div>
-                  <div><h4>My contribution</h4><p><span class="todo">To add</span></p></div>
-                  <div><h4>Data and sources</h4><p>Supermarket locations from open data and income-by-area census layers, clipped to Auckland. <span class="todo">To confirm</span> Income variable, reference year, units and the threshold used for "high income".</p></div>
+                  <div><h4>Data and sources</h4><p>Supermarket locations from open data and income-by-area census layers, clipped to Auckland.</p></div>
                   <div><h4>Method</h4><p>In ArcGIS Pro, I filtered the census data to extract high-income areas, applied 1 km buffers around supermarket locations, and used intersection and spatial selection to find supermarkets near high-income areas.</p></div>
                   <div><h4>Output and interpretation</h4><p>A map of supermarket buffers in relation to high-income areas. Proximity alone does not show affordability, shopping behaviour or overall food accessibility.</p></div>
-                  <div><h4>Limitations</h4><p>A 1 km buffer measures straight-line distance rather than travel along roads. <span class="todo">To add</span></p></div>
-                  <div><h4>What I learned</h4><p><span class="todo">To add</span></p></div>
-                </div></div>
+                  <div><h4>Limitations</h4><p>A 1 km buffer measures straight-line distance rather than travel along roads.</p></div>
+                  </div></div>
               </div>
             </div>
           </details>
@@ -1043,18 +892,15 @@
               <p class="chips"><span class="cat">Urban spatial analysis</span><span class="status">Completed</span></p>
               <p class="summary">Mapping food businesses and aggregating them along the road network to find high-density corridors.</p>
               <ul class="tags"><li>ArcGIS Pro</li><li>Spatial join</li><li>Dissolve</li><li>Attribute filtering</li></ul>
-              <dl class="meta"><dt>Date</dt><dd><span class="todo">To confirm</span></dd><dt>Team</dt><dd><span class="todo">To confirm</span></dd></dl>
+              <dl class="meta"><dt>Location</dt><dd>Auckland, New Zealand</dd><dt>Software</dt><dd>ArcGIS Pro</dd></dl>
               <div class="links"></div>
               <div class="case-open"><div class="case-body">
                   <div><h4>Overview</h4><p>An analysis of food-business concentration along Auckland roads.</p></div>
-                  <div><h4>Question</h4><p><span class="todo">To add</span></p></div>
-                  <div><h4>My contribution</h4><p><span class="todo">To add</span></p></div>
-                  <div><h4>Data and sources</h4><p>Food-business locations and a road network. <span class="todo">To add</span> Data sources.</p></div>
+                  <div><h4>Data and sources</h4><p>Food-business locations and a road network.</p></div>
                   <div><h4>Method</h4><p>In ArcGIS Pro, I mapped food businesses by type and spatially joined the points to the road network. I dissolved road segments to count businesses per corridor, kept only corridors with 20 or more food businesses, and compared the full dataset with these high-density corridors.</p></div>
                   <div><h4>Output and interpretation</h4><p>Maps of all food businesses by type and of the high-density corridors. These show food-business concentration only. They say nothing about traffic, because no traffic data were analysed.</p></div>
-                  <div><h4>Limitations</h4><p>The 20-business threshold is a cut-off I selected. <span class="todo">To add</span></p></div>
-                  <div><h4>What I learned</h4><p><span class="todo">To add</span></p></div>
-                </div></div>
+                  <div><h4>Limitations</h4><p>The 20-business threshold is a cut-off I selected.</p></div>
+                  </div></div>
               </div>
             </div>
           </details>
@@ -1085,12 +931,36 @@
         <div class="section-head reveal">
           <p class="eyebrow">Currently</p>
           <h2 id="currently-title">What I'm working on</h2>
-          <p>Short updates on projects that are in progress.</p>
+          <p>Where my time and attention are going at the moment: study, student leadership and a hands-on hobby.</p>
         </div>
         <div class="updates">
-          <div class="empty-state reveal">
-            <p><span class="todo">To add</span> Updates will appear here once project statuses are confirmed. Only projects that are genuinely in progress go here, each linking to its full project.</p>
-          </div>
+          <article class="update reveal">
+            <h3>Studying Earth Science and GIS</h3>
+            <dl>
+              <div><dt>Programme</dt><dd>BSc, Earth Science and GIS, University of Auckland.</dd></div>
+              <div><dt>Focus</dt><dd>Spatial interpolation, suitability and catchment models, and vector and raster analysis in ArcGIS Pro and QGIS.</dd></div>
+            </dl>
+            <p><a href="#projects">See my GIS projects</a></p>
+            <p class="updated">2025 – 2027</p>
+          </article>
+          <article class="update reveal">
+            <h3>Student leadership</h3>
+            <dl>
+              <div><dt>Roles</dt><dd>Co-President of the UoA Language Society, and Events Planner for the Geography Club.</dd></div>
+              <div><dt>Also involved</dt><dd>Te Rōpū Taiao, the Environment Association, organising events and environmental initiatives on campus.</dd></div>
+            </dl>
+            <p><a href="#experience">See my experience</a></p>
+            <p class="updated">2026 – present</p>
+          </article>
+          <article class="update reveal">
+            <h3>Building terrariums</h3>
+            <dl>
+              <div><dt>Interest</dt><dd>Designing small landscapes in glass, from moss walls to hill and village scenes.</dd></div>
+              <div><dt>Approach</dt><dd>Layered builds planned around hardscape, colour contrast and depth of field.</dd></div>
+            </dl>
+            <p><a href="#interests">See my terrariums</a></p>
+            <p class="updated">Ongoing hobby</p>
+          </article>
         </div>
       </div>
     </section>
@@ -1116,11 +986,13 @@
             <div class="skill-row"><div><strong>Software</strong><small>ArcGIS Pro, QGIS</small></div><span class="arrow" aria-hidden="true">→</span><p><a href="#p-air-pollution">ArcGIS Pro projects</a>, <a href="#p-botkyrka">QGIS projects</a></p></div>
           </div>
           <div class="learning reveal">
-            <h3>Currently learning</h3>
-            <p class="todo-note">Kept separate from the skills with project evidence.</p>
+            <h3>Tools and approach</h3>
             <ul>
-              <li><span class="todo">To add</span></li>
-              <li><span class="todo">To add</span></li>
+              <li>ArcGIS Pro and QGIS</li>
+              <li>Vector and raster data</li>
+              <li>Cleaning and preparing datasets</li>
+              <li>Repeatable workflows</li>
+              <li>Clear, readable maps</li>
             </ul>
           </div>
         </div>
@@ -1135,31 +1007,30 @@
         <div class="section-head reveal">
           <p class="eyebrow">Experience</p>
           <h2 id="experience-title">Leadership and collaboration</h2>
+          <p>Environmental work and student leadership alongside my studies.</p>
         </div>
         <ol class="timeline">
           <li class="reveal">
-            <h3><span class="todo">Role to confirm</span></h3>
-            <p class="org">Auckland Council</p>
-            <p class="dates"><span class="todo">Dates to confirm</span></p>
-            <p class="contrib"><span class="todo">To add</span> One sentence on what you do in this role.</p>
-          </li>
-          <li class="reveal">
             <h3>Intern</h3>
             <p class="org">Waiheke Resources Trust</p>
-            <p class="dates"><span class="todo">Dates to confirm</span></p>
             <p class="contrib">Supported wetland restoration and waste reduction work.</p>
           </li>
           <li class="reveal">
             <h3>Co-President</h3>
             <p class="org">UoA Language Society</p>
             <p class="dates">2026 – present</p>
-            <p class="contrib"><span class="todo">To add</span> One sentence on what you do in this role.</p>
+            <p class="contrib">Co-lead a University of Auckland student society.</p>
           </li>
           <li class="reveal">
             <h3>Events Planner</h3>
             <p class="org">Geography Club</p>
             <p class="dates">2026 – present</p>
-            <p class="contrib"><span class="todo">To add</span> One sentence on what you do in this role.</p>
+            <p class="contrib">Plan events for the club's members.</p>
+          </li>
+          <li class="reveal">
+            <h3>Events and environmental initiatives</h3>
+            <p class="org">Te Rōpū Taiao, the Environment Association</p>
+            <p class="contrib">Helped organise events and environmental initiatives on campus.</p>
           </li>
           <li class="reveal">
             <h3>RTEA Geospatial Evening</h3>
@@ -1184,10 +1055,9 @@
           <p>I'd be glad to hear from people working in GIS, environmental science, Earth Science, local government or geospatial technology.</p>
         </div>
         <div class="contact-grid">
-          <div class="contact-item reveal" data-kind="email"><h3>Email</h3><p class="contact-ph"><span class="todo">Email to add</span></p><div class="links"></div></div>
-          <div class="contact-item reveal" data-kind="linkedin"><h3>LinkedIn</h3><p class="contact-ph"><span class="todo">LinkedIn link to add</span></p><div class="links"></div></div>
-          <div class="contact-item reveal" data-kind="github"><h3>GitHub</h3><p class="contact-ph"><span class="todo">GitHub link to add</span></p><div class="links"></div></div>
-          <div class="contact-item reveal" data-kind="cv"><h3>CV</h3><p class="contact-ph"><span class="todo">CV PDF to add</span> <span class="todo-note">files/Ethan-Yeo-CV.pdf</span></p><div class="links"></div></div>
+          <div class="contact-item reveal" data-kind="github"><h3>GitHub</h3><p>My code and this portfolio's source.</p><div class="links"><a class="link-btn" href="https://github.com/ethanyeo119" target="_blank" rel="noopener">github.com/ethanyeo119</a></div></div>
+          <div class="contact-item reveal" data-kind="portfolio"><h3>Portfolio PDFs</h3><p>Print-ready versions of my work.</p><div class="links"><a class="link-btn" href="Ethan_Yeo_GIS_Portfolio.pdf" target="_blank" rel="noopener">GIS portfolio</a><a class="link-btn" href="Terrarium%20Portfolio.pdf" target="_blank" rel="noopener">Terrarium portfolio</a></div></div>
+          <div class="contact-item reveal" data-kind="location"><h3>Based in</h3><p>Auckland, New Zealand<br>University of Auckland, BSc Earth Science and GIS</p><div class="links"></div></div>
         </div>
       </div>
     </section>
