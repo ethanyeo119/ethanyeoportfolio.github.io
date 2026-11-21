@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ethan Yeo | Earth Science &amp; GIS Portfolio</title>
-  <meta name="description" content="Portfolio of Ethan Yeo, an Earth Science and GIS student at the University of Auckland. Projects in spatial analysis, interpolation, suitability modelling, network analysis and landscape interpretation.">
+  <meta name="description" content="Portfolio of Ethan Yeo, an Earth Science and GIS student at the University of Auckland and aspiring geospatial analyst. Projects in spatial analysis, environmental data, suitability modelling and landscape interpretation.">
   <script>
     /* Runs first. Turns on JavaScript features and (if the visitor allows motion) animations. */
     document.documentElement.classList.add('js');
@@ -318,8 +318,8 @@
     #projects { background: linear-gradient(155deg, #0e2336 0%, #14394a 52%, #1d514e 100%); --band-img: url("assets/eagle-migration-01.jpg"); }
     #currently, #currently.alt { background: linear-gradient(160deg, #1f1b2a 0%, #2b2331 45%, #3c2b2b 100%); --band-img: url("assets/earthquake-02.jpg"); }
     #collection, #collection.alt { background: linear-gradient(180deg, #e7eee2 0%, #dbe8e2 100%); }
-    #skills, #skills.alt { background: linear-gradient(180deg, #ece6d6 0%, #e4ede8 100%); }
-    #experience, #experience.alt { background: linear-gradient(180deg, #e4ede8 0%, #f1ecde 100%); }
+
+
     #contact { background: linear-gradient(180deg, #f1ecde 0%, #e0ebe7 100%); }
     /* HEADER AND SECTION HEADINGS: refined, consistent look */
     .site-header { background: rgba(246, 242, 233, .86); -webkit-backdrop-filter: saturate(1.4) blur(14px); backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid rgba(20, 36, 59, .09); }
@@ -355,6 +355,34 @@
     .slider > .project { display: flex; flex-direction: column; min-height: var(--card-h, 0px); }
     .slider > .project > .project-body { flex: 1; grid-template-rows: 1fr auto; }
     .slider > .project .case { align-self: end; }
+    /* Compact spacing for the in-progress and skills sections */
+    #currently { padding-block: clamp(2.5rem, 5vw, 3.75rem); }
+    #currently .section-head { margin-bottom: 1.4rem; }
+    #currently .section-head h2 { margin-bottom: .4em; }
+    .js .wip-card .slideshow .stage { aspect-ratio: 16 / 8.4; }
+    .wip-card .project-body { padding: 1.1rem 1.4rem .6rem; }
+    .wip { padding: 0 1.4rem 1.2rem; gap: .8rem; }
+    .wip > div { padding: .8rem 1rem; }
+    .wip p { font-size: .9rem; }
+    /* Skills, work, leadership and education share one background */
+    .band-group { background: linear-gradient(180deg, #ebe6d6 0%, #e3ede8 55%, #eee9db 100%); position: relative; isolation: isolate; }
+    .band-group::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: repeating-radial-gradient(ellipse at 6% 105%, transparent 0 30px, rgba(23, 107, 107, .07) 30px 31.5px), repeating-radial-gradient(ellipse at 96% -8%, transparent 0 38px, rgba(79, 109, 74, .06) 38px 39.5px); }
+    .band-group > section { position: relative; z-index: 2; }
+    #skills { padding-top: clamp(2.75rem, 5.5vw, 4rem); padding-bottom: 1.25rem; }
+    #skills .section-head { margin-bottom: 1.5rem; }
+    #skills .skill-row { padding: .7rem 0; }
+    #skills .skill-table { padding: .2rem 1.4rem; }
+    #skills .learning { padding: 1.2rem 1.4rem; }
+    #experience { padding-top: clamp(1.75rem, 3.5vw, 2.5rem); padding-bottom: clamp(3rem, 6vw, 4.5rem); }
+    #experience .section-head { margin-bottom: 1.6rem; }
+    .exp-grid.exp-grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .exp-card.incoming { border-top-style: dashed; }
+    .badge-incoming { display: inline-block; background: var(--teal); color: #fff; border-radius: 999px; padding: .05rem .55rem; margin-right: .35rem; font-size: .68rem; letter-spacing: .08em; }
+    @media (max-width: 1100px) { .exp-grid.exp-grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 900px) { .exp-grid.exp-grid-4 { grid-template-columns: 1fr; } }
+    .links.cta { padding-top: 1rem; border-top: 1px solid var(--line); margin: .8rem 0 .2rem; }
+    .link-btn.primary { background: var(--ink); color: var(--paper); padding: .5rem 1.1rem; }
+    .link-btn.primary:hover { background: var(--teal); border-color: var(--teal); color: #fff; }
     .acc-toggle { display: none; }
     .project[hidden] { display: none !important; }
 
@@ -606,8 +634,8 @@
           <li><a href="#projects">Projects</a></li>
           <li><a href="#currently">Currently</a></li>
           <li><a href="#experience">Experience</a></li>
-          <li><a href="#contact">Contact</a></li>
           <li><a href="#interests">Interests</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -648,7 +676,7 @@
           <p class="eyebrow a1">Portfolio · Earth Science &amp; GIS</p>
           <h1><span class="w"><span>Ethan</span></span> <span class="w"><span>Yeo</span></span></h1>
           <p class="role a2">Earth Science &amp; GIS student, University of Auckland</p>
-          <p class="lead a3">I use spatial analysis, environmental data and mapping to explore how landscapes, ecosystems and communities interact.</p>
+          <p class="lead a3">Aspiring geospatial analyst using spatial analysis and environmental data to solve real-world problems and make a meaningful impact on communities.</p>
         </div>
 
         <div class="hero-side">
@@ -676,11 +704,8 @@
         <details class="about-acc">
           <summary><span class="acc-title">About me</span></summary>
           <div class="about-text">
-            <p class="about-lead">I'm Ethan, an Earth Science and GIS student at the University of Auckland, studying from 2025 to 2027.</p>
-            <p>I'm interested in how landscapes, ecosystems and communities interact, and in using spatial data to look at those questions clearly. My projects so far range from interpolating air pollution and microclimate data to suitability modelling, access analysis and reading physical landscapes.</p>
-            <p>Most of my coursework has been in ArcGIS Pro and QGIS, working with vector and raster data. I enjoy the practical side too: cleaning and preparing data, building workflows that can be repeated, and finishing with maps that are easy to read.</p>
-            <p>Alongside my degree, I'm a Healthy Waters and Flood Resilience intern at Auckland Council and previously supported wetland restoration and waste reduction as an intern with Waiheke Resources Trust. On campus, I sit on the general committee of Te Rōpū Taiao, the Environment Association, and co-lead the Linguistics and Language Society.</p>
-            <p>I hope to apply geospatial analysis to real-world environmental and land-use decisions, helping to solve environmental challenges and support smarter city planning.</p>
+            <p class="about-lead">I'm Ethan, an Earth Science and GIS student at the University of Auckland.</p>
+            <p>I'm interested in how spatial analysis and environmental data can help us understand landscapes and ecosystems, and respond to challenges such as pollution, coastal change, and flooding. I'm keen to keep learning and apply these skills to practical projects that benefit communities and the environment.</p>
           </div>
         </details>
       </div>
@@ -737,17 +762,18 @@
                     <dt>Software</dt><dd>ArcGIS Pro, Google Earth Engine, ArcGIS StoryMaps</dd>
                   </dl>
                 </div>
-                <div class="links"></div>
+                
                 <details class="case">
                   <summary>Read the case study</summary>
                   <div class="case-body">
-                    <div class="wide"><h4>Overview</h4><p>An interactive ArcGIS StoryMaps narrative that follows tracked bald eagles from the Pacific Northwest to the Arctic coast. It maps where eagles were recorded between 2018 and 2026, follows one tagged eagle (identified in the tracking data as TERF07) from the Vancouver area towards Mackenzie Bay, and compares eagle activity with season, temperature, vegetation and land use. I produced the analysis, cartography and story, completed in October 2026.</p></div>
-                    <div><h4>Data and sources</h4><p>Eagle location records from Movebank (<em>Bald Eagle in the Pacific Northwest</em>); NDVI and temperature layers processed in Google Earth Engine; and publicly available land-use shapefiles for agricultural, industrial and open-space areas. Basemaps are from ArcGIS Online.</p></div>
-                    <div><h4>Method</h4><p>I mapped the records through time, then followed TERF07 from its last Vancouver-area record on 24 February 2021 to a point near Mackenzie Bay on 26 May 2021, summing the distances between consecutive GPS positions to estimate about 4,920 km over roughly 91 days. I then focused on 2023 and two study areas, Vancouver and Mackenzie Bay, counted records per season, and compared median temperature, NDVI and wind speed at the eagle locations. In ArcGIS Pro, I built density heatmaps over land-use polygons for the Delta neighbourhoods and summarised land-use proportions in a donut chart.</p></div>
-                    <div><h4>Output and interpretation</h4><p>In the first study area in 2023, records peaked in spring (313), with 270 in winter, 265 in summer and 47 in autumn. Median temperatures at winter and spring locations were well below freezing (−33.0 °C and −17.4 °C) with low NDVI, so recorded locations were generally in cold areas with little green vegetation, while summer locations were warm (22.4 °C) and greener. In winter, points were more common over the warmer pockets of the study area, which may reflect the use of microclimates. In Delta, the densest hotspot falls within an industrial zone, even though industrial land makes up only 23.0% of the land use, compared with 46.0% agriculture and 31.0% open space.</p></div>
-                    <div><h4>Limitations</h4><p>The points show where eagles were recorded, not what they were doing or whether they preferred those conditions over other available areas. The seasonal bars count records rather than individual eagles. Testing habitat preference properly would mean comparing eagle locations with all of the land available to them.</p></div>
+                    <div class="wide"><h4>Overview</h4><p>An ArcGIS StoryMaps project following tracked bald eagles from the Pacific coast to the Arctic. It maps eagle records from 2018 to 2026, follows one tagged eagle (TERF07) from the Vancouver area towards Mackenzie Bay, and compares eagle activity with season, temperature, vegetation and land use. I produced the analysis, cartography and story in October 2026.</p></div>
+                    <div><h4>Data and sources</h4><p>Eagle records from Movebank (<em>Bald Eagle in the Pacific Northwest</em>), NDVI and temperature layers processed in Google Earth Engine, and public land-use shapefiles.</p></div>
+                    <div><h4>Method</h4><p>I summed GPS distances along TERF07's route to estimate about 4,920 km over roughly 91 days. I then focused on 2023, counted records by season, compared median temperature, NDVI and wind speed, and mapped eagle density over land use in Delta.</p></div>
+                    <div><h4>Output and interpretation</h4><p>Records peaked in spring (313) and were fewest in autumn (47). Winter and spring locations were cold with low NDVI. In Delta, the densest hotspot sits in an industrial zone, although industrial land is only 23.0% of the area.</p></div>
+                    <div><h4>Limitations</h4><p>The points show where eagles were recorded, not what they were doing or whether they preferred those places over other available land.</p></div>
                   </div>
                 </details>
+                <div class="links cta"><a class="link-btn primary" href="https://arcg.is/urvmn1" target="_blank" rel="noopener">Open the story on ArcGIS Online</a></div>
               </div>
             </article>
 
@@ -1149,7 +1175,8 @@
                   <div><h4>Method</h4><p><strong>Sunset Beach:</strong> I collected sediment samples across the beach profile and analysed them by laser diffraction for grain size distribution, extracted hand-auger cores to log subsurface stratigraphy, and ran a dumpy level survey from the dune crest to the low tide mark. <strong>Waikawau Valley:</strong> I recorded and sketched the sedimentary sequence and documented the Ohuka Landslide. <strong>Whakatiwai Stream:</strong> I measured wetted width, depth and surface velocity to calculate cross-sectional area and discharge for each channel thread, and logged bed material, bank layers and bar features.</p></div>
                   <div><h4>Output and interpretation</h4><p>The beach survey provides a baseline elevation record for tracking erosion and accretion over time. At Waikawau Valley the rock layers dip gently eastward at about 8 degrees, from Jurassic greywacke basement through sandstone, siltstone and limestone to Quaternary alluvium, reflecting marine deposition followed by uplift. The Ohuka Landslide is a three-layer failure: a weaker, clay-rich siltstone sits between stronger rock, rainwater raises pore pressure in it, the upper layers slide, and coastal erosion removes support at the base. At Whakatiwai Stream, the discharge calculations show how different channel threads contribute to total flow, linking hydraulic conditions to sediment transport and channel stability.</p></div>
                   <div><h4>Limitations</h4><p>The measurements are a snapshot from fieldwork, so repeated surveys would be needed to show actual erosion and accretion over time.</p></div>
-                </div></div>
+                </div></div>              <div class="links cta"><a class="link-btn primary" href="https://arcg.is/09TOWD0" target="_blank" rel="noopener">Open the story on ArcGIS Online</a></div>
+
               </div>
             </div>
           </details>
@@ -1215,10 +1242,11 @@
       </div>
     </section>
 
+    <div class="band-group band-light">
     <!-- =========================================================
          SKILLS IN PRACTICE
          ========================================================= -->
-    <section id="skills" class="alt band-light" aria-labelledby="skills-title">
+    <section id="skills" aria-labelledby="skills-title">
       <div class="wrap">
         <div class="section-head reveal">
           <p class="eyebrow">Skills in practice</p>
@@ -1259,7 +1287,7 @@
     <!-- =========================================================
          EXPERIENCE (Leadership and collaboration)
          ========================================================= -->
-    <section id="experience" class="alt band-light" aria-labelledby="experience-title">
+    <section id="experience" aria-labelledby="experience-title">
       <div class="wrap">
         <div class="section-head reveal">
           <p class="eyebrow">Experience</p>
@@ -1267,59 +1295,66 @@
           <p>Environmental and planning work, student leadership and my studies at the University of Auckland.</p>
         </div>
         <h3 class="exp-group">Work experience</h3>
-        <div class="exp-grid">
+        <div class="exp-grid exp-grid-4">
+          <article class="exp-card incoming reveal">
+            <p class="dates"><span class="badge-incoming">Incoming</span> From February 2027</p>
+            <h4>Resident Adviser</h4>
+            <p class="org">Carlaw Park Student Village, University of Auckland</p>
+            <p class="contrib">I will join the Carlaw Park Student Village team as a Resident Adviser from February 2027.</p>
+          </article>
           <article class="exp-card reveal">
             <p class="dates">Nov 2026 – present</p>
-            <h4>Healthy Waters and Flood Resilience Intern</h4>
+            <h4>Healthy Waters Intern</h4>
             <p class="org">Auckland Council</p>
-            <p class="contrib">Support stormwater and flood resilience projects, assist with data collection and GIS-based tasks to support planning, and review property files and assist with site assessments for compliance.</p>
+            <p class="contrib">GIS work for the Healthy Waters team. I support stormwater and flood resilience projects, assist with data collection and GIS-based tasks to support planning, and review property files and assist with site assessments for compliance.</p>
           </article>
           <article class="exp-card reveal">
             <p class="dates">June – July 2026</p>
-            <h4>Student Intern</h4>
+            <h4>Holistic Intern</h4>
             <p class="org">Waiheke Resources Trust</p>
             <p class="contrib">Supported projects focused on wetland restoration and waste reduction, contributing to five sustainability projects and developing an understanding of stakeholder engagement and local action.</p>
           </article>
           <article class="exp-card reveal">
-            <p class="dates">Jan 2022 – Nov 2023</p>
+            <p class="dates">2022 – 2023</p>
             <h4>Assistant Trainer</h4>
             <p class="org">Singapore Civil Defence Force</p>
             <p class="contrib">Trained Section Commanders in leadership, procedures and field readiness, delivering structured training sessions in high-pressure environments.</p>
           </article>
         </div>
         <details class="exp-more">
-          <summary>More work experience</summary>
+          <summary>More experience</summary>
           <ul>
             <li><strong>A-Level English Tutor, King's College</strong> (Aug – Nov 2025). Delivered one-to-one A-Level English tuition to three students at once, designing lesson plans and teaching analytical writing and comprehension.</li>
           </ul>
         </details>
 
-        <h3 class="exp-group">Leadership and co-curricular</h3>
+        <h3 class="exp-group">Leadership and involvement</h3>
         <div class="exp-grid">
           <article class="exp-card reveal">
-            <p class="dates">Feb 2026 – present</p>
-            <h4>Co-President</h4>
+            <p class="dates">2026 · President from 2027</p>
+            <h4>Co-President, then incoming President</h4>
             <p class="org">Linguistics and Language Society</p>
-            <p class="contrib">Co-led the executive team, organising around nine language events and overseeing event planning, promotion and delivery to drive student engagement.</p>
+            <p class="contrib">As Co-President in 2026, I co-led the executive and ran language exchanges and board-game events, around nine language events in all. In 2027, I will lead a six-person executive as President.</p>
           </article>
           <article class="exp-card reveal">
-            <p class="dates">Feb 2026 – present</p>
+            <p class="dates">2026 – present</p>
             <h4>International Student Officer</h4>
             <p class="org">Science Students' Association</p>
             <p class="contrib">Work with an 18-member executive team to plan events, and represent international student interests through inclusive initiatives.</p>
           </article>
           <article class="exp-card reveal">
-            <p class="dates">Feb – Nov 2025</p>
+            <p class="dates">2025 – present</p>
             <h4>Class Representative</h4>
-            <p class="org">University of Auckland</p>
-            <p class="contrib">Represented students across three courses, liaising with staff on feedback and raising course-related issues.</p>
+            <p class="org">CHEM 150, WTRSCI 100 and ENV 103</p>
+            <p class="contrib">Represent students in these three courses, liaising with teaching staff on feedback and raising course-related issues.</p>
           </article>
         </div>
         <details class="exp-more">
-          <summary>More leadership roles</summary>
+          <summary>More experience</summary>
           <ul>
-            <li><strong>General Committee Member, Te Rōpū Taiao / Environment Association</strong> (Mar 2025 – present). Support event logistics, budgeting and planning for club activities, and liaised with firms to organise a 70-participant geospatial networking event.</li>
-            <li><strong>Buddy Leader, Auckland University Students' Association</strong> (Feb 2025 – present). Mentor up to four new students at a time through their university transition, with peer guidance on services, resources and engagement.</li>
+            <li><strong>General Committee Member, RTEA</strong> (2025 – present). Involved in events, logistics and budgeting for club activities.</li>
+            <li><strong>RTEA Geospatial Evenings</strong> (2025 and 2026). Helped organise both events, each with approximately 70 attendees, supporting budgeting and industry invitations, including Eagle Technology.</li>
+            <li><strong>Buddy Leader, Auckland University Students' Association</strong> (2025 – present, including Semester 2, 2026). Mentor up to four new students at a time through their university transition, with peer guidance on services, resources and engagement.</li>
           </ul>
         </details>
 
@@ -1340,27 +1375,7 @@
         </div>
       </div>
     </section>
-
-    <!-- =========================================================
-         CONTACT
-         Add links with admin mode, or replace each placeholder with
-         a link like:  <a class="link-btn" href="mailto:you@example.com">you@example.com</a>
-         ========================================================= -->
-    <section id="contact" class="band-light" aria-labelledby="contact-title">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <p class="eyebrow">Contact</p>
-          <h2 id="contact-title">Get in touch</h2>
-          <p>I'd be glad to hear from people working in GIS, environmental science, Earth Science, local government or geospatial technology.</p>
-        </div>
-        <div class="contact-grid">
-          <div class="contact-item reveal" data-kind="linkedin"><h3>LinkedIn</h3><p>Experience and professional updates.</p><div class="links"><a class="link-btn" href="https://www.linkedin.com/in/ethanyeojy" target="_blank" rel="noopener">linkedin.com/in/ethanyeojy</a></div></div>
-          <div class="contact-item reveal" data-kind="github"><h3>GitHub</h3><p>My code and this portfolio's source.</p><div class="links"><a class="link-btn" href="https://github.com/ethanyeo119" target="_blank" rel="noopener">github.com/ethanyeo119</a></div></div>
-          <div class="contact-item reveal" data-kind="portfolio"><h3>Portfolio PDFs</h3><p>Print-ready versions of my work.</p><div class="links"><a class="link-btn" href="Ethan_Yeo_GIS_Portfolio.pdf" target="_blank" rel="noopener">GIS portfolio</a><a class="link-btn" href="Terrarium%20Portfolio.pdf" target="_blank" rel="noopener">Terrarium portfolio</a></div></div>
-          <div class="contact-item reveal" data-kind="location"><h3>Based in</h3><p>Auckland, New Zealand<br>University of Auckland, BSc Earth Science and GIS</p><div class="links"></div></div>
-        </div>
-      </div>
-    </section>
+    </div>
 
     <!-- =========================================================
          INTERESTS (bottom of the page). Edit the text, or use admin mode.
@@ -1403,7 +1418,7 @@
           <!-- ===== HILL ===== -->
           <details class="terr" id="t-hill">
             <summary><span class="terr-title">Hill terrarium</span><span class="terr-cat">Focal point and depth</span></summary>
-            <div class="terr-body">
+            <div class="terr-body tall">
               <figure>
                 <div class="frame"><img class="shot" src="assets/terrarium-hill.jpg" alt="Hill terrarium: a small yellow house on a mossy hill with granite rocks, a gravel path and a palm behind" hidden onload="showImg(this)" onerror="hideImg(this)"></div>
               </figure>
@@ -1416,7 +1431,7 @@
                 </dl>
                 <h4>Build details</h4>
                 <ul class="terr-points">
-                  <li><strong>Container:</strong> a rectangular glass tank, viewed from the side so the layers show.</li>
+                  <li><strong>Container:</strong> a glass tank with a black frame and base, shown whole so the soil layers are visible.</li>
                   <li><strong>Focal piece:</strong> a miniature yellow house on the highest point of the hill.</li>
                   <li><strong>Hardscape:</strong> granite rocks stepping up the slope, with a pale gravel path across the foreground.</li>
                   <li><strong>Planting:</strong> mounds of moss, a palm for height behind the house, and fittonia for a patch of colour.</li>
@@ -1571,7 +1586,28 @@
       </div>
     </section>
 
-  </main>
+    <!-- =========================================================
+         CONTACT
+         Add links with admin mode, or replace each placeholder with
+         a link like:  <a class="link-btn" href="mailto:you@example.com">you@example.com</a>
+         ========================================================= -->
+    <section id="contact" class="band-light" aria-labelledby="contact-title">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Get in touch</h2>
+          <p>I'd be glad to hear from people working in GIS, environmental science, Earth Science, local government or geospatial technology.</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-item reveal" data-kind="linkedin"><h3>LinkedIn</h3><p>Experience and professional updates.</p><div class="links"><a class="link-btn" href="https://www.linkedin.com/in/ethanyeojy" target="_blank" rel="noopener">linkedin.com/in/ethanyeojy</a></div></div>
+          <div class="contact-item reveal" data-kind="github"><h3>GitHub</h3><p>My code and this portfolio's source.</p><div class="links"><a class="link-btn" href="https://github.com/ethanyeo119" target="_blank" rel="noopener">github.com/ethanyeo119</a></div></div>
+          <div class="contact-item reveal" data-kind="portfolio"><h3>Portfolio PDFs</h3><p>Print-ready versions of my work.</p><div class="links"><a class="link-btn" href="Ethan_Yeo_GIS_Portfolio.pdf" target="_blank" rel="noopener">GIS portfolio</a><a class="link-btn" href="Terrarium%20Portfolio.pdf" target="_blank" rel="noopener">Terrarium portfolio</a></div></div>
+          <div class="contact-item reveal" data-kind="location"><h3>Based in</h3><p>Auckland, New Zealand<br>University of Auckland, BSc Earth Science and GIS</p><div class="links"></div></div>
+        </div>
+      </div>
+    </section>
+
+</main>
 
   <footer>
     <div class="wrap">
