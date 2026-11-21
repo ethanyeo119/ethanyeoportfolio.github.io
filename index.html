@@ -227,7 +227,7 @@
 
     /* FEATURED: sliding carousel */
     .slider-shell { position: relative; }
-    .slider { display: grid; grid-auto-flow: column; grid-auto-columns: min(86%, 900px); gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: .5rem 0 1.5rem; align-items: start; scrollbar-width: thin; overscroll-behavior-x: contain; }
+    .slider { display: grid; grid-auto-flow: column; grid-auto-columns: min(86%, 900px); gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; padding: .5rem 0 1.5rem; align-items: stretch; scrollbar-width: thin; overscroll-behavior-x: contain; }
     .slider > .project { scroll-snap-align: start; }
     .slider:focus-visible { outline-offset: 6px; }
     .slider-controls { display: flex; align-items: center; gap: .8rem; justify-content: flex-end; margin-top: -.5rem; }
@@ -351,6 +351,10 @@
     .exp-more ul { margin: .8rem 0 0; padding-left: 1.2rem; color: var(--ink-soft); font-size: .95rem; }
     .exp-more li { margin-bottom: .6rem; }
     @media (max-width: 900px) { .exp-grid, .exp-grid.exp-grid-2 { grid-template-columns: 1fr; } }
+    /* Featured cards all share one height: the white text area grows to match the tallest card */
+    .slider > .project { display: flex; flex-direction: column; }
+    .slider > .project > .project-body { flex: 1; grid-template-rows: 1fr auto; }
+    .slider > .project .case { align-self: end; }
     .acc-toggle { display: none; }
     .project[hidden] { display: none !important; }
 
