@@ -99,7 +99,7 @@
     .site-header.scrolled { box-shadow: 0 14px 30px -24px rgba(20, 36, 59, .55); }
     .header-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .5rem 1.5rem; padding-block: .85rem; }
     .logo { font-family: var(--serif); font-size: 1.45rem; font-weight: 600; color: var(--ink); text-decoration: none; }
-    .logo span { color: var(--teal); }
+    .logo .dot { color: var(--teal); }
     .site-nav ul { list-style: none; display: flex; flex-wrap: wrap; gap: .25rem 1.6rem; margin: 0; padding: 0; }
     .site-nav a { position: relative; color: var(--ink); text-decoration: none; font-weight: 500; padding: .3rem 0; }
     .site-nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--teal); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--ease); }
@@ -304,6 +304,38 @@
     .wip h4 { font-family: var(--mono); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--green); margin: 0 0 .4rem; }
     .wip p { margin: 0; font-size: .93rem; color: var(--ink-soft); }
     @media (max-width: 900px) { .wip { grid-template-columns: 1fr; } }
+    /* SECTION BACKGROUNDS: soft gradients with faint contour lines; the dark bands also carry a faded map from the work they introduce */
+    .band-dark, .band-light { isolation: isolate; }
+    .band-dark > .wrap, .band-light > .wrap { position: relative; z-index: 2; }
+    .band-dark::before { content: ""; position: absolute; inset: 0; z-index: 0; background: var(--band-img) center / cover no-repeat; opacity: .13; filter: grayscale(.2) blur(6px); -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 100%); mask-image: linear-gradient(to bottom, #000 0%, #000 45%, transparent 100%); }
+    .band-dark::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: repeating-radial-gradient(ellipse at 10% 118%, transparent 0 26px, rgba(255, 255, 255, .05) 26px 27.5px), repeating-radial-gradient(ellipse at 94% -12%, transparent 0 34px, rgba(255, 255, 255, .035) 34px 35.5px); }
+    .band-light::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: repeating-radial-gradient(ellipse at 6% 120%, transparent 0 30px, rgba(23, 107, 107, .07) 30px 31.5px), repeating-radial-gradient(ellipse at 96% -15%, transparent 0 38px, rgba(79, 109, 74, .06) 38px 39.5px); }
+
+    .band-dark .eyebrow { color: #8fd0c6; }
+    .band-dark h2 { color: var(--paper); }
+    .band-dark .section-head p { color: #d3dce3; }
+    .band-dark .slide-count { color: #cfd8e0; }
+    #projects { background: linear-gradient(155deg, #0e2336 0%, #14394a 52%, #1d514e 100%); --band-img: url("assets/eagle-migration-01.jpg"); }
+    #currently, #currently.alt { background: linear-gradient(160deg, #1f1b2a 0%, #2b2331 45%, #3c2b2b 100%); --band-img: url("assets/earthquake-02.jpg"); }
+    #collection, #collection.alt { background: linear-gradient(180deg, #e7eee2 0%, #dbe8e2 100%); }
+    #highlights { background: linear-gradient(180deg, #f6f2e9 0%, #e3eeea 100%); }
+    #skills, #skills.alt { background: linear-gradient(180deg, #ece6d6 0%, #e4ede8 100%); }
+    #experience, #experience.alt { background: linear-gradient(180deg, #e4ede8 0%, #f1ecde 100%); }
+    #contact { background: linear-gradient(180deg, #f1ecde 0%, #e0ebe7 100%); }
+    /* HEADER AND SECTION HEADINGS: refined, consistent look */
+    .site-header { background: rgba(246, 242, 233, .86); -webkit-backdrop-filter: saturate(1.4) blur(14px); backdrop-filter: saturate(1.4) blur(14px); border-bottom: 1px solid rgba(20, 36, 59, .09); }
+    .header-inner { padding-block: .95rem; }
+    .logo { display: flex; flex-direction: column; line-height: 1.05; }
+    .logo small { font-family: var(--mono); font-size: .6rem; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); margin-top: .3rem; }
+    .site-nav a { font-size: .9rem; font-weight: 500; letter-spacing: .015em; }
+    .site-nav ul { gap: .25rem 1.5rem; }
+    .section-head .eyebrow { display: flex; align-items: center; gap: .75rem; font-weight: 500; letter-spacing: .14em; margin-bottom: 1rem; }
+    .section-head .eyebrow::before { content: ""; width: 30px; height: 2px; background: currentColor; flex: none; }
+    .section-head .eyebrow::after { display: none; }
+    .section-head h2 { font-size: clamp(2.1rem, 4.4vw, 3rem); letter-spacing: -0.015em; margin-bottom: .55em; }
+    .section-head h2::after { content: ""; display: block; width: 56px; height: 4px; border-radius: 2px; margin-top: .55rem; background: linear-gradient(90deg, var(--teal), var(--green)); }
+    .band-dark .section-head h2::after, .interests .section-head h2::after { background: linear-gradient(90deg, #8fd0c6, #b6e0a4); }
+    .section-head p { max-width: 44rem; }
     .acc-toggle { display: none; }
     .project[hidden] { display: none !important; }
 
@@ -538,7 +570,7 @@
        ========================================================= -->
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="logo" href="#top">Ethan Yeo<span>.</span></a>
+      <a class="logo" href="#top"><span class="logo-name">Ethan Yeo<span class="dot">.</span></span><small>Earth Science &amp; GIS</small></a>
       <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">
         <span class="menu-icon" aria-hidden="true"></span>
         <span class="menu-label">Menu</span>
@@ -547,10 +579,11 @@
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#highlights">Highlights</a></li>
           <li><a href="#currently">Currently</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a href="#interests">Terrariums</a></li>
+          <li><a href="#interests">Interests</a></li>
         </ul>
       </nav>
     </div>
@@ -592,10 +625,6 @@
           <h1><span class="w"><span>Ethan</span></span> <span class="w"><span>Yeo</span></span></h1>
           <p class="role a2">Earth Science &amp; GIS student, University of Auckland</p>
           <p class="lead a3">I use spatial analysis, environmental data and mapping to explore how landscapes, ecosystems and communities interact.</p>
-          <div class="btn-row a4">
-            <a class="btn btn-primary" href="#projects">View projects</a>
-            <a class="btn btn-secondary" href="#about">About me</a>
-          </div>
         </div>
 
         <div class="hero-side">
@@ -637,7 +666,7 @@
          FEATURED PROJECTS (sliding cards)
          Each project is one <article class="project featured">.
          ========================================================= -->
-    <section id="projects" aria-labelledby="featured-title">
+    <section id="projects" class="band-dark" aria-labelledby="featured-title">
       <div class="wrap">
         <div class="section-head reveal">
           <p class="eyebrow">Featured projects</p>
@@ -813,7 +842,7 @@
          paste it, and change the text, image names and data-cat.
          data-cat options: environment, landscape, suitability, transport, urban
          ========================================================= -->
-    <section id="collection" class="alt" aria-labelledby="collection-title">
+    <section id="collection" class="alt band-light" aria-labelledby="collection-title">
       <div class="wrap">
         <div class="section-head reveal">
           <p class="eyebrow">Project collection</p>
@@ -1108,7 +1137,7 @@
     <!-- =========================================================
          HIGHLIGHTS (what is happening now)
          ========================================================= -->
-    <section id="highlights" aria-labelledby="highlights-title">
+    <section id="highlights" class="band-light" aria-labelledby="highlights-title">
       <div class="wrap">
         <div class="section-head reveal">
           <p class="eyebrow">Highlights</p>
@@ -1159,7 +1188,7 @@
     <!-- =========================================================
          CURRENTLY WORKING ON: the Kaikoura earthquake project
          ========================================================= -->
-    <section id="currently" class="alt" aria-labelledby="currently-title">
+    <section id="currently" class="alt band-dark" aria-labelledby="currently-title">
       <div class="wrap">
         <div class="section-head reveal">
           <p class="eyebrow">Currently</p>
@@ -1216,7 +1245,7 @@
     <!-- =========================================================
          SKILLS IN PRACTICE
          ========================================================= -->
-    <section id="skills" class="alt" aria-labelledby="skills-title">
+    <section id="skills" class="alt band-light" aria-labelledby="skills-title">
       <div class="wrap">
         <div class="section-head reveal">
           <p class="eyebrow">Skills in practice</p>
@@ -1236,7 +1265,7 @@
             <div class="skill-row"><div><strong>Software</strong><small>ArcGIS Pro, ArcGIS Online, QGIS</small></div><span class="arrow" aria-hidden="true">→</span><p><a href="#p-air-pollution">ArcGIS Pro projects</a>, <a href="#p-botkyrka">QGIS projects</a></p></div>
           </div>
           <div class="learning reveal">
-            <h3>Tools and languages</h3>
+            <h3>Tools</h3>
             <h4>GIS and mapping</h4>
             <ul>
               <li>ArcGIS Pro, ArcGIS Online, QGIS</li>
@@ -1249,12 +1278,6 @@
             <ul>
               <li>R, Google Earth Engine, JavaScript</li>
             </ul>
-            <h4>Languages</h4>
-            <ul>
-              <li>English (IELTS 8.0, 2024)</li>
-              <li>German (TestDaF B2–C1, 2024)</li>
-              <li>Mandarin (proficient)</li>
-            </ul>
           </div>
         </div>
       </div>
@@ -1263,7 +1286,7 @@
     <!-- =========================================================
          EXPERIENCE (Leadership and collaboration)
          ========================================================= -->
-    <section id="experience" class="alt" aria-labelledby="experience-title">
+    <section id="experience" class="alt band-light" aria-labelledby="experience-title">
       <div class="wrap">
         <div class="section-head reveal">
           <p class="eyebrow">Experience</p>
@@ -1355,7 +1378,7 @@
          Add links with admin mode, or replace each placeholder with
          a link like:  <a class="link-btn" href="mailto:you@example.com">you@example.com</a>
          ========================================================= -->
-    <section id="contact" aria-labelledby="contact-title">
+    <section id="contact" class="band-light" aria-labelledby="contact-title">
       <div class="wrap">
         <div class="section-head reveal">
           <p class="eyebrow">Contact</p>
@@ -1379,8 +1402,8 @@
         <div class="terr-intro">
           <div class="section-head">
             <p class="eyebrow">Interests</p>
-            <h2 id="interests-title">Outside my studies: terrariums</h2>
-            <p>Building terrariums is my hobby. Each one is a small landscape in glass, planned with layers, hardscape, moss and plants, much like reading a real landscape at a smaller scale. Open any build below to see it and read how I designed it.</p>
+            <h2 id="interests-title">Outside my studies</h2>
+            <p>Outside my studies and work, my main interest is building terrariums. Each one is a small landscape in glass, planned with layers, hardscape, moss and plants, much like reading a real landscape at a smaller scale. Open any build below to see it and read how I designed it.</p>
           </div>
           <figure class="terr-cover">
             <img src="assets/terrarium-designs.jpg" alt="Top-down view of one of my terrariums, with moss, grey rocks, a sand path and fittonia plants" loading="lazy" onerror="this.closest('figure').hidden = true">
