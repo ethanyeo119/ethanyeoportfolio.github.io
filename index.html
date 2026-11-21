@@ -432,13 +432,15 @@
     .terr[open] summary::after { content: "\2212"; }
     .terr[open] summary { border-bottom: 1px solid rgba(246, 242, 233, .14); }
     .terr-body { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 1.6rem 2.2rem; padding: 1.6rem; align-items: start; }
-    .terr-body.tall { grid-template-columns: minmax(0, 330px) minmax(0, 1fr); }
+    .terr-body.tall { grid-template-columns: minmax(0, 360px) minmax(0, 1fr); }
     .terr-body.stack { grid-template-columns: 1fr; }
     .terr-body figure { margin: 0; }
     /* Photos sit directly on the dark background, with no white frame */
     .terr .frame, .terr .frame.has-img { background: transparent; background-image: none; padding: 0; border: 0; aspect-ratio: auto; display: block; border-radius: 14px; overflow: hidden; box-shadow: 0 24px 44px -24px rgba(0, 0, 0, .85); }
-    .terr .frame.has-img img { width: 100%; height: auto; max-height: none; object-fit: cover; display: block; }
-    .terr-body.tall .frame.has-img img { aspect-ratio: 3 / 4; height: auto; object-fit: cover; object-position: 50% 62%; }
+    .terr .frame.has-img { position: relative; display: flex; justify-content: center; align-items: center; background: #14201a; }
+    .terr .frame.has-img::before { content: ""; position: absolute; inset: -30px; background: var(--bg) center / cover no-repeat; filter: blur(26px) saturate(1.15) brightness(.7); }
+    .terr .frame.has-img img { position: relative; z-index: 1; width: auto; max-width: 100%; height: auto; max-height: 580px; object-fit: contain; display: block; }
+
     .terr-text p { color: #e4dfd1; font-size: 1.02rem; }
     .terr-text h4 { color: var(--paper); font-family: var(--serif); font-size: 1.15rem; margin: 1.2rem 0 .5rem; }
     .terr-text ol { margin: .3rem 0 0; padding-left: 1.2rem; color: #dcd6c6; font-size: .97rem; }
@@ -1768,6 +1770,14 @@
         if (e.key === 'ArrowLeft') { go(i - 1); e.preventDefault(); }
       });
       go(0);
+    });
+  })();
+  </script>
+  <script>
+  /* Terrarium photos are shown whole; a blurred copy of each photo fills any space around it. */
+  (function () {
+    document.querySelectorAll('.terr .frame img').forEach(function (im) {
+      im.parentNode.style.setProperty('--bg', 'url("' + im.src + '")');
     });
   })();
   </script>
