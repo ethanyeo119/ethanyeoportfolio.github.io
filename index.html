@@ -336,6 +336,22 @@
     .section-head h2::after { content: ""; display: block; width: 56px; height: 4px; border-radius: 2px; margin-top: .55rem; background: linear-gradient(90deg, var(--teal), var(--green)); }
     .band-dark .section-head h2::after, .interests .section-head h2::after { background: linear-gradient(90deg, #8fd0c6, #b6e0a4); }
     .section-head p { max-width: 44rem; }
+    .exp-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; }
+    .exp-grid.exp-grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .exp-card { background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--teal); border-radius: var(--radius); padding: 1.4rem 1.5rem 1.5rem; transition: transform .25s var(--ease), box-shadow .3s var(--ease); }
+    .exp-card:hover { transform: translateY(-3px); box-shadow: 0 22px 40px -26px rgba(20, 36, 59, .5); }
+    .exp-card .dates { font-family: var(--mono); font-size: .75rem; letter-spacing: .06em; text-transform: uppercase; color: var(--green); margin: 0 0 .6rem; }
+    .exp-card h4 { font-family: var(--serif); font-size: 1.2rem; line-height: 1.25; font-weight: 600; margin: 0 0 .2rem; }
+    .exp-card .org { font-weight: 600; color: var(--teal); margin: 0 0 .7rem; }
+    .exp-card .contrib { color: var(--ink-soft); font-size: .95rem; margin: 0; }
+    .exp-more { margin-top: 1rem; }
+    .exp-more summary { cursor: pointer; display: inline-flex; align-items: center; gap: .5rem; font-weight: 600; color: var(--teal); font-size: .95rem; list-style: none; }
+    .exp-more summary::-webkit-details-marker { display: none; }
+    .exp-more summary::before { content: "+"; font-family: var(--mono); font-size: 1.1rem; }
+    .exp-more[open] summary::before { content: "\2212"; }
+    .exp-more ul { margin: .8rem 0 0; padding-left: 1.2rem; color: var(--ink-soft); font-size: .95rem; }
+    .exp-more li { margin-bottom: .6rem; }
+    @media (max-width: 900px) { .exp-grid, .exp-grid.exp-grid-2 { grid-template-columns: 1fr; } }
     .acc-toggle { display: none; }
     .project[hidden] { display: none !important; }
 
@@ -1294,82 +1310,77 @@
           <p>Environmental and planning work, student leadership and my studies at the University of Auckland.</p>
         </div>
         <h3 class="exp-group">Work experience</h3>
-        <ol class="timeline">
-          <li class="reveal">
-            <h3>Healthy Waters and Flood Resilience Intern</h3>
-            <p class="org">Auckland Council</p>
+        <div class="exp-grid">
+          <article class="exp-card reveal">
             <p class="dates">Nov 2026 – present</p>
+            <h4>Healthy Waters and Flood Resilience Intern</h4>
+            <p class="org">Auckland Council</p>
             <p class="contrib">Support stormwater and flood resilience projects, assist with data collection and GIS-based tasks to support planning, and review property files and assist with site assessments for compliance.</p>
-          </li>
-          <li class="reveal">
-            <h3>Student Intern</h3>
+          </article>
+          <article class="exp-card reveal">
+            <p class="dates">June – July 2026</p>
+            <h4>Student Intern</h4>
             <p class="org">Waiheke Resources Trust</p>
-            <p class="dates">June 2026 – July 2026</p>
             <p class="contrib">Supported projects focused on wetland restoration and waste reduction, contributing to five sustainability projects and developing an understanding of stakeholder engagement and local action.</p>
-          </li>
-          <li class="reveal">
-            <h3>A-Level English Tutor</h3>
-            <p class="org">King's College</p>
-            <p class="dates">Aug 2025 – Nov 2025</p>
-            <p class="contrib">Delivered one-to-one A-Level English tuition to three students at once, designing lesson plans and teaching analytical writing and comprehension.</p>
-          </li>
-          <li class="reveal">
-            <h3>Assistant Trainer</h3>
-            <p class="org">Singapore Civil Defence Force</p>
+          </article>
+          <article class="exp-card reveal">
             <p class="dates">Jan 2022 – Nov 2023</p>
+            <h4>Assistant Trainer</h4>
+            <p class="org">Singapore Civil Defence Force</p>
             <p class="contrib">Trained Section Commanders in leadership, procedures and field readiness, delivering structured training sessions in high-pressure environments.</p>
-          </li>
-        </ol>
+          </article>
+        </div>
+        <details class="exp-more">
+          <summary>More work experience</summary>
+          <ul>
+            <li><strong>A-Level English Tutor, King's College</strong> (Aug – Nov 2025). Delivered one-to-one A-Level English tuition to three students at once, designing lesson plans and teaching analytical writing and comprehension.</li>
+          </ul>
+        </details>
 
         <h3 class="exp-group">Leadership and co-curricular</h3>
-        <ol class="timeline">
-          <li class="reveal">
-            <h3>Co-President</h3>
+        <div class="exp-grid">
+          <article class="exp-card reveal">
+            <p class="dates">Feb 2026 – present</p>
+            <h4>Co-President</h4>
             <p class="org">Linguistics and Language Society</p>
-            <p class="dates">Feb 2026 – present</p>
             <p class="contrib">Co-led the executive team, organising around nine language events and overseeing event planning, promotion and delivery to drive student engagement.</p>
-          </li>
-          <li class="reveal">
-            <h3>International Student Officer</h3>
-            <p class="org">Science Students' Association</p>
+          </article>
+          <article class="exp-card reveal">
             <p class="dates">Feb 2026 – present</p>
+            <h4>International Student Officer</h4>
+            <p class="org">Science Students' Association</p>
             <p class="contrib">Work with an 18-member executive team to plan events, and represent international student interests through inclusive initiatives.</p>
-          </li>
-          <li class="reveal">
-            <h3>General Committee Member</h3>
-            <p class="org">Te Rōpū Taiao / Environment Association</p>
-            <p class="dates">Mar 2025 – present</p>
-            <p class="contrib">Support event logistics, budgeting and planning for club activities. Liaised with firms and organised a 70-participant geospatial networking event.</p>
-          </li>
-          <li class="reveal">
-            <h3>Buddy Leader</h3>
-            <p class="org">Auckland University Students' Association</p>
-            <p class="dates">Feb 2025 – present</p>
-            <p class="contrib">Mentor up to four new students at a time through their university transition, with peer guidance on services, resources and engagement.</p>
-          </li>
-          <li class="reveal">
-            <h3>Class Representative</h3>
+          </article>
+          <article class="exp-card reveal">
+            <p class="dates">Feb – Nov 2025</p>
+            <h4>Class Representative</h4>
             <p class="org">University of Auckland</p>
-            <p class="dates">Feb 2025 – Nov 2025</p>
             <p class="contrib">Represented students across three courses, liaising with staff on feedback and raising course-related issues.</p>
-          </li>
-        </ol>
+          </article>
+        </div>
+        <details class="exp-more">
+          <summary>More leadership roles</summary>
+          <ul>
+            <li><strong>General Committee Member, Te Rōpū Taiao / Environment Association</strong> (Mar 2025 – present). Support event logistics, budgeting and planning for club activities, and liaised with firms to organise a 70-participant geospatial networking event.</li>
+            <li><strong>Buddy Leader, Auckland University Students' Association</strong> (Feb 2025 – present). Mentor up to four new students at a time through their university transition, with peer guidance on services, resources and engagement.</li>
+          </ul>
+        </details>
 
         <h3 class="exp-group">Education</h3>
-        <ol class="timeline">
-          <li class="reveal">
-            <h3>Bachelor of Science, double major in Earth Science and GIS</h3>
-            <p class="org">University of Auckland, New Zealand</p>
+        <div class="exp-grid exp-grid-2">
+          <article class="exp-card reveal">
             <p class="dates">Feb 2025 – Nov 2027</p>
+            <h4>Bachelor of Science, double major in Earth Science and GIS</h4>
+            <p class="org">University of Auckland, New Zealand</p>
             <p class="contrib">First in Course for GERMAN 101 and Distinction in STATS 101. Coursework spans geospatial analysis and fieldwork.</p>
-          </li>
-          <li class="reveal">
-            <h3>GCE A-Levels</h3>
-            <p class="org">Yishun Innova Junior College, Singapore</p>
+          </article>
+          <article class="exp-card reveal">
             <p class="dates">Jan 2020 – Nov 2021</p>
+            <h4>GCE A-Levels</h4>
+            <p class="org">Yishun Innova Junior College, Singapore</p>
             <p class="contrib">Completed H2 Chemistry, Biology and Economics, building analytical, written communication and critical reading skills.</p>
-          </li>
-        </ol>
+          </article>
+        </div>
       </div>
     </section>
 
